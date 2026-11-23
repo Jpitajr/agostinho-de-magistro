@@ -1,0 +1,17 @@
+# Arquivos de mídia pesados (gravações de áudio)
+*.m4a
+*.mp3
+*.wav
+
+# PDFs originais e digitalizações volumosas
+*.pdf
+*.epub
+
+# Scripts utilitários temporários
+build_all_htmls.py
+*.pyc
+__pycache__/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
