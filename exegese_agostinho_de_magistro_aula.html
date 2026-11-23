@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXEGESE_DE_MAGISTRO.md — Santo Agostinho &amp; Convergências com a Aula (04/11)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #141413;
+      --bg-subtle: #1a1918;
+      --bg-code: #1d1c1a;
+      --border: #2a2926;
+      --border-soft: #22211f;
+
+      --text-title: #e6e2da;
+      --text-body: #c7c4bc;
+      --text-strong: #ece8e0;
+      --text-muted: #8e8b84;
+      --text-dim: #66635d;
+
+      --accent: #e0522b;
+      --accent-soft: rgba(224, 82, 43, 0.12);
+
+      /* Paleta de Destaque Amarelo (Convergência Texto <-> Áudio do Professor) */
+      --yellow-hl-bg: #fde047;
+      --yellow-hl-ink: #121211;
+      --yellow-accent: #facc15;
+      --yellow-soft-bg: rgba(250, 204, 21, 0.08);
+      --yellow-soft-border: rgba(250, 204, 21, 0.42);
+      --yellow-text-bright: #fef08a;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-body);
+      min-height: 100vh;
+      padding: 4.5rem 3cm 7rem;
+      position: relative;
+    }
+
+    /* Ultra-subtle top reading progress filament */
+    .progress-filament {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--yellow-accent) 100%);
+      z-index: 100;
+      transition: width 0.08s linear;
+    }
+
+    /* Container adaptativo com margem de 3cm de cada lado */
+    .sheet {
+      width: calc(100% - 6cm);
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .sheet {
+        width: calc(100% - 6cm);
+        max-width: 1140px;
+      }
+      .md-toc-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      .two-col-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      .sheet {
+        width: calc(100% - 6cm);
+        max-width: 1180px;
+      }
+      .md-toc-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 3rem 1.25rem 5rem;
+      }
+      .sheet {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+
+    /* Top Kicker / Monospace Metadata Line */
+    .meta-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* Giant Markdown File Title */
+    h1.doc-title {
+      font-family: var(--font-sans);
+      font-size: clamp(2.5rem, 4.9vw, 4.7rem);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1.04;
+      color: var(--text-title);
+      margin-bottom: 2.35rem;
+    }
+
+    h1.doc-title .ext {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* Raw Markdown Blockquotes (> ...) in Monospace */
+    .md-lead-quotes {
+      margin-bottom: 3.5rem;
+    }
+
+    .md-quote {
+      font-family: var(--font-mono);
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 1.35rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .md-quote:last-child {
+      margin-bottom: 0;
+    }
+
+    .md-quote .q-mark {
+      color: var(--text-dim);
+      user-select: none;
+    }
+
+    /* DESTAQUE AMARELO NO CORPO DO TEXTO (Apenas Letra em Amarelo Negrito Thin, sem fundo de marca-texto) */
+    mark.hl-yellow {
+      background-color: transparent;
+      color: var(--yellow-accent);
+      padding: 0;
+      font-weight: 500;
+      box-shadow: none;
+    }
+
+    mark.hl-yellow code {
+      background-color: var(--bg-code);
+      color: var(--yellow-text-bright);
+      border-color: rgba(250, 204, 21, 0.35);
+      font-weight: 500;
+    }
+
+    mark.hl-yellow em {
+      color: var(--yellow-text-bright);
+      font-style: italic;
+      text-decoration: none;
+    }
+
+    mark.hl-yellow strong {
+      color: var(--yellow-hl-bg);
+      font-weight: 600;
+    }
+
+    /* Badge de Timestamp do Áudio acoplado ao Destaque Amarelo */
+    .audio-pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      background-color: rgba(250, 204, 21, 0.18);
+      color: var(--yellow-text-bright);
+      border: 1px solid var(--yellow-accent);
+      padding: 0.05em 0.45em;
+      border-radius: 3px;
+      margin-left: 0.3rem;
+      margin-right: 0.15rem;
+      vertical-align: baseline;
+      white-space: nowrap;
+    }
+
+    /* Bloco de Transcrição Literal da Explicação do Professor */
+    .md-block.prof-audio-block {
+      background-color: var(--yellow-soft-bg);
+      border: 1px solid var(--yellow-soft-border);
+      border-left: 4px solid var(--yellow-accent);
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      margin: 1.75rem 0 2.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.72;
+      color: var(--text-body);
+    }
+
+    .prof-audio-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px dashed rgba(250, 204, 21, 0.3);
+    }
+
+    .prof-audio-badge {
+      background-color: transparent;
+      color: var(--yellow-accent);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0;
+    }
+
+    .prof-audio-meta {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--yellow-text-bright);
+    }
+
+    .prof-transcript-quote {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.72;
+      color: #e6e2da;
+      background-color: rgba(20, 20, 19, 0.55);
+      border-left: 2px solid var(--yellow-accent);
+      padding: 0.95rem 1.2rem;
+      margin-top: 0.75rem;
+      border-radius: 0 4px 4px 0;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .prof-transcript-quote p {
+      margin-bottom: 0.8rem;
+      color: #e6e2da;
+      font-size: 0.95rem;
+    }
+
+    .prof-transcript-quote p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Minimal Monospace Index / Jump Bar */
+    .md-toc {
+      margin: 2.75rem 0 3.75rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .md-toc-title {
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.65rem;
+      font-size: 0.72rem;
+    }
+
+    .md-toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 0.35rem 1.5rem;
+    }
+
+    .md-toc a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      display: inline-block;
+      padding: 0.1rem 0;
+    }
+
+    .md-toc a:hover {
+      color: var(--accent);
+    }
+
+    .md-toc a .toc-hash {
+      color: var(--accent);
+      opacity: 0.85;
+    }
+
+    .md-toc a.toc-yellow .toc-hash {
+      color: var(--yellow-accent);
+    }
+
+    .md-toc a.toc-yellow:hover {
+      color: var(--yellow-text-bright);
+    }
+
+    /* Section Headings with literal ## in Terracotta Orange */
+    h2.md-h2 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.28;
+      color: var(--accent);
+      margin-top: 4rem;
+      margin-bottom: 1.45rem;
+    }
+
+    /* Subsection Headings with literal ### */
+    h3.md-h3 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.15rem, 1.4vw, 1.4rem);
+      font-weight: 700;
+      letter-spacing: -0.018em;
+      line-height: 1.35;
+      color: var(--text-title);
+      margin-top: 2.65rem;
+      margin-bottom: 1.05rem;
+    }
+
+    h3.md-h3 .hash {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 500;
+      margin-right: 0.35rem;
+    }
+
+    h4.md-h4 {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Body Copy - Texto Justificado com controle editorial */
+    p {
+      margin-bottom: 1.35rem;
+      color: var(--text-body);
+      font-weight: 400;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    strong {
+      color: var(--text-strong);
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+      color: #dad6ce;
+    }
+
+    /* Inline code / Latin technical markers */
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.86em;
+      background-color: var(--bg-code);
+      color: #dedad0;
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      border: 1px solid var(--border-soft);
+    }
+
+    /* Raw Markdown Lists */
+    ul.md-list,
+    ol.md-list {
+      list-style: none;
+      margin: 1.1rem 0 1.65rem;
+    }
+
+    ul.md-list > li,
+    ol.md-list > li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 0.95rem;
+      color: var(--text-body);
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    ul.md-list > li::before {
+      content: "*";
+      position: absolute;
+      left: 0.25rem;
+      top: 0.05rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    ol.md-list {
+      counter-reset: md-counter;
+    }
+
+    ol.md-list > li {
+      counter-increment: md-counter;
+      padding-left: 2.1rem;
+    }
+
+    ol.md-list > li::before {
+      content: counter(md-counter) ".";
+      position: absolute;
+      left: 0;
+      top: 0.02rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Nested lists inside li */
+    .md-sublist {
+      list-style: none;
+      margin-top: 0.65rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .md-sublist > li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.96rem;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .md-sublist > li::before {
+      content: "-";
+      position: absolute;
+      left: 0.15rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    /* Monospace Callout / Logic Blocks */
+    .md-block {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.35rem 1.5rem;
+      margin: 1.65rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    .md-block-label {
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .logic-line {
+      margin-bottom: 0.55rem;
+      padding-left: 2.4rem;
+      position: relative;
+    }
+
+    .logic-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .logic-tag {
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .logic-sep {
+      border-top: 1px dashed var(--border);
+      margin: 0.75rem 0;
+    }
+
+    /* Section Divider (literal markdown ---) */
+    .md-hr {
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      letter-spacing: 0.25em;
+      font-size: 0.85rem;
+      margin: 3.5rem 0;
+      user-select: none;
+    }
+
+    /* Definition Cards in pure .md style */
+    @media (min-width: 1024px) {
+      .concept-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 2.5rem;
+      }
+      .concept-grid .concept-item {
+        margin-bottom: 0;
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    .concept-item {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .concept-item.concept-convergent {
+      border-left: 3px solid var(--yellow-accent);
+      padding-left: 1rem;
+      background-color: rgba(250, 204, 21, 0.03);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .concept-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-strong);
+      font-size: 1.03rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .concept-latin {
+      font-family: var(--font-mono);
+      font-size: 0.83rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+
+    /* Evidence Matrix / Markdown Table */
+    .table-wrap {
+      margin: 1.75rem 0 2.5rem;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: var(--bg-subtle);
+    }
+
+    table.md-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    table.md-table th {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background-color: var(--bg-code);
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    table.md-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+      color: var(--text-body);
+    }
+
+    table.md-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer.md-footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    footer.md-footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer.md-footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      html {
+        font-size: 16px;
+      }
+      body {
+        padding: 3rem 1.25rem 5rem;
+      }
+      .md-block {
+        padding: 1.1rem 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-filament" id="progressBar"></div>
+
+  <main class="sheet" id="top">
+
+    <div class="meta-kicker">
+      SANCTI AUGUSTINI OPERA · DE MAGISTRO (C. 389 D.C.) · EXEGESE ESTRUTURAL &amp; FILOSOFIA DA LINGUAGEM · PONTE COM ÁUDIO DA AULA (04/11)
+    </div>
+
+    <h1 class="doc-title">EXEGESE_DE_MAGISTRO<span class="ext">.md</span></h1>
+
+    <div class="md-lead-quotes">
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> dossiê exegético completo (<code>philo-exegesis</code> — modo a híbrido: exegese estrutural franco-brasileira em 5 fases + filosofia da linguagem em 4 camadas) dos 14 capítulos do tratado <em>De Magistro (Do Mestre)</em>.
+      </p>
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> <mark class="hl-yellow">convenção visual de convergência: todos os pontos em que a exegese do texto de agostinho converge com a explicação do professor no áudio da aula (04/11, incluindo a retomada da aula anterior) estão destacados em amarelo ao longo do próprio texto</mark>, seguidos pela transcrição literal da fala docente com marcador temporal.
+      </p>
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> <em>"para que a linguagem tenha sentido e signifique a coisa, eu já preciso conhecer a coisa previamente; logo, não é a linguagem que me ensina a coisa, mas é o conhecimento prévio da coisa que me faz compreender a linguagem."</em> (paradoxo linguístico-epistemológico agostiniano).
+      </p>
+    </div>
+
+    <!-- Navegação Monospace Index -->
+    <nav class="md-toc">
+      <div class="md-toc-title">ÍNDICE DE SEÇÕES &amp; PONTES DE CONVERGÊNCIA (TEXTO ↔ ÁUDIO DA AULA)</div>
+      <div class="md-toc-grid">
+        <a href="#metadados"><span class="toc-hash">#</span> 1. identificação &amp; mapa das 11 pontes</a>
+        <a href="#fase0"><span class="toc-hash">#</span> 2. fase 0: diagnóstico do problema</a>
+        <a href="#ponte-aula-anterior" class="toc-yellow"><span class="toc-hash">★</span> 2.2. [aula] dúplice finalidade do signo</a>
+        <a href="#ponte-wittgenstein" class="toc-yellow"><span class="toc-hash">★</span> 2.3. [aula] wittgenstein vs. agostinho</a>
+        <a href="#fase1"><span class="toc-hash">#</span> 3. fase 1: glossário csc &amp; metalinguagem</a>
+        <a href="#movimento1"><span class="toc-hash">#</span> 4.1. mov. i: locução, virgílio e ostensão</a>
+        <a href="#movimento2"><span class="toc-hash">#</span> 4.2. mov. ii: verbum, nomen e sofismas</a>
+        <a href="#movimento3" class="toc-yellow"><span class="toc-hash">★</span> 4.3. [aula] dilema do signo &amp; sarabarae</a>
+        <a href="#movimento4a" class="toc-yellow"><span class="toc-hash">★</span> 4.4. [aula] crer vs. saber &amp; a fornalha</a>
+        <a href="#movimento4b" class="toc-yellow"><span class="toc-hash">★</span> 4.5. [aula] justiça, admonitio &amp; iluminação</a>
+        <a href="#movimento4c"><span class="toc-hash">#</span> 4.6. mov. iv-c: opacidade verbal &amp; cristo</a>
+        <a href="#fase3"><span class="toc-hash">#</span> 5. fase 3: reconstrução formal (p1..pn ⊢ c)</a>
+        <a href="#fase4" class="toc-yellow"><span class="toc-hash">★</span> 6. [aula] crítica, verbum cordis &amp; platão</a>
+      </div>
+    </nav>
+
+    <!-- SEÇÃO 1: METADADOS & MAPA SINÓPTICO DAS 11 PONTES -->
+    <section id="metadados">
+      <h2 class="md-h2">1. Identificação do Corpus, Protocolo Exegético e Mapa das 11 Convergências</h2>
+
+      <p>
+        Este documento executa a exegese estrutural e filosófico-linguística integral do diálogo <em>De Magistro (Do Mestre)</em>, composto por <strong>Santo Agostinho de Hipona (354–430 d.C.)</strong> em Tagaste por volta de <strong>389 d.C.</strong>, articulando cada movimento argumentativo dos seus 14 capítulos (46 parágrafos canônicos; pp. 1–54 da edição <em>Os Pensadores</em>, trad. Angelo Ricci) com a gravação integral da aula de Filosofia Medieval de <strong>04/11</strong> (<code>Medieval 04-11.m4a</code>, duração: <code>01h 17min 37s</code>) e com a literatura crítica especializada do diretório (Christoph Horn, Eugenio Coseriu / Gisela Lermen e Myles Burnyeat).
+      </p>
+
+      <div class="table-wrap">
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th>Ponte</th>
+              <th>Timestamp no Áudio</th>
+              <th>Passagem no De Magistro</th>
+              <th>Núcleo de Convergência Destacado no Texto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>P1 (Aula Anterior)</strong></td>
+              <td><code>[00:00:00 – 00:03:00]</code></td>
+              <td><code>DM I, 1–2; II, 3–4; IV, 7–9; XIII, 42</code></td>
+              <td><mark class="hl-yellow">Dúplice finalidade fenomênica da linguagem: ser <strong>sinal da coisa externa</strong> e <strong>sinal do conteúdo mental</strong> do locutor (herdada do <em>Sofista/Teeteto</em> de Platão e da lógica estoica).</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P2</strong></td>
+              <td><code>[00:00:00 – 00:03:00]</code></td>
+              <td><code>DM II, 3–4; III, 5–6; X, 29–35; XI, 38</code></td>
+              <td><mark class="hl-yellow">A "concepção agostiniana da linguagem" em Wittgenstein (<em>Investigações Filosóficas</em>) vs. a dupla originalidade de Agostinho: <strong>abordagem negativa</strong> (crítica epistemológica ao signo) e <strong>contribuição positiva</strong> (solução metafísica).</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P3</strong></td>
+              <td><code>[00:03:00 – 00:08:00]</code></td>
+              <td><code>DM X, 33–35; XI, 36</code></td>
+              <td><mark class="hl-yellow">A tese radical (<em>"os sinais não ensinam nada"</em>) demonstrada pelo dilema bicorne: se o ouvinte já conhece a coisa, o signo apenas recorda/adverte (<em>admonitio</em>); se não conhece, é mero <strong>"ruído articular"</strong>.</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P4</strong></td>
+              <td><code>[00:08:00 – 00:15:00]</code></td>
+              <td><code>DM X, 33–35</code></td>
+              <td><mark class="hl-yellow">O exemplo bíblico de <em>sarabarae</em> (calções/coifas persas em <em>Daniel 3</em>) e o <strong>paradoxo linguístico-epistemológico agostiniano</strong>: o conhecimento prévio da coisa é que ensina o sentido da palavra, e não a palavra que ensina a coisa.</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P5</strong></td>
+              <td><code>[00:15:00 – 00:22:00]</code></td>
+              <td><code>DM XI, 37</code></td>
+              <td><mark class="hl-yellow">A distinção epistêmica entre <strong>crer</strong> (<em>credere</em>) e <strong>compreender/saber</strong> (<em>intelligere / scire</em>) exemplificada pelo relato histórico dos três jovens hebreus (Ananias, Misael e Azarias) na fornalha ardente da Babilônia.</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P6</strong></td>
+              <td><code>[00:22:00 – 00:30:00]</code></td>
+              <td><code>DM XII, 39–40</code></td>
+              <td><mark class="hl-yellow">O papel mediador da <strong>memória e da imaginação</strong> (que reconstrói subjetivamente a cena de homens e fogo) em contraste com as <strong>verdades inteligíveis puras</strong> sem cor nem matéria (matemática <code>7 + 3 = 10</code>, Justiça e Retidão).</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P7</strong></td>
+              <td><code>[00:30:00 – 00:38:00]</code></td>
+              <td><code>DM XII, 40; XIII, 43; XIV, 45</code></td>
+              <td><mark class="hl-yellow">O problema dos universais: a diferença entre o <strong>direito jurídico-positivo</strong> (leis de saúde, educação, defesa) e a <strong>regra interior e imutável de Justiça</strong> pela qual a mente julga se uma lei positiva é justa.</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P8</strong></td>
+              <td><code>[00:38:00 – 00:45:00]</code></td>
+              <td><code>DM XI, 36, 38; XII, 40; XIV, 45–46</code></td>
+              <td><mark class="hl-yellow">A função meramente <strong>admonitória</strong> (<em>admonere / admonitio</em>) da fala externa e a rejeição da pedagogia transmissiva do "vaso vazio": o professor externo apenas convida o discípulo a voltar-se para dentro.</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P9</strong></td>
+              <td><code>[00:45:00 – 01:05:00]</code></td>
+              <td><code>DM XI, 38; XII, 39–40; XIV, 45–46</code></td>
+              <td><mark class="hl-yellow">Leitura comentada de <em>De Magistro</em> XI–XII em sala: o <strong>Mestre Interior</strong> (Cristo, Força Incomutável e Sabedoria Eterna), a <strong>Teoria da Iluminação</strong> (analogia solar e argumento da mente mutável vs. verdade imutável) e a conclusão de que <strong>nenhum homem ensina outro homem</strong>.</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P10</strong></td>
+              <td><code>[01:05:00 – 01:12:00]</code></td>
+              <td><code>DM I, 2; XI, 38; XIV, 46</code> + <em>De Trinitate</em> XV</td>
+              <td><mark class="hl-yellow">Objeção sobre a inseparabilidade entre pensamento e linguagem: a palavra externa como <strong>ocasião/estímulo</strong> vs. a iluminação como <strong>causa eficiente e formal</strong>, e o desenvolvimento do <strong>Verbo Interior</strong> (<em>verbum cordis</em>) pré-idiomático no <em>De Trinitate</em>.</mark></td>
+            </tr>
+            <tr>
+              <td><strong>P11</strong></td>
+              <td><code>[01:12:00 – 01:17:37]</code></td>
+              <td><code>DM XII, 40</code> + <em>Conf.</em> III, 6, 11</td>
+              <td><mark class="hl-yellow">Contraste entre a <strong>reminiscência platônica</strong> (<em>anamnese</em> no <em>Mênon/Fédon</em>, preexistência da alma e metempsicose) e a <strong>Iluminação agostiniana</strong> (consulta a uma Presença divina atual e transcendente, <em>interior intimo meo</em>).</mark></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- SEÇÃO 2: FASE 0 — DIAGNÓSTICO DO PROBLEMA & PONTES 1 E 2 -->
+    <section id="fase0">
+      <h2 class="md-h2">2. Fase 0: Diagnóstico do Problema, Gênero e Ancoragem Contextual</h2>
+
+      <h3 class="md-h3"><span class="hash">###</span>2.1. Gênero dialógico, estatuto psicagógico (exercitatio mentis) e aporia central</h3>
+
+      <p>
+        Sob o protocolo de diagnóstico estrutural (González Porta / Goldschmidt / Hadot / Chaui), o <em>De Magistro</em> não é um tratado escolar dogmático, mas um diálogo maiêutico e psicagógico travado entre Agostinho e seu filho <strong>Adeodato</strong> (aos 16 anos, cf. <em>Confissões</em> IX, vi, 14). Como o próprio Agostinho explicita no interlúdio metodológico do Capítulo VIII (<code>DM VIII, 21</code>), toda a primeira metade da obra (<code>Caps. I–VIII</code>) opera como uma <strong>ginástica preliminar do espírito</strong> (<code>exercitatio mentis</code>) para purificar o discernimento do interlocutor das ilusões do senso comum linguístico antes de ascender à tese epistemológica e metafísica da segunda metade (<code>Caps. IX–XIV</code>).
+      </p>
+
+      <p>
+        A <strong>aporia central</strong> que move o tratado pode ser formulada nos seguintes termos: <strong>como explicar que a linguagem humana — instituída especificamente para ensinar (<code>docere</code>) e recordar (<code>commemorare</code>) por meio de sinais materiais (<code>signa</code>) — revele-se, ao cabo de uma análise rigorosa, estruturalmente incapaz de fazer qualquer ser humano aprender (<code>discere</code>) ou conhecer (<code>scire / intellegere</code>) uma única realidade que ele já não conhecesse previamente?</strong>
+      </p>
+
+      <h3 class="md-h3" id="ponte-aula-anterior"><span class="hash">###</span>2.2. A retomada da aula anterior: a dúplice finalidade da linguagem e a matriz clássica</h3>
+
+      <p>
+        No ponto de partida do diálogo (<code>DM I, 1–2; II, 3–4</code>, em continuidade direta com o tratado juvenil <em>De Dialectica</em> V, de 386 d.C.), Agostinho examina o funcionamento comunicativo da locução. <mark class="hl-yellow">Conforme o professor recorda logo na abertura da aula, retomando o tema trabalhado na <strong>aula passada</strong>, a tradição filosófica atribui à linguagem uma <strong>dúplice finalidade</strong>: por um lado, <strong>ser sinal da coisa externa</strong> (apontar para um objeto ou estado de coisas no mundo); por outro lado, <strong>ser sinal do conteúdo mental</strong> daquele que utiliza a linguagem (transferir o que está na mente do locutor para a mente do interlocutor).</mark><span class="audio-pill">[AULA 00:00:00]</span>
+      </p>
+
+      <p>
+        <mark class="hl-yellow">Na definição agostiniana, a palavra é compreendida como um <strong>sinal</strong> (<code>signum</code>), isto é, um símbolo ou elemento material sensível — seja a vibração sonora da voz no ar, seja um padrão gráfico impresso sobre uma superfície, como a tinta do pincel piloto que deposita seu corante sobre o quadro de vidro na sala de aula — cuja finalidade fenomênica é apontar para outra coisa além de si mesmo: o <strong>significado</strong> (<code>significatum / res / dicibile</code>), que pode ser tanto um <strong>objeto material sensível observado</strong> quanto um <strong>conteúdo mental</strong> (como quando Adeodato observa em <code>DM II, 3</code> que a conjunção condicional <em>"se"</em> aponta para o estado mental de dúvida na alma).</mark><span class="audio-pill">[AULA 00:00:45]</span>
+      </p>
+
+      <p>
+        <mark class="hl-yellow">Essa compreensão semiótica e instrumental da linguagem não nasce do nada em Agostinho: ela possui correlatos diretos no <em>Sofista</em> e no <em>Teeteto</em> de Platão — onde o discurso (<code>logos</code>) é definido como instrumento que exprime ou aponta para aquilo que ocorre na alma —, bem como nos tratados lógicos e dialéticos da <strong>tradição estoica</strong> (que distinguia o significante corpóreo, a coisa externa e o significado incorporal ou <code>lekton</code>, rebatizado por Agostinho como <code>dicibile</code> no <em>De Dialectica</em>). Contudo, Agostinho verifica no <em>De Magistro</em> que, <strong>para ambos os casos daquela dúplice finalidade</strong>, a linguagem mostra-se radicalmente insuficiente: ela nem exibe a coisa em si mesma (<code>Caps. X–XII</code>), nem garante sequer a manifestação fidedigna do conteúdo mental de quem fala (<code>Cap. XIII</code>).</mark><span class="audio-pill">[AULA 00:01:40]</span>
+      </p>
+
+      <h3 class="md-h3" id="ponte-wittgenstein"><span class="hash">###</span>2.3. A "concepção agostiniana da linguagem" em Wittgenstein vs. a dupla inovação de Agostinho</h3>
+
+      <p>
+        <mark class="hl-yellow">Como destaca o professor (em consonância com os estudos críticos de Christoph Horn e Myles Burnyeat presentes no corpus), esse modelo básico segundo o qual a linguagem consiste na manipulação material de sinais que apontam para objetos externos ou conteúdos mentais — operando como uma correspondência significativa com o mundo — é exatamente o que <strong>Ludwig Wittgenstein</strong> batizou no § 1 das <em>Investigações Filosóficas</em> como a <strong>"concepção agostiniana da linguagem"</strong>.</mark><span class="audio-pill">[AULA 00:01:15]</span>
+      </p>
+
+      <p>
+        Todavia, se Agostinho herda da tradição platônica, aristotélica e estoica essa imagem sígnica da linguagem, por que o <em>De Magistro</em> ocupa um lugar revolucionário na história da filosofia da linguagem? <mark class="hl-yellow">O professor sintetiza a originalidade agostiniana em um duplo movimento dialético que estrutura todo o tratado: (1) uma <strong>abordagem negativa</strong>, pela qual Agostinho submete a função comunicativa e cognitiva da linguagem a uma <strong>crítica epistemológica radical</strong> (demonstrando que os sinais exteriores são impotentes para causar o conhecimento); e (2) uma <strong>contribuição positiva</strong>, pela qual ele resolve o impasse mediante uma <strong>solução metafísica e noética</strong> (a doutrina da Iluminação e do Mestre Interior).</mark><span class="audio-pill">[AULA 00:02:15]</span>
+      </p>
+
+      <!-- BLOCO DE TRANSCRIÇÃO LITERAL 1 (PONTES 1 E 2) -->
+      <div class="md-block prof-audio-block">
+        <div class="prof-audio-header">
+          <span class="prof-audio-badge">★ CONVERGÊNCIA P1 &amp; P2 — TRANSCRIÇÃO DO PROFESSOR (AULA + AULA ANTERIOR)</span>
+          <span class="prof-audio-meta">Áudio: Medieval 04-11.m4a · [00:00:00 – 00:03:00] · Ref.: DM I, 1–2; II, 3; X–XIII</span>
+        </div>
+        <div>
+          <strong>Síntese da Ponte Exegética:</strong> Articula a retomada da aula anterior (a dúplice finalidade da linguagem: sinal da coisa e sinal do conteúdo mental), o exemplo material do traço de tinta no quadro de vidro, a recepção em Wittgenstein (<em>Investigações Filosóficas</em> § 1), as matrizes platônica (<em>Sofista/Teeteto</em>) e estoica, e a divisão metodológica entre a crítica negativa e a solução metafísica positiva de Agostinho.
+        </div>
+        <div class="prof-transcript-quote">
+          <p>
+            <em>"...o que está na minha mente para a mente do meu interlocutor. Essa seria, como nós analisamos na aula passada, a dúplice finalidade da linguagem: <strong>ser sinal da coisa</strong> e <strong>ser sinal do conteúdo mental</strong> daquele que utiliza a linguagem.</em>
+          </p>
+          <p>
+            <em>O Agostinho verifica que, para esses dois casos, a linguagem nos parece ser insuficiente. Porque a linguagem é entendida como sinal (signum), ou seja, como uma espécie de símbolo, um elemento material cuja finalidade fenomênica é apontar para uma outra coisa. É por isso que nós ensinamos por meio de palavras. Olha: eu vou construir... eu manipulei sinais materiais, ou seja, a tinta do piloto que imprime o seu corante sobre o quadro de vidro. E essa impressão segue um certo padrão. Por exemplo, eu traço esse padrão e esse padrão... posso fazer uma associação de padrões.</em>
+          </p>
+          <p>
+            <em>Este sinal aponta para o significado, de acordo com Agostinho. E esse significado pode ser um objeto material sensível observado, ou este significado pode ser um conteúdo mental.</em>
+          </p>
+          <p>
+            <em>Esse modo de compreender a linguagem — ou seja, uma manipulação material de um sinal que aponta para o significado mental ou para um objeto externo — é exatamente aquilo que Wittgenstein identificou nas Investigações Filosóficas como a concepção agostiniana da linguagem: em certa medida, a linguagem é uma espécie de correspondência significativa com o mundo.</em>
+          </p>
+          <p>
+            <em>Essa descrição da linguagem encontra vários correlatos ao longo da história da filosofia: já no Sofista e no Teeteto de Platão, por exemplo, encontramos essa definição da linguagem como instrumento que significa ou aponta para aquilo que ocorre na alma (logos como expressão do pensamento). Essa compreensão não é uma exclusividade agostiniana; ela se encontra também nas obras lógicas e dialéticas da tradição estóica.</em>
+          </p>
+          <p>
+            <em>O que há de novo em Agostinho nesse ponto? Por que Agostinho, nessa longeva tradição sobre a filosofia da linguagem, merece uma atenção especial? Eu diria que há uma abordagem negativa — na medida em que Agostinho apresenta uma crítica contundente à função da linguagem — e uma contribuição positiva, que é como ele resolve esse problema. Agostinho herda a imagem instrumental/sígnica da linguagem, mas, de maneira propositiva e inovadora, acrescenta uma crítica epistemológica radical e uma solução metafísica."</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- SEÇÃO 3: FASE 1 & CAMADA 1 FILOLÓGICA — GLOSSÁRIO CSC, USO VS. MENÇÃO E MAPA ENUNCIATIVO -->
+    <section id="fase1">
+      <h2 class="md-h2">3. Fase 1 &amp; Camada 1 (Filológica): Glossário de Restrições Conceituais (CSC), Uso vs. Menção e Mapa Enunciativo</h2>
+
+      <h3 class="md-h3"><span class="hash">###</span>3.1. Conceitos centrais e restrições semânticas (Controlled Semantic Cognition)</h3>
+
+      <p>
+        Para evitar a regressão inconsciente dos termos técnicos latinos ao uso cotidiano contemporâneo (<em>Semantic Control Fatigue</em>), o quadro abaixo fixa o sentido estrito de cada operador conceitual de Agostinho, destacando em amarelo as definições operacionais diretamente mobilizadas pelo professor durante a preleção:
+      </p>
+
+      <div class="concept-grid">
+        <div class="concept-item concept-convergent">
+          <div class="concept-title">Sinal vs. Significado e Significável</div>
+          <span class="concept-latin">Signum vs. Significatum / Significabile (DM II, 3; IV, 7–9)</span>
+          <p>
+            <mark class="hl-yellow">O <strong>sinal</strong> (<code>signum</code>) é toda realidade material sensível (som vocal articulado, letra escrita, gesto ou insígnia) que, além da impressão física que causa nos órgãos dos sentidos, faz vir ao pensamento uma outra coisa (<code>significatum</code>): seja um objeto material sensível, seja um conteúdo mental.</mark><span class="audio-pill">[AULA 00:00:30]</span> Já os <code>significabilia</code> abrangem tudo o que pode ser significado por sinais sem ser, por si mesmo, sinal (como pedra, rio, Roma ou virtude), além dos próprios sinais quando designados por outros sinais.
+          </p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-title">Palavra, Nome, Dizível e Dicção</div>
+          <span class="concept-latin">Verbum, Nomen, Dicibile et Dictio (DM IV, 9; V, 12–16; De Dial. V)</span>
+          <p>
+            Em sentido físico-etimológico, <code>verbum</code> vincula-se a <em>verberare</em> (ferir/percutir o ar e o ouvido), enquanto <code>nomen</code> vincula-se a <em>nosco</em> (conhecer e reter na memória). Na gramática estrita, o verbo declina-se por tempos e o nome por casos; porém, na metalinguagem do discurso, toda palavra mencionada funciona como nome. Em <em>De Dialectica</em> V, Agostinho distingue o mero som (<code>verbum</code>), o conceito mental pré-vocal (<code>dicibile</code>), a palavra unida ao seu significado (<code>dictio</code>) e o objeto referente (<code>res</code>).
+          </p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-title">Regra da Fala e Suposição Formal</div>
+          <span class="concept-latin">Regula Loquendi et Lex Rationis (DM VIII, 22–24)</span>
+          <p>
+            Lei natural da razão implantada na mente humana segundo a qual, na conversação normal, a atenção do ouvinte transita imediatamente do veículo sonoro para a realidade extralinguística significada (o que a lógica escolástica medieval denominará <code>suppositio formalis</code>). É a violação sub-reptícia dessa regra — tomando o objeto pela palavra em <code>suppositio materialis</code> ou vice-versa — que gera os sofismas do leão que sai da boca e do homem composto de duas sílabas.
+          </p>
+        </div>
+
+        <div class="concept-item concept-convergent">
+          <div class="concept-title">O Enigma de Sarabarae e a Palavra Caput</div>
+          <span class="concept-latin">Saraballae / Sarabarae et Caput (DM X, 33–35; Dan 3,94)</span>
+          <p>
+            <mark class="hl-yellow">Exemplos paradigmáticos do Capítulo X: <code>sarabarae</code> designa os calções, coifas ou vestes persas dos três jovens em <em>Daniel 3</em>. Quem ouve as sílabas <em>"sa-ra-ba-ra"</em> sem nunca ter visto a veste recebe apenas um <strong>ruído articular</strong> vazio de substância ontológica.</mark><span class="audio-pill">[AULA 00:08:00]</span> Do mesmo modo, na infância, as sílabas <code>ca-put</code> (cabeça) eram puro som até que a visão direta da coisa ensinasse à mente o valor semântico do sinal.
+          </p>
+        </div>
+
+        <div class="concept-item concept-convergent">
+          <div class="concept-title">Crer vs. Compreender e Saber</div>
+          <span class="concept-latin">Credere vs. Intellegere et Scire (DM XI, 37; Retract. I, 14, 3)</span>
+          <p>
+            <mark class="hl-yellow"><strong>Crer</strong> (<code>credere</code>) é o assentimento da vontade dado a um relato histórico ou autoridade testemunhal sobre realidades que não estão presentes nem aos sentidos corporais nem à intuição racional <em>a priori</em> (como o episódio dos três jovens na fornalha da Babilônia). <strong>Compreender</strong> (<code>intelligere</code>) ou <strong>saber</strong> (<code>scire</code>) em sentido próprio exige a evidência e a contemplação direta da verdade pelos olhos da mente ou dos sentidos.</mark><span class="audio-pill">[AULA 00:15:00]</span>
+          </p>
+        </div>
+
+        <div class="concept-item concept-convergent">
+          <div class="concept-title">Admoestação Externa</div>
+          <span class="concept-latin">Admonitio / Admonere (DM XI, 36, 38; XIV, 45–46)</span>
+          <p>
+            <mark class="hl-yellow">Única função cognitiva real da linguagem exterior humana e do professor em sala de aula: os sinais sonoros não causam nem "injetam" a ciência numa mente-vaso vazio, mas operam como <strong>advertência, ocasião ou convite</strong> (<code>admonitio</code>) para que o discípulo direcione seu olhar para a realidade sensível ou se volte para dentro de si a fim de consultar a Verdade interior.</mark><span class="audio-pill">[AULA 00:38:00]</span>
+          </p>
+        </div>
+
+        <div class="concept-item concept-convergent">
+          <div class="concept-title">Mestre Interior e Teoria da Iluminação</div>
+          <span class="concept-latin">Magister Interior et Illuminatio (DM XI, 38; XII, 40; XIV, 45–46)</span>
+          <p>
+            <mark class="hl-yellow">Doutrina metafísica e epistemológica segundo a qual, assim como o olho corporal precisa da luz do sol para ver corpos físicos, a mente racional humana (criada, mutável e falível) necessita de uma Luz espiritual e incorpórea superior a ela mesma — a luz divina de <strong>Cristo, o Mestre Interior</strong> (<em>Virtude Incomutável e Sabedoria Eterna de Deus</em>, <em>1 Cor 1,24</em>) — para contemplar diretamente as verdades necessárias, universais e imutáveis (como a matemática, a lógica e a regra pura da Justiça).</mark><span class="audio-pill">[AULA 00:45:00]</span>
+          </p>
+        </div>
+
+        <div class="concept-item concept-convergent">
+          <div class="concept-title">Verbo Interior / Palavra do Coração</div>
+          <span class="concept-latin">Verbum Cordis / Verbum Mentis (DM I, 2; De Trinitate XV, 10–11)</span>
+          <p>
+            <mark class="hl-yellow">Conceito amadurecido por Agostinho no <em>De Trinitate</em> para explicar a relação entre pensamento conceitual e estrutura linguística: trata-se de uma palavra mental puramente inteligível (<code>verbum cordis / locutio cordis</code>), dotada de estrutura discursivo-predicativa, universal e anterior a qualquer idioma empírico particular (não é grego, nem latim, nem hebraico), da qual as palavras sonoras exteriores são apenas sinais convencionais e ocasiões.</mark><span class="audio-pill">[AULA 01:05:00]</span>
+          </p>
+        </div>
+      </div>
+
+      <h3 class="md-h3"><span class="hash">###</span>3.2. Precisão filológica: Uso vs. Menção (Coseriu / Burnyeat) e Mapa Enunciativo (Cossutta)</h3>
+
+      <p>
+        Sob a <strong>Camada 1 do protocolo de Filosofia da Linguagem</strong>, os Capítulos IV a VIII do <em>De Magistro</em> inauguram na filosofia ocidental a distinção sistemática entre <strong>linguagem-objeto</strong> (falar sobre coisas extralinguísticas) e <strong>metalinguagem</strong> (falar sobre signos usando signos), sem dispor do recurso tipográfico moderno das aspas:
+      </p>
+
+      <ul class="md-list">
+        <li>
+          <strong>A Dupla Metalinguagem (Eugenio Coseriu, 1975):</strong> Agostinho opera simultaneamente com a <em>metalinguagem linguística</em> (<code>sprachliche Metasprache</code>: termos léxicos de segunda ordem que nomeiam classes gramaticais, como <code>"sinal"</code>, <code>"palavra"</code>, <code>"nome"</code>, <code>"conjunção"</code>) e com a <em>metalinguagem do discurso</em> (<code>Metasprache der Rede</code>: qualquer vocábulo da língua — inclusive conjunções como <code>"se"</code> e <code>"porque"</code> — mencionado autonomamente como sujeito nominativo de uma oração, funcionando como o seu próprio nome).
+        </li>
+        <li>
+          <strong>A Mediação da <em>Dictio</em> (Myles Burnyeat, 1987):</strong> Quando Agostinho analisa no Capítulo V (<code>DM V, 16</code>) as frases <em>"Se agrada"</em> (<code>placet si</code>) e <em>"Porque desagrada"</em> (<code>displicet quia</code>), ele supera a dicotomia moderna rígida entre uso e pura menção acústica: o que agrada ou desagrada ao falante não é o mero ruído vocal da sílaba (<code>verbum</code>), mas a partícula tomada conjuntamente com a sua força semântica condicional ou causal (<code>dictio</code>).
+        </li>
+        <li>
+          <strong>Mapa Enunciativo e Metáforas-Raiz (Frédéric Cossutta):</strong> O diálogo distribui as vozes entre <strong>Agostinho</strong> (que conduz o exercício socrático nos <code>Caps. I–X</code> e profere o discurso demonstrativo contínuo nos <code>Caps. XI–XIV</code>), <strong>Adeodato</strong> (que introduz as objeções decisivas do canto estético, do sentido mental de <em>"se"</em> e <em>"nada"</em>, da superioridade acústica do nome <em>"lama"</em> sobre a coisa fétida e da subdeterminação ostensiva do ato de caminhar) e <strong>adversários encenados</strong> (o sofista do leão/homem no <code>Cap. VIII</code> e o cético epicurista no <code>Cap. XIII</code>). Quatro metáforas-raiz sustentam a arquitetura do texto: (1) os <strong>dedos entrelaçados que se coçam</strong> (<code>Cap. V, 14</code>, imagem da reflexividade metalinguística); (2) o <strong>caçador de pássaros</strong> (<code>Cap. X, 32</code>, paradigma do aprendizado observacional); (3) a <strong>fornalha da Babilônia</strong> (<code>Cap. XI, 37</code>, paradigma da crença histórica testemunhal); e (4) o <strong>Templo Interior iluminado pela Luz Incorpórea</strong> (<code>Caps. I, 2; XI, 38; XII, 39–40</code>).
+        </li>
+      </ul>
+    </section>
+
+    <div class="md-hr">---</div>
+    <!-- SEÇÃO 4: FASE 2 — MOVIMENTOS ESTRUTURAIS (TEMPO LÓGICO E ORDEM DAS RAZÕES NOS 14 CAPÍTULOS) -->
+    <section id="fase2">
+      <h2 class="md-h2">4. Fase 2: Movimentos Estruturais — Tempo Lógico e Ordem das Razões nos 14 Capítulos</h2>
+
+      <p>
+        Seguindo o método estrutural de <strong>Victor Goldschmidt</strong> (os 4 movimentos dialéticos: <em>Imagem/Doxa</em> → <em>Definição/Aporia</em> → <em>Détour Méthodologique</em> → <em>Essência/Ciência</em>) e de <strong>Martial Gueroult</strong> (<em>ordem das razões</em>), reconstruímos abaixo a cadeia demonstrativa integral do <em>De Magistro</em>, destacando em amarelo no próprio fluxo do texto todas as passagens que convergem com a explicação do professor no áudio.
+      </p>
+
+      <!-- MOVIMENTO I -->
+      <h3 class="md-h3" id="movimento1"><span class="hash">###</span>4.1. Movimento I (Caps. I–III): A pragmática da locução, o verso de Virgílio e a crítica à ostensão</h3>
+
+      <p>
+        O tratado abre no <strong>Capítulo I (<code>DM I, 1–2</code>)</strong> com a pergunta pragmática fundamental: <em>"Que te parece que pretendemos fazer quando falamos?"</em>. A resposta inicial de Adeodato, acolhida e refinada por Agostinho, estabelece que falamos sempre para <strong>ensinar</strong> (<code>docere</code>) ou para <strong>recordar</strong> (<code>commemorare</code>, a nós mesmos ou aos outros). Mesmo quem pergunta fala para ensinar ao interlocutor o que deseja aprender. Duas objeções de Adeodato permitem isolar a essência semiótica da fala:
+      </p>
+
+      <ul class="md-list">
+        <li>
+          <strong>Fala significativa vs. Canto estético (<code>DM I, 1</code>):</strong> Quando cantamos sozinhos por puro prazer, não visamos ensinar nem recordar; porém, o deleite provém da modulação musical do som (comum ao canto dos pássaros e às flautas), que é independente do uso da palavra enquanto signo comunicativo.
+        </li>
+        <li>
+          <strong>A prece e o Templo Interior (<code>DM I, 2</code>):</strong> Na oração não pretendemos ensinar nem recordar nada a Deus, que já conhece o íntimo da alma antes que falemos (<em>Mt 6,8</em>). Agostinho antecipa aqui a tese final da obra: a prece verdadeira realiza-se sem palavras sonoras nos <em>"aposentos fechados"</em> do espírito — o <strong>homem interior que é templo de Deus</strong> (<em>1 Cor 3,16</em>). Quando pronunciamos palavras audíveis na liturgia, sua função é apenas recordar a nós mesmos ou <strong>admoestar</strong> (<code>admonere</code>) os ouvintes humanos a elevarem a mente a Deus.
+        </li>
+      </ul>
+
+      <p>
+        No <strong>Capítulo II (<code>DM II, 3–4</code>)</strong>, assenta-se o axioma semiótico: <strong>toda palavra é um sinal (<code>signum</code>), e nenhum sinal pode existir se não significar alguma coisa (<code>nisi aliquid significet</code>)</strong>. Para testar se cada palavra exibe diretamente seu significado, Agostinho desafia Adeodato a analisar as três primeiras palavras do verso de Virgílio (<em>Eneida</em> II, 659): <em>"Si nihil ex tanta superis placet urbe relinqui"</em> (<em>"Se nada de tão grande cidade agrada aos deuses que seja deixado"</em>):
+      </p>
+
+      <ul class="md-list">
+        <li>
+          <strong><code>"Si"</code> (Se):</strong> Conjunção condicional que não aponta para nenhum objeto corpóreo no mundo exterior; <mark class="hl-yellow">como nota Adeodato com aprovação de Agostinho, <em>"se"</em> indica a <strong>dúvida</strong> (<code>dubitatio</code>) que reside na alma — exemplificando exatamente a segunda função da linguagem destacada pelo professor na abertura da aula: <strong>ser sinal de um conteúdo ou estado mental</strong> daquele que fala.</mark><span class="audio-pill">[AULA 00:00:10]</span>
+        </li>
+        <li>
+          <strong><code>"Nihil"</code> (Nada):</strong> Como pode um sinal significar o que não existe? Como o não-ser não é coisa alguma, Agostinho conclui que <em>"nada"</em> não nomeia um objeto inexistente, mas a própria <strong>afecção da mente</strong> (<code>affectionem animi</code>) que busca um objeto, vê frustrada sua procura e exprime esse estado subjetivo.
+        </li>
+        <li>
+          <strong><code>"Ex"</code> (De):</strong> Quando Adeodato tenta explicar a preposição <em>"ex"</em> oferecendo o sinônimo <em>"de"</em>, Agostinho o interrompe com severidade: <em>"Eu não te pedia que trocasses uma palavra conhecidíssima por outra palavra igualmente conhecida, mas que me mostrasses a própria coisa significada!"</em>. Explicar palavras com palavras (sinonímia ou definição verbal) mantém o espírito aprisionado na <strong>clausura semiótica</strong> (sinais remetendo indefinidamente a outros sinais).
+        </li>
+      </ul>
+
+      <p>
+        No <strong>Capítulo III (<code>DM III, 5–6</code>)</strong>, Agostinho testa se é possível romper o círculo dos signos apelando para a <strong>ostensão física</strong> (<code>ostendere</code>: apontar com o dedo para uma parede ou uma cor visível) ou para a <strong>execução comportamental</strong> (<code>agere</code>: realizar a ação diante de quem pergunta). <mark class="hl-yellow">Longe de endossar o ostensivismo ingênuo que a tradição posterior (a partir das <em>Investigações Filosóficas</em> de Wittgenstein) frequentemente lhe atribuiu, Agostinho demonstra a insuficiência radical da ostensão</mark><span class="audio-pill">[AULA 00:01:15]</span>: (1) apontar o dedo para uma parede não é mostrar a parede sem sinal, pois o próprio gesto de apontar o dedo é um <strong>sinal visual</strong> do ato de indicar (assim como surdos e atores de pantomima conversam inteiramente por sinais gestuais); e (2) se alguém nos pergunta o que é <em>"caminhar"</em> (<code>ambulare</code>) enquanto já estamos caminhando, e tentamos responder acelerando o passo, o interrogador confundirá <em>caminhar</em> com <em>apressar-se</em> (<code>festinare</code>).
+
+      <!-- MOVIMENTO II -->
+      <h3 class="md-h3" id="movimento2"><span class="hash">###</span>4.2. Movimento II (Caps. IV–VIII): O détour metalinguístico, verbum vs. nomen e a dissolução dos sofismas</h3>
+
+      <p>
+        Nos <strong>Capítulos IV a VII (<code>DM IV, 7 – VII, 20</code>)</strong>, Agostinho executa o <em>détour méthodologique</em> (desvio metodológico necessário): classifica todas as situações comunicativas em (a) sinais mostrados por sinais, (b) ações não-sígnicas executadas após uma pergunta e (c) coisas que não são sinais (<code>significabilia</code>) indicadas por sinais. No exame exaustivo da primeira classe, constrói a semiótica metalinguística mais avançada da Antiguidade:
+      </p>
+
+      <ul class="md-list">
+        <li>
+          <strong>Fala vs. Escrita como Sinais de Sinais (<code>DM IV, 7–9</code>):</strong> As palavras pronunciadas ferem o ouvido; <mark class="hl-yellow">já as palavras escritas (como os padrões traçados com a tinta do piloto sobre o quadro de vidro no exemplo do professor) são <strong>sinais visíveis de sinais audíveis</strong> (<code>signa signorum</code>)</mark><span class="audio-pill">[AULA 00:00:35]</span>. Toda palavra é sinal, mas nem todo sinal é palavra (tal como todo cavalo é animal, mas nem todo animal é cavalo).
+        </li>
+        <li>
+          <strong>Reflexividade e Coextensividade Metalinguística de <em>Verbum</em> e <em>Nomen</em> (<code>DM IV, 10 – VI, 18</code>):</strong> Termos como <code>"sinal"</code>, <code>"palavra"</code> e <code>"nome"</code> são reflexivos (significam a si mesmos), ao passo que <code>"conjunção"</code> é irreflexivo (é um substantivo que denota partículas que não são substantivos). Contudo, no plano metalinguístico do discurso, <strong>toda palavra é também um nome</strong>: quando mencionamos qualquer partícula como sujeito nominativo de uma frase — ex.: <em>"Se agrada; porque desagrada"</em> (<code>placet si; displicet quia</code>, <code>DM V, 16</code>) ou o <em>"sim"</em> (<code>est</code>) de Cristo em <em>2 Cor 1,19</em> —, a palavra mencionada funciona sintática e semanticamente como nome. Como observa Christoph Horn, Agostinho descobre aqui a diferença lógica entre <strong>extensão</strong> e <strong>intensão</strong>: <code>verbum</code> e <code>nomen</code> possuem a mesma extensão universal no discurso, mas diferem em intensão (<code>verbum</code> remete ao impacto acústico de <em>verberare</em>; <code>nomen</code> remete ao ato cognitivo de <em>nosco</em>, conhecer).
+        </li>
+      </ul>
+
+      <p>
+        No <strong>Capítulo VIII (<code>DM VIII, 21–24</code>)</strong>, após comparar a dificuldade de falar sobre palavras com palavras ao ato de <strong>esfregar dedos entrelaçados</strong> (em que só quem os move distingue qual dedo coça e qual é coçado, <code>DM V, 14</code>), Agostinho formula a <strong>regra fundamental da fala</strong> (<code>regula loquendi</code>) gravada na mente pela <strong>lei da razão</strong> (<code>lex rationis</code>): no uso normal da comunicação, a mente transita imediatamente do som ouvido para a coisa significada (<code>suppositio formalis</code>). Isso dissolve instantaneamente os paralogismos dialéticos: quando alguém pronuncia <em>"leão"</em>, de sua boca sai o sinal sonoro e não a fera; e quando perguntam a Adeodato se o <em>homem</em> é composto de duas sílabas (<em>ho-mem</em>), a resposta ontológica na linguagem-objeto é <em>"animal racional mortal"</em>, enquanto a resposta semiótica na metalinguagem é <em>"nome dissílabo"</em>.
+      </p>
+
+      <!-- MOVIMENTO III (COM PONTES 3 E 4) -->
+      <h3 class="md-h3" id="movimento3"><span class="hash">###</span>4.3. Movimento III (Caps. IX–X): Hierarquia axiológica, o passarinheiro, o dilema do signo e o enigma de sarabarae</h3>
+
+      <p>
+        No <strong>Capítulo IX (<code>DM IX, 25–28</code>)</strong>, Agostinho estabelece o princípio teleológico dos meios e fins: <strong>tudo o que existe em função de outra coisa possui valor menor do que aquilo em vista do qual existe</strong>. Diante do contraexemplo engenhoso de Adeodato — segundo o qual o vocábulo <code>"lamaçal"</code> (<code>coenum</code>, acusticamente próximo de <code>"céu"</code>, <code>coelum</code>) é muito mais agradável de ouvir do que a coisa fétida que ele designa —, Agostinho distingue quatro termos: <strong>(1) o nome</strong>, <strong>(2) a coisa</strong>, <strong>(3) o conhecimento do nome</strong> e <strong>(4) o conhecimento da coisa</strong>. Ainda que o som do nome <em>"lama"</em> ou <em>"vício"</em> seja preferível à coisa torpe, o <strong>conhecimento</strong> é sempre superior ao sinal (pois os sinais existem para o conhecimento, assim como se come para viver e se fala para ensinar), e o <strong>conhecimento da própria coisa</strong> (a ciência moral do vício e da virtude) é superior ao mero conhecimento filológico do nome.
+      </p>
+
+      <p>
+        No <strong>Capítulo X (<code>DM X, 29–35</code>)</strong>, ocorre a grande reviravolta dialética do tratado em três passos encadeados:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>A Crise da Ostensão e o Pivô do Passarinheiro (<code>DM X, 29–32</code>):</strong> Adeodato radicaliza a crítica ao ato de caminhar: mesmo que alguém esteja parado e comece a andar após a pergunta, o observador pode julgar que <em>"caminhar"</em> significa apenas andar aquela distância exata! Quando Adeodato parece forçado a conceder que <em>nada pode ser ensinado sem sinais</em> (<code>X, 31</code>), Agostinho derruba essa generalização com o exemplo do <strong>caçador de pássaros</strong> (<code>auceps</code>, <code>X, 32</code>): se um espectador inteligente observa o passarinheiro armar suas varas e visco e capturar uma ave, ele aprende a arte da caça pela visão direta da ação, sem nenhum sinal comunicativo — exatamente como Deus e a natureza exibem por si mesmos aos nossos olhos o sol, a lua e o cosmos.
+        </li>
+        <li>
+          <strong>A Tese Radical ("Os Sinais Não Ensinam Nada") e o Dilema Bicorne (<code>DM X, 33–35; XI, 36</code>):</strong> <mark class="hl-yellow">Agostinho inverte então completamente a hipótese inicial do diálogo e formula sua crítica epistemológica definitiva à linguagem: <strong>os sinais não ensinam absolutamente nada!</strong> Enquanto conjunto de emissões materiais e sonoras, a linguagem é incapaz de gerar por si mesma o conhecimento de uma realidade na mente do ouvinte. Como o professor reconstrói na aula (e como Christoph Horn rastreia até o tropo cético-pirrônico de Sexto Empírico, <em>Hipotiposes Pirrônicas</em> III, 267–269), Agostinho estrutura essa prova por meio de um <strong>dilema</strong> inexorável:</mark><span class="audio-pill">[AULA 00:03:00]</span>
+          <ul class="md-sublist">
+            <li><mark class="hl-yellow"><strong>1ª Ponta do Dilema (O ouvinte já conhece a coisa):</strong> Se aquele que ouve o sinal já conhece previamente a realidade para a qual o sinal aponta, a palavra não lhe ensina a coisa; ela opera unicamente como uma recordação ou advertência (<code>admonitio</code>), fazendo-o associar o som a um objeto ou conceito que já possuía na memória.</mark><span class="audio-pill">[AULA 00:05:10]</span></li>
+            <li><mark class="hl-yellow"><strong>2ª Ponta do Dilema (O ouvinte não conhece a coisa):</strong> Se aquele que ouve o sinal não conhece previamente a realidade significada pela palavra, o som emitido não passa de <strong>ruído articular</strong>! Ele escuta a percussão física da voz no ar, mas a palavra desconhecida não carrega em seu corpo material a substância nem a definição ontológica do objeto.</mark><span class="audio-pill">[AULA 00:06:30]</span></li>
+          </ul>
+        </li>
+        <li>
+          <strong>O Exemplo Clássico de <em>Sarabarae</em> (<em>Daniel 3,94</em>) e da Palavra <em>Caput</em> — O Paradoxo Linguístico-Epistemológico (<code>DM X, 33–35</code>):</strong> <mark class="hl-yellow">Para comprovar empiricamente a segunda ponta do dilema, Agostinho invoca o célebre exemplo bíblico que o professor analisa em detalhe na aula: o vocábulo latino <strong><code>sarabarae / saraballae</code></strong> (as sarabaras, calções ou coifas persas dos três jovens hebreus mencionados em <em>Daniel 3,94 [3,27]</em>: <em>"e as suas sarabaras não foram mudadas"</em>). Se alguém pronuncia diante de nós a palavra <em>"sarabara"</em> e nós nunca vimos nem sabemos o que é esse objeto, o que a palavra nos ensina? <strong>Absolutamente nada!</strong> Aprendemos apenas que existe um som articulado composto pelas sílabas <code>sa-ra-ba-ra</code>, mas a palavra é impotente para nos mostrar a coisa em si — sua forma, sua essência, seu uso.</mark><span class="audio-pill">[AULA 00:08:00]</span> Mesmo que alguém tente explicar verbalmente que <em>sarabara</em> significa <em>"certa cobertura de cabeça"</em>, nós só entendemos essas palavras porque já conhecíamos previamente o que é <em>cabeça</em> e o que é <em>cobertura</em> pela visão direta, mas continuamos sem conhecer a <em>sarabara</em> até vê-la com nossos próprios olhos! E o mesmo ocorreu na infância com a palavra comum <strong><code>caput</code></strong> (cabeça): quando ouvimos pela primeira vez as duas sílabas <code>ca-put</code>, elas eram tão obscuras e vazias quanto <code>sarabara</code>; só descobrimos que <code>caput</code> era um sinal depois de já conhecermos a cabeça pela percepção visual. <mark class="hl-yellow">Daí decorre o que o professor denomina <strong>paradoxo linguístico-epistemológico agostiniano</strong>: <em>para que a linguagem tenha sentido e signifique a coisa, eu já preciso conhecer a coisa previamente; logo, não é a linguagem que me ensina a coisa, mas é o conhecimento prévio da coisa que me faz compreender a linguagem!</em></mark><span class="audio-pill">[AULA 00:12:30]</span>
+        </li>
+      </ol>
+
+      <!-- BLOCO DE TRANSCRIÇÃO LITERAL 2 (PONTES 3 E 4) -->
+      <div class="md-block prof-audio-block">
+        <div class="prof-audio-header">
+          <span class="prof-audio-badge">★ CONVERGÊNCIA P3 &amp; P4 — TRANSCRIÇÃO DO PROFESSOR: DILEMA DO SIGNO E SARABARAE</span>
+          <span class="prof-audio-meta">Áudio: Medieval 04-11.m4a · [00:03:00 – 00:15:00] · Ref.: DM X, 33–35; XI, 36</span>
+        </div>
+        <div>
+          <strong>Síntese da Ponte Exegética:</strong> Reconstrução formal do dilema de <code>DM X, 33–35</code> (conhecido = mera <em>admonitio</em> vs. desconhecido = mero <em>ruído articular</em>), análise do exemplo bíblico de <code>sarabarae</code> (<em>Daniel 3</em>) e formulação do paradoxo linguístico-epistemológico da prioridade do conhecimento da coisa sobre a compreensão do signo.
+        </div>
+        <div class="prof-transcript-quote">
+          <p>
+            <strong>[00:03:00 – 00:08:00]</strong> <em>"Qual é a perspectiva crítica de Agostinho em relação à linguagem? A crítica agostiniana é a seguinte: <strong>os sinais não ensinam nada</strong>.</em>
+          </p>
+          <p>
+            <em>A linguagem, enquanto conjunto articulado de sinais materiais e sonoros, é incapaz de transmitir ou gerar por si mesma o conhecimento de uma coisa na mente de quem ouve. Agostinho desenvolve esse argumento no De Magistro por meio de um dilema:</em><br>
+            <em>1. Ou aquele que ouve o sinal já conhece previamente a realidade para a qual o sinal aponta;</em><br>
+            <em>2. Ou aquele que ouve o sinal não conhece a realidade significada.</em>
+          </p>
+          <p>
+            <em>Se ele já conhece a realidade apontada pelo sinal, a palavra não lhe ensina a coisa; ela atua meramente como uma recordação ou advertência (admonitio). O sujeito já detinha a apreensão do objeto ou do conceito em sua memória e apenas associa o som àquilo que já conhecia.</em>
+          </p>
+          <p>
+            <em>Por outro lado, se ele não conhece previamente a realidade significada pela palavra, o som emitido não passa de ruído articular! Ele escuta o som da palavra, mas o som não é a coisa. Uma palavra desconhecida não carrega em seu corpo material a substância ou a definição ontológica do objeto."</em>
+          </p>
+          <p>
+            <strong>[00:08:00 – 00:15:00]</strong> <em>"Vejam o célebre exemplo agostiniano no De Magistro: a palavra latina <strong>sarabarae</strong> (sarabaras / calções persas, mencionadas no livro de Daniel). Se eu digo a vocês a palavra 'sarabara', o que essa palavra ensina a vocês se vocês nunca viram nem sabem o que é? Absolutamente nada! Vocês apenas aprenderam que existe um som articulado composto pelas sílabas 'sa-ra-ba-ra'. Mas o conhecimento da coisa em si — o que ela é, sua forma, seu uso — a palavra é incapaz de fornecer. Vocês só passam a conhecer o que é a sarabara se virem o objeto ou se já tiverem em mente a imagem de uma veste correspondente.</em>
+          </p>
+          <p>
+            <em>Daí se segue o que podemos denominar de <strong>paradoxo linguístico-epistemológico agostiniano</strong>:</em><br>
+            <em><strong>Para que a linguagem tenha sentido e signifique a coisa, eu já preciso conhecer a coisa previamente; logo, não é a linguagem que me ensina a coisa, mas é o conhecimento prévio da coisa que me faz compreender a linguagem!</strong></em>
+          </p>
+          <p>
+            <em>O dizer sobre um objeto não mostra o que o objeto é. A linguagem pressupõe o conhecimento, mas não o causa."</em>
+          </p>
+        </div>
+      </div>
+
+      <!-- MOVIMENTO IV-A (COM PONTE 5) -->
+      <h3 class="md-h3" id="movimento4a"><span class="hash">###</span>4.4. Movimento IV-A (Cap. XI): Os três jovens na fornalha (Daniel 3) e a fronteira entre crer (credere) e compreender/saber (intelligere / scire)</h3>
+
+      <p>
+        No <strong>Capítulo XI (<code>DM XI, 36–38</code>)</strong>, Agostinho enfrenta a objeção mais natural contra o paradoxo do Capítulo X: se as palavras não ensinam nada, o que ocorre quando lemos ou ouvimos uma <strong>narrativa histórica ou bíblica</strong> sobre acontecimentos que jamais presenciamos? <mark class="hl-yellow">Agostinho toma como estudo de caso o próprio relato do livro de <em>Daniel 3</em> do qual retirara o vocábulo <em>sarabarae</em> — o episódio dos <strong>três jovens hebreus (Ananias, Azarias e Misael)</strong> que, lançados na fornalha ardente pelo rei Nabucodonosor na Babilônia por recusarem adorar o ídolo, venceram o fogo pela fé e pela religião e cantaram louvores a Deus em meio às chamas.</mark><span class="audio-pill">[AULA 00:15:30]</span>
+      </p>
+
+      <p>
+        A dissecação agostiniana desse relato em <code>DM XI, 37</code> produz três resultados capitais para a filosofia da linguagem e para a epistemologia:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>Conhecimento prévio dos conceitos gerais vs. opacidade dos nomes próprios:</strong> Tudo o que as palavras comuns da narrativa significam (<em>"três meninos"</em>, <em>"fornalha"</em>, <em>"fogo"</em>, <em>"rei"</em>, <em>"incolumidade ao fogo"</em>) já era previamente conhecido por nós antes de lermos o texto. Quanto aos três jovens singulares em si mesmos, os seus nomes próprios (<em>Ananias, Azarias e Misael</em>) nada nos ajudaram nem poderiam ajudar a conhecê-los — observação na qual Eugenio Coseriu identifica o nascimento da teoria moderna dos <strong>nomes próprios como signos desprovidos de intensão ou conotação descritiva</strong>.
+        </li>
+        <li>
+          <strong>A Distinção Epistêmica entre Crer (<code>credere</code>) e Compreender/Saber (<code>intelligere / scire</code>):</strong> <mark class="hl-yellow">Como explica o professor em total convergência com <code>DM XI, 37</code>, diante do relato de que aqueles três jovens foram lançados na fornalha por Nabucodonosor, nós não temos <strong>ciência</strong> (<code>scire</code>) nem <strong>compreensão</strong> (<code>intelligere</code>) daquele fato histórico, por uma dupla razão epistemológica: (a) nós não estávamos lá na Babilônia para perceber pelos nossos próprios <strong>sentidos corporais</strong> a fornalha e os jovens; e (b) tampouco possuímos uma <strong>intuição racional <em>a priori</em></strong> de um evento histórico empírico e contingente do passado. Por conseguinte, diante do relato verbal, podemos apenas <strong>crer</strong> (<code>credere</code>) com base na autoridade da testemunha ou da Escritura: <em>"Confesso que creio antes que saber (credere me potius quam scire confiteor) que tudo o que lemos naquela história aconteceu naquele tempo assim como foi escrito"</em> (<code>DM XI, 37</code>).</mark><span class="audio-pill">[AULA 00:16:45]</span>
+        </li>
+        <li>
+          <strong>A Lei de Inclusão Assimétrica (<em>Isaías 7,9</em>):</strong> Citando o profeta (<em>"Se não crerdes, não entendereis"</em>), Agostinho estabelece que <mark class="hl-yellow">acreditar pela autoridade do testemunho é uma adesão da vontade (útil e indispensável para a vida prática e espiritual), mas não equivale a ter ciência da coisa, a qual exige evidência direta diante dos olhos da mente ou dos sentidos</mark><span class="audio-pill">[AULA 00:20:00]</span>: <em>"Tudo o que compreendo conheço, mas nem tudo o que creio conheço"</em> (<code>Quod ergo intelligo, id etiam scio; non autem omne quod credo, etiam scio</code>).
+        </li>
+      </ol>
+
+      <!-- BLOCO DE TRANSCRIÇÃO LITERAL 3 (PONTE 5) -->
+      <div class="md-block prof-audio-block">
+        <div class="prof-audio-header">
+          <span class="prof-audio-badge">★ CONVERGÊNCIA P5 — TRANSCRIÇÃO DO PROFESSOR: CREDERE VS. INTELLIGERE E OS JOVENS NA FORNALHA</span>
+          <span class="prof-audio-meta">Áudio: Medieval 04-11.m4a · [00:15:00 – 00:22:00] · Ref.: DM XI, 37</span>
+        </div>
+        <div>
+          <strong>Síntese da Ponte Exegética:</strong> Exposição da distinção entre crer (<code>credere</code>, adesão da vontade movida pela autoridade do testemunho histórico/bíblico) e compreender/saber (<code>intelligere / scire</code>, visão direta sensorial ou intelectual) aplicada literalmente ao caso de Ananias, Misael e Azarias na fornalha de Nabucodonosor em <code>DM XI, 37</code>.
+        </div>
+        <div class="prof-transcript-quote">
+          <p>
+            <em>"Isso nos leva a uma distinção epistêmica fundamental em Agostinho, que permeia todo o seu pensamento: a distinção entre <strong>crer</strong> (credere) e <strong>compreender</strong> ou <strong>saber</strong> (intelligere / scire).</em>
+          </p>
+          <p>
+            <em>Quando alguém me relata um acontecimento histórico — por exemplo, que os três jovens hebreus (Ananias, Misael e Azarias) foram lançados na fornalha ardente pelo rei Nabucodonosor na Babilônia —, o que acontece quando escuto essas palavras? Eu não estava lá; eu não percebi pelos meus sentidos corporais a Babilônia, nem a fornalha, nem os jovens. Eu também não tenho uma intuição racional a priori daquele evento histórico empírico contingente. Portanto, diante do relato, eu posso apenas <strong>crer</strong> (credere). A crença baseia-se na autoridade do testemunho.</em>
+          </p>
+          <p>
+            <em>Mas Agostinho é categórico: <strong>acreditar em alguém não é o mesmo que ter ciência da coisa</strong>. A crença é uma adesão da vontade movida pela autoridade da testemunha ou do texto sagrado, mas o saber autêntico exige uma evidência direta diante dos olhos da mente ou dos sentidos."</em>
+          </p>
+        </div>
+      </div>
+
+      <!-- MOVIMENTO IV-B (COM PONTES 6, 7, 8 E 9) -->
+      <h3 class="md-h3" id="movimento4b"><span class="hash">###</span>4.5. Movimento IV-B (Cap. XII): Memória/imaginação vs. inteligíveis puros (7+3=10 e Justiça), função admonitória e Teoria da Iluminação</h3>
+
+      <p>
+        No <strong>Capítulo XII (<code>DM XII, 39–40</code>)</strong> — lido e comentado diretamente pelo professor em sala de aula —, Agostinho divide a totalidade das coisas que percebemos em duas categorias epistêmicas fundamentais: as coisas <strong>sensíveis/carnais</strong> (percebidas pelos sentidos do corpo) e as coisas <strong>inteligíveis/espirituais</strong> (percebidas pela mente, <code>mens</code>, com o intelecto e a razão). A análise dessa bipartição desdobra-se em quatro pontos de convergência integral com a aula:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>Memória, Imagens-Documento e Imaginação no Domínio Sensível (<code>DM XII, 39</code>):</strong> Quando somos interrogados sobre corpos presentes (como o sol ou a lua nova no céu), consultamos as próprias coisas visíveis sob a luz física; quando falamos de coisas sensíveis passadas que nós mesmos vimos outrora, consultamos na <strong>memória</strong> as imagens impressas por elas (<code>imagines... memoriae mandatas</code>), que guardamos como <strong>documentos</strong> internos (<code>documenta</code>). <mark class="hl-yellow">E o que acontece na nossa mente quando ouvimos o relato histórico dos três jovens na fornalha que nunca vimos presencialmente? Como esclarece o professor, a nossa <strong>imaginação</strong> atua como faculdade mediadora e reconstrói mentalmente uma cena pictórica na memória a partir de imagens prévias que já acumulamos de <em>homens</em> e de <em>fogo</em>; todavia, essa imagem forjada pela fantasia mental é apenas uma representação subjetiva, e não a visão da realidade histórica exata da Babilônia.</mark><span class="audio-pill">[AULA 00:22:00]</span>
+        </li>
+        <li>
+          <strong>O Domínio Inteligível Puro — Verdades Matemáticas (<code>7 + 3 = 10</code>) e a Ideia de Justiça (<code>DM XII, 40</code>):</strong> <mark class="hl-yellow">Em contraste radical com os objetos empíricos e as fantasias da imaginação, como conhecemos uma verdade inteligível pura, tal como uma relação matemática (<code>7 + 3 = 10</code>) ou o conceito puro de <strong>Justiça</strong> (<em>"dar a cada um o que é seu por direito"</em>) e de <strong>Retidão</strong>? Quando o professor pronuncia a palavra <em>"Justiça"</em>, o que sai de sua boca são apenas ondas sonoras físicas vibrando no ar. O ouvinte não compreende o que é a Justiça olhando para as ondas de ar, nem fabricando uma imagem sensível dotada de matéria, cor ou cheiro na imaginação (pois a Justiça é incorpórea). Tampouco esse critério entra pelos ouvidos através das palavras exteriores: quando julgamos se uma lei do <strong>direito jurídico-positivo</strong> (leis sobre saúde, educação ou ampla defesa) ou uma ação concreta é efetivamente <em>justa</em>, realizamos esse julgamento comparando a lei positiva particular com uma <strong>regra interior e imutável de retidão</strong> que contemplamos diretamente com o olhar da mente!</mark><span class="audio-pill">[AULA 00:25:30 &amp; 00:30:00]</span>
+        </li>
+        <li>
+          <strong>A Função Meramente Admonitória (<code>Admonitio</code>) e a Crítica à Pedagogia do "Vaso Vazio" (<code>DM XI, 36, 38; XII, 40; XIV, 45</code>):</strong> <mark class="hl-yellow">Qual é, então, o papel real do professor humano que fala na sala de aula? Agostinho responde que a linguagem externa possui uma função estritamente <strong>admonitória</strong> (<code>admonere</code> = advertir, chamar a atenção, convidar). Como enfatiza o professor, o docente não está "injetando" nem derramando ideias dentro da cabeça do aluno como se a mente fosse um vaso vazio; ele apenas profere sinais sonoros que servem de <strong>ocasião</strong> para que o discípulo se volte para dentro de si mesmo e consulte a verdade interior. Se o aluno não realizar por si mesmo essa consulta interior — inclusive quando conduzido por perguntas graduais parte por parte no método maiêutico (<code>DM XII, 40</code>) —, o mestre exterior pode gritar e gesticular mil vezes que nada será aprendido.</mark><span class="audio-pill">[AULA 00:38:00]</span>
+        </li>
+        <li>
+          <strong>O Mestre Interior (<code>Magister Interior</code> = Cristo) e a Teoria da Iluminação (<code>Illuminatio</code>, <code>DM XI, 38; XII, 40</code>):</strong> <mark class="hl-yellow">Lendo diretamente em sala a síntese de Agostinho (<code>DM XI, 38 – XII, 40</code>), o professor expõe o coração da <strong>Teoria da Iluminação</strong> (<code>Illuminatio</code>): quando compreendemos pela inteligência uma verdade necessária (uma demonstração geométrica ou um princípio moral), não ouvimos a voz de quem fala por fora, mas consultamos a <strong>Verdade que preside interiormente à própria mente</strong> — e Aquele que é consultado é Cristo, que habita no homem interior (<em>Ef 3,16–17</em>), a <strong>Força Incomutável de Deus e a Sabedoria Eterna</strong> (<em>1 Cor 1,24</em>). Assim como o olho corporal precisa da luz física do sol para enxergar os corpos materiais, a mente racional criada — que é <strong>mutável e falível</strong> (ora ignora, ora descobre) — necessita de uma <strong>Luz Espiritual e Incorpórea</strong> superior a ela mesma para contemplar verdades que são <strong>universais, necessárias, eternas e imutáveis</strong>. Porque a verdade é imutável e a nossa inteligência é mutável, nós não fabricamos a verdade: nós a descobrimos e a contemplamos sob a iluminação do Mestre Interior.</mark><span class="audio-pill">[AULA 00:45:00 – 01:05:00]</span>
+        </li>
+      </ol>
+
+      <!-- BLOCO DE TRANSCRIÇÃO LITERAL 4 (PONTES 6, 7, 8 E 9) -->
+      <div class="md-block prof-audio-block">
+        <div class="prof-audio-header">
+          <span class="prof-audio-badge">★ CONVERGÊNCIA P6, P7, P8 &amp; P9 — TRANSCRIÇÃO DO PROFESSOR: JUSTIÇA, ADMONITIO E ILUMINAÇÃO (CAP. XII)</span>
+          <span class="prof-audio-meta">Áudio: Medieval 04-11.m4a · [00:22:00 – 01:05:00] · Ref.: DM XI, 38; XII, 39–40; XIV, 45–46</span>
+        </div>
+        <div>
+          <strong>Síntese da Ponte Exegética:</strong> Abrange o contraste entre imaginação/memória empírica e verdades inteligíveis puras (<code>7 + 3 = 10</code> e Justiça), a distinção entre direito positivo e a regra interior imutável de retidão, o conceito de <code>admonitio</code> contra a pedagogia do vaso vazio, a leitura direta de <em>De Magistro</em> XI–XII em sala e a fundamentação metafísica da <code>Illuminatio</code>.
+        </div>
+        <div class="prof-transcript-quote">
+          <p>
+            <strong>[00:22:00 – 00:30:00] (Ponte 6 — Imaginação/Memória vs. Matemática e Justiça):</strong> <em>"A imaginação aqui opera como faculdade mediadora: quando ouvimos falar dos três rapazes na fornalha, nossa imaginação reconstrói mentalmente uma cena pictórica a partir de imagens prévias que acumulamos de homens e de fogo. Mas essa imagem forjada pela fantasia mental não é a realidade histórica exata dos jovens na Babilônia; é uma representação subjetiva construída na memória.</em>
+          </p>
+          <p>
+            <em>Agora comparem isso com o conhecimento de uma verdade inteligível pura: por exemplo, o conceito de <strong>Justiça</strong>, de <strong>Retidão</strong> ou as verdades matemáticas (como 7 + 3 = 10). Se eu falo sobre a Justiça — 'dar a cada um o que é seu por direito' —, as palavras que saem da minha boca são ondas sonoras no ar. Como é que você entende o que é a Justiça? Não é olhando para as ondas de ar. Tampouco é formando uma imagem sensível com cor e cheiro na imaginação, pois a Justiça não tem matéria nem cor. Onde você contempla a verdade do conceito de Justiça?"</em>
+          </p>
+          <p>
+            <strong>[00:30:00 – 00:38:00] (Ponte 7 — Direito Positivo vs. Regra Interior de Justiça):</strong> <em>"Vejam a diferença entre o âmbito jurídico-positivo do direito e a essência noética da justiça. Você pode ter leis que asseguram direitos à saúde, à educação, à ampla defesa. Mas quando você julga se uma lei específica ou uma ação particular é justa, sob qual critério você julga? Você julga comparando a situação concreta com uma regra interior e imutável de retidão! Esse critério puro de justiça não entra pelos seus ouvidos através das minhas palavras. Se você não possuísse já em si mesmo a regra da verdade pela qual reconhece a justiça, as minhas palavras não produziriam nenhum assentimento racional em você. Você apenas repetiria sons sem discernimento."</em>
+          </p>
+          <p>
+            <strong>[00:38:00 – 00:45:00] (Ponte 8 — Função Admonitória / Admonere):</strong> <em>"Assim, a linguagem humana externa tem uma função meramente <strong>admonitória</strong> (admonere = advertir, convidar, chamar a atenção). Quando o professor fala na sala de aula, ele não está 'injetando' ou derramando ideias dentro da cabeça do aluno como se a mente fosse um vaso vazio. O que o mestre exterior faz é proferir sinais que servem de ocasião para que o discípulo se volte para dentro de si e consulte a verdade. Se o discípulo não consultar a verdade em sua própria mente, o mestre exterior pode gritar, gesticular e repetir mil vezes: nada será aprendido."</em>
+          </p>
+          <p>
+            <strong>[00:45:00 – 00:53:00] (Ponte 9A — Leitura Direta do De Magistro em Sala):</strong> <em>"Eu queria, ao invés de apenas projetar o slide, ler diretamente o texto do próprio Agostinho no De Magistro, capítulo 12 [XI, 38 – XII, 40]. Reparem na clareza com que Agostinho sintetiza toda a sua tese: 'Tratando-se, com efeito, de coisas que compreendemos pela inteligência, não ouvimos falar a quem fala externamente, mas à Verdade interiormente presente à própria mente. As palavras apenas nos advertem para que a consultemos. Ora, quem é consultado é Aquele que habita no homem interior, isto é, a Força Incomutável de Deus e a Sabedoria Eterna, Cristo Jesus.' Olhem o que Agostinho está afirmando aqui com toda a força da tradição neoplatônico-cristã: quando você compreende que uma demonstração geométrica é verdadeira, ou que uma proposição moral é reta, quem está lhe ensinando essa verdade? Não é a voz do professor que fala no ar! A voz do professor apenas advertiu você para voltar o olhar interior. Quem lhe mostra a verdade é a <strong>Luz Interior</strong>, o <strong>Mestre Interior</strong> (Magister Interior), que ilumina o intelecto com a Verdade Eterna."</em>
+          </p>
+          <p>
+            <strong>[00:53:00 – 01:05:00] (Ponte 9B — Teoria da Iluminação e Inversão Pedagógica):</strong> <em>"Essa é a célebre <strong>Teoria da Iluminação</strong> (Illuminatio). Para Agostinho, assim como o olho corporal necessita da luz física do sol para ver os objetos materiais do mundo sensível, a mente racional criada necessita de uma Luz Espiritual e Incorpórea superior a ela mesma — a luz de Deus — para contemplar as razões eternas e as verdades necessárias e imutáveis. Nós somos mutáveis e falíveis; ora ignoramos uma verdade, ora a descobrimos. Mas as verdades em si (as regras da aritmética, da lógica, da justiça) são universais, imutáveis e eternas. Se a verdade é imutável e a nossa inteligência é mutável, a verdade não é criada pela nossa inteligência! Nós não fabricamos a verdade; nós a descobrimos e a contemplamos sob a iluminação do Mestre Interior. Por isso Agostinho conclui o tratado com uma inversão radical do papel pedagógico: no sentido estrito e próprio do termo, <strong>nenhum homem ensina outro homem</strong>. Não chameis a ninguém de mestre sobre a terra, pois um só é o vosso Mestre: o Cristo que habita interiormente."</em>
+          </p>
+        </div>
+      </div>
+
+      <!-- MOVIMENTO IV-C -->
+      <h3 class="md-h3" id="movimento4c"><span class="hash">###</span>4.6. Movimento IV-C (Caps. XIII–XIV): As cinco opacidades pragmáticas da fala, a ilusão temporal e o fecho de Adeodato</h3>
+
+      <p>
+        No <strong>Capítulo XIII (<code>DM XIII, 41–44</code>)</strong>, <mark class="hl-yellow">Agostinho encerra a demolição crítica das duas finalidades da linguagem retomadas pelo professor da aula anterior (<code>[00:00:00]</code>): após ter provado nos Capítulos X–XII que a palavra falha em sua primeira finalidade (não exibe nem ensina a <em>coisa</em>), demonstra agora que a palavra falha até mesmo em sua segunda finalidade mínima — <strong>ser sinal fidedigno do conteúdo mental de quem fala</strong> (<em>"nem sequer resta às palavras o ofício de, ao menos, manifestarem o pensamento de quem fala"</em>, <code>DM XIII, 42</code>)</mark><span class="audio-pill">[AULA 00:00:15]</span>, enumerando cinco opacidades pragmáticas:
+      </p>
+
+      <ul class="md-list">
+        <li>
+          <strong>1. O falante que profere verdades que ele mesmo ignora ou rejeita (<code>DM XIII, 41–42</code>):</strong> Um epicurista (que crê ser a alma mortal) pode recitar argumentos válidos em favor da imortalidade da alma; o ouvinte espiritual reconhece na luz interior que os argumentos são verdadeiros, embora o próprio locutor não saiba que são verdadeiros e até os julgue falsos.
+        </li>
+        <li>
+          <strong>2. A mentira e o engano deliberado (<code>DM XIII, 42</code>):</strong> Mentirosos empregam signos verbais justamente para ocultar e dissimular seus conteúdos mentais.
+        </li>
+        <li>
+          <strong>3. A recitação mecânica distraída e o lapso verbal (<code>DM XIII, 42</code>):</strong> Mesmo falantes verazes frequentemente cantam um hino decorado enquanto sua mente divaga por outros assuntos, ou sofrem um lapso da língua (<code>linguae lapsus</code>) e pronunciam sinais diversos do que pensam.
+        </li>
+        <li>
+          <strong>4. A divergência semântica / homonímia conceitual (<code>DM XIII, 43</code>):</strong> Interlocutores podem usar o mesmo som atribuindo-lhe significados diferentes (como quem chama força física bruta de <em>"virtude"</em> e conclui que os animais superam o homem em virtude).
+        </li>
+        <li>
+          <strong>5. A falha acústica de audição (<code>DM XIII, 44</code>):</strong> Disputas prolongadas ocorrem apenas porque uma das partes ouviu mal uma sílaba (exemplificado por uma discussão entre Agostinho e Adeodato sobre o sentido de uma palavra púnica).
+        </li>
+      </ul>
+
+      <p>
+        No <strong>Capítulo XIV (<code>DM XIV, 45–46</code>)</strong>, Agostinho explica a gênese psicológica da <strong>ilusão pedagógica</strong>: ninguém envia um filho à escola para aprender quais são os pensamentos pessoais do professor, mas para aprender as próprias disciplinas verdadeiras; quando o mestre fala, o aluno julga interiormente na luz da Verdade se o que foi dito é verdadeiro. Contudo, como na maioria das vezes <strong>não há nenhum intervalo perceptível de tempo (<code>nulla mora</code>) entre o ouvir exterior e o ver interior</strong>, os homens confundem a admoestação externa do docente com a iluminação interior, chamando de "mestres" os homens terrenos. <mark class="hl-yellow">O tratado culmina assim na justificação filosófica estrita da sentença de Cristo em <em>Mateus 23,8–10</em> destacada pelo professor: <strong>nenhum homem sobre a terra ensina outro homem, pois um só é o nosso Mestre, Cristo, que nos admoesta por fora e nos ensina por dentro</strong> (<code>foris admonet, intus docet</code>)</mark><span class="audio-pill">[AULA 01:02:00]</span> — tese que Adeodato sela performativamente no último parágrafo (<code>DM XIV, 46</code>) ao declarar que aprendeu tudo isso não das palavras exteriores de seu pai, mas do oráculo interior que lhe respondia na mente.
+      </p>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- SEÇÃO 5: FASE 3 & CAMADAS 2-3 — RECONSTRUÇÃO LÓGICA EM FORMA PADRÃO -->
+    <section id="fase3">
+      <h2 class="md-h2">5. Fase 3 &amp; Camadas 2–3 (Analítica e Estrutural): Reconstrução Lógica em Forma Padrão Anotada</h2>
+
+      <p>
+        Descarregando a memória de trabalho na estrutura inferencial explícita (protocolo Marcus Sacrini / James Pryor / Descartes Regra 4), reconstruímos os dois grandes silogismos estruturais que governam a virada epistemológica do <em>De Magistro</em>:
+      </p>
+
+      <div class="md-block">
+        <span class="md-block-label">ARGUMENTO I: O DILEMA PIRRÔNICO-AGOSTINIANO DO SIGNO E O PARADOXO DE SARABARAE (DM X, 33–35)</span>
+        <div class="logic-line">
+          <span class="logic-tag">[P1]</span> <mark class="hl-yellow">Quando um sinal linguístico <em>S</em> (ex.: <code>sarabarae</code> ou <code>caput</code>) é proferido diante de um ouvinte <em>O</em> para significar uma coisa <em>R</em>, ou (a) <em>O</em> já conhece previamente <em>R</em>, ou (b) <em>O</em> não conhece previamente <em>R</em>.</mark><span class="audio-pill">[AULA 00:04:00]</span>
+        </div>
+        <div class="logic-line">
+          <span class="logic-tag">[P2]</span> <mark class="hl-yellow">Se (a) <em>O</em> já conhece previamente <em>R</em>, então <em>S</em> não lhe ensina <em>R</em>, mas opera unicamente como recordação ou advertência (<code>admonitio</code>) do que já estava em sua memória.</mark><span class="audio-pill">[AULA 00:05:15]</span>
+        </div>
+        <div class="logic-line">
+          <span class="logic-tag">[P3]</span> <mark class="hl-yellow">Se (b) <em>O</em> não conhece previamente <em>R</em> (como quem ouve <em>"sa-ra-ba-ra"</em> sem jamais ter visto a veste persa), então <em>S</em> é percebido apenas como um <strong>ruído articular</strong> privado da substância ontológica da coisa, nada podendo ensinar sobre <em>R</em>.</mark><span class="audio-pill">[AULA 00:06:45 &amp; 00:08:30]</span>
+        </div>
+        <div class="logic-line">
+          <span class="logic-tag">[P4*]</span> <em>[Premissa implícita]</em> Ensinar (<code>docere</code> em sentido constitutivo) exige produzir na mente do ouvinte o conhecimento novo da realidade significada.
+        </div>
+        <div class="logic-sep"></div>
+        <div class="logic-line">
+          <span class="logic-tag">[⊢ C1]</span> <mark class="hl-yellow"><strong>Conclusão (Dilema Construtivo Dedutivo):</strong> Nenhum sinal ensina a coisa de que é sinal; pelo contrário, é o conhecimento prévio e direto da coisa <em>R</em> que ensina à mente o significado do sinal <em>S</em>.</mark><span class="audio-pill">[AULA 00:13:00]</span>
+        </div>
+      </div>
+
+      <div class="md-block">
+        <span class="md-block-label">ARGUMENTO II: DAS CATEGORIAS EPISTÊMICAS À ILUMINAÇÃO PELO MESTRE INTERIOR (DM XI, 37 – XIV, 46)</span>
+        <div class="logic-line">
+          <span class="logic-tag">[P1]</span> <mark class="hl-yellow">Compreender ou saber em sentido próprio (<code>intelligere / scire</code>, por oposição ao mero crer testemunhal, <code>credere</code>) exige a evidência direta da realidade diante dos olhos dos sentidos ou da mente.</mark><span class="audio-pill">[AULA 00:15:30]</span>
+        </div>
+        <div class="logic-line">
+          <span class="logic-tag">[P2]</span> <mark class="hl-yellow">Eventos históricos empíricos ausentes (como os três jovens na fornalha em <em>Daniel 3</em>) não são vistos pelos nossos sentidos nem intuídos <em>a priori</em> pela razão (que apenas compõe fantasias na imaginação); logo, relatos verbais sobre eles geram somente <strong>crença</strong> (<code>credere</code>), nunca <strong>ciência</strong> (<code>scire</code>).</mark><span class="audio-pill">[AULA 00:17:00 &amp; 00:22:30]</span>
+        </div>
+        <div class="logic-line">
+          <span class="logic-tag">[P3]</span> <mark class="hl-yellow">As verdades inteligíveis puras (ex.: <code>7 + 3 = 10</code> e a regra da Justiça pela qual julgamos as leis positivas) são incorpóreas, universais, necessárias e <strong>imutáveis</strong>, não podendo entrar pelos ouvidos através de ondas sonoras físicas.</mark><span class="audio-pill">[AULA 00:26:00 &amp; 00:31:00]</span>
+        </div>
+        <div class="logic-line">
+          <span class="logic-tag">[P4*]</span> <mark class="hl-yellow"><em>[Premissa metafísica da Iluminação explicitada na Aula]</em> Como a nossa mente racional criada é <strong>mutável e falível</strong> e a verdade inteligível é <strong>eterna e imutável</strong>, a nossa mente não fabrica a verdade, mas necessita de uma Luz espiritual incorpórea superior a ela (tal como o olho precisa do sol) para contemplá-la.</mark><span class="audio-pill">[AULA 00:53:30]</span>
+        </div>
+        <div class="logic-sep"></div>
+        <div class="logic-line">
+          <span class="logic-tag">[⊢ C2]</span> <mark class="hl-yellow"><strong>Conclusão Geral do Tratado:</strong> Nenhum professor humano é causa eficiente ou formal do saber (atuando apenas como ocasião admonitória externa, <code>admonitio</code>); quem ensina verdadeiramente é unicamente a Verdade eterna que ilumina o homem interior — <strong>Cristo, o Mestre Interior</strong> (<code>Magister Interior</code>).</mark><span class="audio-pill">[AULA 01:02:00 &amp; 01:09:00]</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- SEÇÃO 6: FASE 4 & CAMADA 4 CONTEXTUAL/GENÉTICA (COM PONTES 10 E 11) -->
+    <section id="fase4">
+      <h2 class="md-h2">6. Fase 4 &amp; Camada 4 (Contextual/Genética): Crítica De Dicto vs. De Re, o Verbo Interior (De Trinitate) e o Contraste com Platão</h2>
+
+      <h3 class="md-h3"><span class="hash">###</span>6.1. Síntese zero-jargão (Situation Model Check) e crítica De Dicto (os limites apontados por Coseriu / Lermen)</h3>
+
+      <p>
+        <strong>Síntese Zero-Jargão:</strong> Palavras funcionam exatamente como placas de rua ou dedos apontados: se você nunca viu uma fruta exótica nem sabe o que ela é, ouvir alguém repetir o nome dela num idioma estrangeiro (como <em>"sarabara"</em>) é só escutar um barulho e não faz você descobrir o sabor nem a forma da fruta; e, se você já a conhece, o nome apenas faz você lembrar do que já viu. Quando alguém nos conta um episódio do passado que não presenciamos (como três jovens que saíram ilesos de uma fornalha na Babilônia), podemos confiar no narrador (<em>acreditar</em>) e montar uma cena na imaginação, mas não <em>sabemos</em> por experiência própria. E quando compreendemos uma verdade que não tem corpo físico — como por que <code>7 + 3 = 10</code> ou se uma lei é justa —, a voz do professor na sala de aula apenas chama a nossa atenção por fora, mas o ato de enxergar que aquilo é verdade acontece dentro da nossa própria mente, iluminada por uma luz interior de verdade que Agostinho identifica com Deus.
+      </p>
+
+      <p>
+        No plano da <strong>crítica imanente (<em>De Dicto</em>)</strong> sistematizada por <strong>Eugenio Coseriu</strong> e <strong>Gisela Lermen</strong> no artigo do corpus, a tese radical de Agostinho deixa quatro tensões internas que a filosofia da linguagem posterior precisou enfrentar: (1) a não diferenciação explícita entre <em>metalinguagem linguística</em> (classes gramaticais) e <em>metalinguagem do discurso</em> (menção autônima) ao provar que toda palavra é um nome (<code>DM V, 16</code>); (2) o deslizamento semântico do verbo <code>docere</code> entre comunicar um pensamento, exibir sensorialmente uma coisa e demonstrar uma verdade; (3) o <strong>atomismo lexical</strong>, que exige da palavra isolada (<em>sarabara</em>) a exibição da coisa e subestima a <strong>composicionalidade sintático-discursiva</strong> (a capacidade de ensinar o que é um <em>elefante</em> combinando palavras já conhecidas em definições e descrições); e (4) a subestimação da <strong>experiência histórica indireta</strong> como patrimônio sociocultural cumulativo da humanidade.
+      </p>
+
+      <h3 class="md-h3"><span class="hash">###</span>6.2. Crítica De Re e Respondeo agostiniano: Wittgenstein, o Verbo Interior (Verbum Cordis) e Anamnese Platônica vs. Iluminação</h3>
+
+      <p>
+        Quando passamos à avaliação <strong><em>De Re</em></strong> (confrontando o <em>De Magistro</em> com as objeções contemporâneas e com as duas grandes questões finais debatidas na aula de 04/11), a força filosófica da posição de Agostinho revela toda a sua profundidade:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>A Convergência Profunda com Wittgenstein sobre a Autonomia da Compreensão (Myles Burnyeat / Christoph Horn):</strong> Embora Wittgenstein tenha usado um recorte de <em>Confissões</em> I, 8, 13 em <em>Investigações Filosóficas</em> § 1 como emblema do referencialismo ostensivo, o <em>De Magistro</em> prova que Agostinho já havia rejeitado tanto a redução de todas as palavras a etiquetas de corpos (analisando <em>"se"</em>, <em>"nada"</em> e <em>"de"</em> no Cap. II) quanto a suficiência da ostensão gestual (Caps. III e X). Mais ainda: como demonstra Burnyeat, ao identificar o sentido próprio de <strong>saber</strong> (<code>scire</code>) com <strong>compreender</strong> (<code>intellegere</code> — a visão sinóptica das conexões de um domínio), Agostinho e Wittgenstein convergem na tese central de que <strong>nenhum gesto, regra externa ou instrução de terceiros pode realizar pelo sujeito o ato interno de compreender</strong>.
+        </li>
+        <li>
+          <strong>A Objeção da Inseparabilidade entre Pensamento e Linguagem — O <em>Verbum Cordis</em> no <em>De Trinitate</em> e a Distinção entre Ocasião e Causa (<code>[01:05:00 – 01:12:00]</code>):</strong> <mark class="hl-yellow">No debate final da aula, um aluno formula a objeção crucial da filosofia da mente: <em>"Professor, mas isso não coloca um dilema? Porque a nossa razão parece só conseguir operar e formular julgamentos dentro de uma estrutura linguística. Como podemos separar o pensamento conceitual da linguagem?"</em>. A resposta do professor — em perfeita sintonia com a Seção 4 do artigo de Christoph Horn — articula duas distinções decisivas de Agostinho: (a) primeiro, Agostinho não nega que operemos com signos interiores para pensar; no Livro XV do <strong><em>De Trinitate</em></strong> (<code>XV, 10, 18 – 11, 20</code>), ele desenvolve a doutrina do <strong>Verbo Interior</strong> ou <strong>Palavra do Coração</strong> (<code>verbum cordis / verbum mentis</code>): uma palavra mental dotada de estrutura discursivo-predicativa que não pertence a nenhuma língua empírica (não é grego, nem latim, nem hebraico), mas constitui a própria apreensão pura do inteligível antes de ser vertida em sons convencionais (inaugurando a tradição medieval da linguagem mental até Guilherme de Ockham e a <em>Language of Thought</em> de Jerry Fodor); e (b) segundo, a tese do <em>De Magistro</em> é uma tese estrita sobre a <strong>causação do conhecimento</strong>: a palavra exterior é a <strong>ocasião</strong> e o <strong>estímulo</strong> (<code>admonitio</code>), mas jamais a <strong>causa eficiente e formal</strong> do ato de compreender, cuja causa verdadeira é a iluminação da verdade na alma.</mark><span class="audio-pill">[AULA 01:05:00 – 01:12:00]</span>
+        </li>
+        <li>
+          <strong>Reminiscência Platônica (<em>Anamnese</em> no <em>Mênon</em> e <em>Fédon</em>) vs. Iluminação Agostiniana (<em>Interior Intimo Meo</em>, <code>[01:12:00 – 01:17:37]</code>):</strong> <mark class="hl-yellow">Por fim, ao analisar em <code>DM XII, 40</code> o caso tipicamente socrático do discípulo que aprende respondendo a perguntas graduais parte por parte, estaria Agostinho apenas repetindo a teoria platônica da reminiscência (<code>anamnese</code>)? Como o professor esclarece no encerramento da aula, há um contraste metafísico irreconciliável entre ambos: para Platão no <em>Mênon</em> e no <em>Fédon</em>, a alma teve uma existência pré-corporal no mundo das Ideias e agora "relembra" no tempo presente aquilo que contemplou antes do nascimento. Agostinho <strong>rejeita categoricamente a preexistência temporal da alma e a metempsicose (transmigração das almas)</strong>; para ele, consultar a Verdade interior não é voltar a memória para um passado pré-natal, mas voltar o olhar do espírito para uma <strong>Presença contínua, atual e transcendente</strong> que habita no íntimo da mente humana, sendo mais íntima a nós do que nós mesmos (<code>interior intimo meo</code>, <em>Confissões</em> III, 6, 11).</mark><span class="audio-pill">[AULA 01:12:00 – 01:17:37]</span>
+        </li>
+      </ol>
+
+      <!-- BLOCO DE TRANSCRIÇÃO LITERAL 5 (PONTES 10 E 11) -->
+      <div class="md-block prof-audio-block">
+        <div class="prof-audio-header">
+          <span class="prof-audio-badge">★ CONVERGÊNCIA P10 &amp; P11 — TRANSCRIÇÃO DO PROFESSOR: VERBUM CORDIS, CAUSAÇÃO E ANAMNESE VS. ILUMINAÇÃO</span>
+          <span class="prof-audio-meta">Áudio: Medieval 04-11.m4a · [01:05:00 – 01:17:37] · Ref.: DM XII, 40; XIV, 46; De Trinitate XV</span>
+        </div>
+        <div>
+          <strong>Síntese da Ponte Exegética:</strong> Registra o debate final entre aluno e professor sobre pensamento conceitual e linguagem (a doutrina do <code>verbum cordis</code> no <em>De Trinitate</em> e a distinção entre ocasião/estímulo vs. causa eficiente e formal do saber), o contraste entre a <code>anamnese</code> pré-natal platônica (<em>Mênon/Fédon</em>) e a Presença divina contínua (<code>interior intimo meo</code>), e a síntese tripartida de encerramento da aula.
+        </div>
+        <div class="prof-transcript-quote">
+          <p>
+            <strong>[01:05:00 – 01:12:00] (Ponte 10 — Objeção do Aluno, Verbum Cordis e Causação do Saber):</strong><br>
+            <em><strong>Aluno:</strong> "Professor, mas isso não coloca um dilema? Porque a nossa razão parece só conseguir operar e formular julgamentos dentro de uma estrutura linguística. Como podemos separar o pensamento conceitual da linguagem?"</em>
+          </p>
+          <p>
+            <em><strong>Professor:</strong> "Excelente questão. Agostinho não nega que os seres humanos utilizem signos verbais ou interiores para pensar. Ele próprio desenvolve em obras posteriores, como o <strong>De Trinitate</strong>, a ideia do <strong>Verbo Interior</strong> (verbum cordis): uma palavra mental que não pertence a nenhuma língua empírica (nem ao grego, nem ao latim, nem ao hebraico), mas que é a própria apreensão pura do inteligível antes de ser vertida para uma linguagem sonora específica.</em>
+          </p>
+          <p>
+            <em>O ponto crucial de Agostinho no De Magistro é uma tese sobre a <strong>causação do conhecimento</strong>: a palavra exterior é a <strong>ocasião</strong> e o <strong>estímulo</strong>, mas não a <strong>causa eficiente e formal</strong> do ato de compreender. A causa do saber é a iluminação da verdade na alma."</em>
+          </p>
+          <p>
+            <strong>[01:12:00 – 01:17:37] (Ponte 11 — Contraste com a Reminiscência Platônica e Fechamento Tripartido):</strong><br>
+            <em>"Vejam o contraste marcante com a reminiscência platônica: para Platão no Mênon e no Fédon, a alma conheceu as Ideias em uma existência pré-corporal e agora 'relembra' (anamnese). Agostinho rejeita a preexistência temporal da alma e a metempsicose platônica; para ele, a consulta à Verdade não é olhar para um passado antes do nascimento no além, mas voltar-se para uma Presença contínua e transcendente que está mais íntima a nós do que nós mesmos (interior intimo meo).</em>
+          </p>
+          <p>
+            <em>Portanto, fechando o nosso ciclo sobre a teoria da linguagem e da iluminação em Agostinho:</em><br>
+            <em>1. A linguagem humana não transmite conhecimento substancial, apenas recorda ou suscita;</em><br>
+            <em>2. O conhecimento intelectual autêntico é imediato e exige a contemplação direta do inteligível sob a luz divina;</em><br>
+            <em>3. O magistério exterior é reduzido à condição de exortação moral e intelectual (admonitio), enquanto todo o aprendizado verdadeiro é obra da iluminação do Mestre Interior.</em>
+          </p>
+          <p>
+            <em>Com isso, nós encerramos este capítulo sobre o De Magistro. Na próxima aula entraremos nos desdobramentos dessa temática na patrística tardia e na transição para a escolástica medieval. Boa tarde a todos!"</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RODAPÉ MD MINIMALISTA -->
+    <footer class="md-footer">
+      <div>EXEGESE_DE_MAGISTRO.md · DOSSIÊ EXEGÉTICO INTEGRAL &amp; CONVERGÊNCIAS COM A AULA (04/11)</div>
+      <div>SANTO AGOSTINHO DE HIPONA (389 D.C.) · COLEÇÃO OS PENSADORES · PHILO-EXEGESIS V2</div>
+      <div><a href="#top">voltar ao topo ↑</a></div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Barra de progresso ultra-sutil no topo
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>

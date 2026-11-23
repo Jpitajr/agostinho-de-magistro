@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DE_MAGISTRO.md — Santo Agostinho (Do Mestre)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #141413;
+      --bg-subtle: #1a1918;
+      --bg-code: #1d1c1a;
+      --border: #2a2926;
+      --border-soft: #22211f;
+
+      --text-title: #e6e2da;
+      --text-body: #c7c4bc;
+      --text-strong: #ece8e0;
+      --text-muted: #8e8b84;
+      --text-dim: #66635d;
+
+      --accent: #e0522b;
+      --accent-soft: rgba(224, 82, 43, 0.12);
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-body);
+      min-height: 100vh;
+      padding: 4.5rem 3cm 7rem;
+      position: relative;
+    }
+
+    /* Ultra-subtle top reading progress filament */
+    .progress-filament {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: var(--accent);
+      z-index: 100;
+      transition: width 0.08s linear;
+    }
+
+    /* Container adaptativo com margem de 3cm de cada lado */
+    .sheet {
+      width: calc(100% - 6cm);
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* Em telas ultrawide ou monitores grandes (34" / > 1440px) */
+    @media (min-width: 1024px) {
+      .sheet {
+        width: calc(100% - 6cm);
+        max-width: 1140px;
+      }
+      .md-toc-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      .two-col-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      .sheet {
+        width: calc(100% - 6cm);
+        max-width: 1180px;
+      }
+      .md-toc-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 3rem 1.25rem 5rem;
+      }
+      .sheet {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+
+    /* Top Kicker / Monospace Metadata Line */
+    .meta-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* Giant Markdown File Title */
+    h1.doc-title {
+      font-family: var(--font-sans);
+      font-size: clamp(2.85rem, 5.5vw, 5.2rem);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+      color: var(--text-title);
+      margin-bottom: 2.35rem;
+    }
+
+    h1.doc-title .ext {
+      font-weight: 700;
+      color: var(--text-title);
+    }
+
+    /* Raw Markdown Blockquotes (> ...) in Monospace */
+    .md-lead-quotes {
+      margin-bottom: 3.5rem;
+    }
+
+    .md-quote {
+      font-family: var(--font-mono);
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 1.35rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    .md-quote:last-child {
+      margin-bottom: 0;
+    }
+
+    .md-quote .q-mark {
+      color: var(--text-dim);
+      user-select: none;
+    }
+
+    /* Minimal Monospace Index / Jump Bar */
+    .md-toc {
+      margin: 2.75rem 0 3.75rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .md-toc-title {
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.65rem;
+      font-size: 0.72rem;
+    }
+
+    .md-toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 0.35rem 1.5rem;
+    }
+
+    .md-toc a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      display: inline-block;
+      padding: 0.1rem 0;
+    }
+
+    .md-toc a:hover {
+      color: var(--accent);
+    }
+
+    .md-toc a .toc-hash {
+      color: var(--accent);
+      opacity: 0.85;
+    }
+
+    /* Section Headings with literal ## in Terracotta Orange */
+    h2.md-h2 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.28;
+      color: var(--accent);
+      margin-top: 4rem;
+      margin-bottom: 1.45rem;
+    }
+
+    /* Subsection Headings with literal ### */
+    h3.md-h3 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.15rem, 1.4vw, 1.4rem);
+      font-weight: 700;
+      letter-spacing: -0.018em;
+      line-height: 1.35;
+      color: var(--text-title);
+      margin-top: 2.65rem;
+      margin-bottom: 1.05rem;
+    }
+
+    h3.md-h3 .hash {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 500;
+      margin-right: 0.35rem;
+    }
+
+    h4.md-h4 {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Body Copy - Texto Justificado com controle editorial */
+    p {
+      margin-bottom: 1.35rem;
+      color: var(--text-body);
+      font-weight: 400;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    strong {
+      color: var(--text-strong);
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+      color: #dad6ce;
+    }
+
+    /* Inline code / Latin technical markers */
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.86em;
+      background-color: var(--bg-code);
+      color: #dedad0;
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      border: 1px solid var(--border-soft);
+    }
+
+    /* Raw Markdown Lists */
+    ul.md-list,
+    ol.md-list {
+      list-style: none;
+      margin: 1.1rem 0 1.65rem;
+    }
+
+    ul.md-list > li,
+    ol.md-list > li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 0.95rem;
+      color: var(--text-body);
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    ul.md-list > li::before {
+      content: "*";
+      position: absolute;
+      left: 0.25rem;
+      top: 0.05rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    ol.md-list {
+      counter-reset: md-counter;
+    }
+
+    ol.md-list > li {
+      counter-increment: md-counter;
+      padding-left: 2.1rem;
+    }
+
+    ol.md-list > li::before {
+      content: counter(md-counter) ".";
+      position: absolute;
+      left: 0;
+      top: 0.02rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Nested lists inside li */
+    .md-sublist {
+      list-style: none;
+      margin-top: 0.65rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .md-sublist > li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.96rem;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .md-sublist > li::before {
+      content: "-";
+      position: absolute;
+      left: 0.15rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    /* Monospace Callout / Logic Blocks */
+    .md-block {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.35rem 1.5rem;
+      margin: 1.65rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    .md-block-label {
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .logic-line {
+      margin-bottom: 0.55rem;
+      padding-left: 2.2rem;
+      position: relative;
+    }
+
+    .logic-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .logic-tag {
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .logic-sep {
+      border-top: 1px dashed var(--border);
+      margin: 0.75rem 0;
+    }
+
+    /* Section Divider (literal markdown ---) */
+    .md-hr {
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      letter-spacing: 0.25em;
+      font-size: 0.85rem;
+      margin: 3.5rem 0;
+      user-select: none;
+    }
+
+    /* Definition Cards in pure .md style */
+    #conceitos {
+      display: block;
+    }
+
+    @media (min-width: 1024px) {
+      .concept-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 2.5rem;
+      }
+      .concept-grid .concept-item {
+        margin-bottom: 0;
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    .concept-item {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .concept-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .concept-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-strong);
+      font-size: 1.03rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .concept-latin {
+      font-family: var(--font-mono);
+      font-size: 0.83rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+
+    /* Evidence Matrix / Markdown Table */
+    .table-wrap {
+      margin: 1.75rem 0 2.5rem;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: var(--bg-subtle);
+    }
+
+    table.md-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    table.md-table th {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background-color: var(--bg-code);
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    table.md-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+      color: var(--text-body);
+    }
+
+    table.md-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer.md-footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    footer.md-footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer.md-footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      html {
+        font-size: 16px;
+      }
+      body {
+        padding: 3rem 1.25rem 5rem;
+      }
+      .md-block {
+        padding: 1.1rem 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-filament" id="progressBar"></div>
+
+  <main class="sheet" id="top">
+
+    <div class="meta-kicker">
+      SANCTI AUGUSTINI OPERA · DE MAGISTRO (C. 389 D.C.) · COLEÇÃO OS PENSADORES (ABRIL CULTURAL)
+    </div>
+
+    <h1 class="doc-title">DE_MAGISTRO<span class="ext">.md</span></h1>
+
+    <div class="md-lead-quotes">
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> resumo acadêmico integral e análise estrutural rigorosa do tratado <em>De Magistro (Do Mestre)</em> (pp. 1–54; 14 capítulos; 17 notas referenciais).
+      </p>
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> nem a ostensão ensina o significado. nem as palavras ensinam as coisas. nem o mestre humano transmite a ciência.
+      </p>
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> a palavra exterior apenas admoesta; a verdade habita e instrui no homem interior: <em>"um só é o vosso Mestre, Cristo"</em> (Mt 23,8-10).
+      </p>
+    </div>
+
+    <!-- Navegação Monospace Index -->
+    <nav class="md-toc">
+      <div class="md-toc-title">ÍNDICE DE SEÇÕES</div>
+      <div class="md-toc-grid">
+        <a href="#metadados"><span class="toc-hash">#</span> 1. identificação bibliográfica</a>
+        <a href="#problema"><span class="toc-hash">#</span> 2.1. problema de pesquisa</a>
+        <a href="#objetivos"><span class="toc-hash">#</span> 2.2. objetivos do tratado</a>
+        <a href="#referencial"><span class="toc-hash">#</span> 2.3. referencial teórico</a>
+        <a href="#conceitos"><span class="toc-hash">#</span> 2.4. conceitos centrais</a>
+        <a href="#metodologia"><span class="toc-hash">#</span> 2.5. metodologia dialética</a>
+        <a href="#pragmatica"><span class="toc-hash">#</span> 3.1. finalidade da fala (caps. i–iii)</a>
+        <a href="#semiotica"><span class="toc-hash">#</span> 3.2. palavras e nomes (caps. iv–viii)</a>
+        <a href="#axiologia"><span class="toc-hash">#</span> 3.3. hierarquia de valor (cap. ix)</a>
+        <a href="#paradoxo"><span class="toc-hash">#</span> 3.4. paradoxo do ensino (caps. x–xi)</a>
+        <a href="#epistemologia"><span class="toc-hash">#</span> 3.5. crer, saber e iluminação (caps. xi–xiv)</a>
+        <a href="#matriz"><span class="toc-hash">#</span> 4. matriz de argumentos principais</a>
+        <a href="#apreciacao"><span class="toc-hash">#</span> 5. apreciação crítica analítica</a>
+      </div>
+    </nav>
+
+    <!-- SEÇÃO 1: METADADOS -->
+    <section id="metadados">
+      <h2 class="md-h2">1. Identificação Bibliográfica Completa e Metadados</h2>
+
+      <p>
+        O diálogo <em>De Magistro (Do Mestre)</em> foi composto por <strong>Santo Agostinho (Aurelius Augustinus Hipponensis, 354–430 d.C.)</strong> por volta de 389 d.C. em Tagaste, pouco após seu batismo em Milão e seu retorno ao norte da África. Trata-se de uma conversa filosófico-pedagógica mantida entre Agostinho e seu filho natural <strong>Adeodato</strong>, que contava então cerca de dezesseis anos e cujas intervenções no texto, conforme o testemunho das <em>Confissões</em> (IX, vi, 14), exprimiam seus pensamentos autênticos.
+      </p>
+
+      <ul class="md-list">
+        <li><strong>Autor da Obra:</strong> Santo Agostinho de Hipona.</li>
+        <li><strong>Interlocutores do Diálogo:</strong> Agostinho (pai) e Adeodato (filho).</li>
+        <li><strong>Tradução Consultada:</strong> Angelo Ricci (para o <em>De Magistro</em>), integrando o volume conjunto com as <em>Confissões</em> (traduzidas por J. Oliveira Santos, S.J., e A. Ambrósio de Pina, S.J., com consultoria de José Américo Motta Pessanha).</li>
+        <li><strong>Edição e Volume:</strong> Coleção <em>Os Pensadores</em>, Abril Cultural (São Paulo: Abril S.A. Cultural e Industrial, 1ª/2ª ed., sob direção editorial de Victor Civita).</li>
+        <li><strong>Estrutura Paginada do Volume (66 páginas):</strong>
+          <ul class="md-sublist">
+            <li><strong>Páginas 1 a 54:</strong> Texto integral dos 14 capítulos do diálogo acompanhado de 17 notas de rodapé numeradas continuamente (fontes bíblicas, clássicas e nota linguística do tradutor na Nota 8).</li>
+            <li><strong>Páginas 55 a 64:</strong> Índice geral do volume da coleção, incluindo o sumário dos 14 capítulos do <em>De Magistro</em> na p. 64.</li>
+            <li><strong>Página 65:</strong> Expediente editorial completo da Abril Cultural.</li>
+            <li><strong>Página 66:</strong> Contracapa original com a sinopse editorial da obra e créditos de tradução.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- SEÇÃO 2: ESTRUTURA ANALÍTICA EXIGIDA -->
+    <section id="problema">
+      <h2 class="md-h2">2. Estrutura Analítica do Tratado</h2>
+
+      <h3 class="md-h3"><span class="hash">###</span>2.1. Problema de pesquisa</h3>
+
+      <p>
+        O tratado investiga a relação intrínseca entre linguagem, significação e produção do conhecimento humano. A questão condutora consiste em determinar qual é a função própria da fala e dos sinais (<code>signa</code>) na comunicação e se é possível a um ser humano ensinar (<code>docere</code>) alguma coisa a outro por meio de palavras ou outros dispositivos semióticos. Esse problema central desdobra-se em três eixos articulados:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>O problema semiótico e metalinguístico (Capítulos I–VIII):</strong> Como se definem os sinais, de que maneira os signos linguísticos se relacionam entre si e com as realidades extralinguísticas (<code>significabilia</code>), e como distinguir com rigor o uso de um termo para designar a própria palavra (enquanto som, sílaba ou categoria gramatical) de seu uso para referir a realidade significada.
+        </li>
+        <li>
+          <strong>O problema axiológico entre sinais, coisas e saberes (Capítulo IX):</strong> Qual é a relação de subordinação teleológica e de valor entre quatro elementos distintos: o sinal, a realidade por ele designada, o conhecimento do sinal e o conhecimento da própria realidade.
+        </li>
+        <li>
+          <strong>O problema epistemológico e pedagógico central (Capítulos X–XIV):</strong> Se a compreensão de qualquer sinal pressupõe a apreensão prévia da realidade significada, qual é o verdadeiro papel das palavras na comunicação humana e qual é a fonte última da verdade e do entendimento no espírito racional.
+        </li>
+      </ol>
+
+      <h3 class="md-h3" id="objetivos"><span class="hash">###</span>2.2. Objetivos do tratado</h3>
+
+      <p>
+        <strong>Objetivo Geral:</strong> Demonstrar que a linguagem exterior não transfere ciência (<code>scientia</code>) nem entendimento (<code>intellectus</code>) de um indivíduo para outro, exercendo apenas uma função de aviso ou incitação (<code>admonitio</code>), cabendo a efetiva instrução ao encontro direto da mente com a realidade percebida (no âmbito sensível) ou com a Verdade interior (Cristo, a Sabedoria divina que habita na alma racional).
+      </p>
+
+      <p><strong>Objetivos Específicos:</strong></p>
+      <ul class="md-list">
+        <li>Examinar as finalidades comunicativas da locução (ensinar e recordar) diante de situações-limite como a pergunta, o canto estético e a prece silenciosa ou litúrgica a Deus (Capítulo I).</li>
+        <li>Evidenciar a insuficiência da definição puramente verbal (sinonímia) e da ostensão gestual para exibir a realidade mesma sem a mediação de signos (Capítulos II–III).</li>
+        <li>Construir uma classificação sistemática dos signos quanto ao canal sensorial, à reflexividade (signos autodesignativos) e à reciprocidade semântica de valor e significação (Capítulos IV–VII).</li>
+        <li>Exercitar o rigor lógico do espírito (<code>exercitatio mentis</code>) mediante a dissolução de paralogismos e ambiguidades entre menção metalinguística e referência objetiva (Capítulo VIII).</li>
+        <li>Estabelecer a primazia axiológica do conhecimento das coisas sobre os signos e sobre o conhecimento meramente lexical à luz da regra teleológica dos meios e fins (Capítulo IX).</li>
+        <li>Formular e resolver o paradoxo semiótico da aprendizagem, distinguindo percepção sensível direta, memória documental, crença testemunhal (<code>credere</code>) e intelecção racional (<code>intellegere</code>) (Capítulos X–XII).</li>
+        <li>Analisar os limites pragmáticos da linguagem quanto à transparência das intenções do falante e sintetizar a doutrina do Mestre Interior (Capítulos XIII–XIV).</li>
+      </ul>
+
+      <h3 class="md-h3" id="referencial"><span class="hash">###</span>2.3. Referencial teórico</h3>
+
+      <p>
+        O diálogo articula explicitamente três tradições intelectuais da Antiguidade Tardia:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>Filosofia da linguagem e dialética antiga (matrizes estoica e peripatética):</strong> Emprega a teoria geral do signo (<code>signum</code>), a análise das partes do discurso, a estrutura mínima da proposição lógica (sujeito no nominativo e predicado verbal) e o exame de sofismas dialéticos clássicos relativos à confusão entre o veículo sonoro e o referente ontológico.
+        </li>
+        <li>
+          <strong>Tradição gramatical e literária clássica latina:</strong> Recorre a exemplos poéticos e retóricos da literatura clássica — Virgílio (<em>Eneida</em> II, 659), Terêncio (<em>Andria</em>), Cícero (<em>Verrinas</em> e tratados dialéticos) e Pérsio (<em>Sátiras</em> III) — e às definições escolares da gramática latina (como a função substitutiva do pronome e a distinção das oito classes gramaticais) para testar teses sobre a natureza nominal das palavras.
+        </li>
+        <li>
+          <strong>Epistemologia platônica e teologia bíblica cristã:</strong> Combina a distinção clássica entre o domínio sensível e o domínio inteligível com passagens proféticas, paulinas e evangélicas: o homem interior como templo divino (<em>1 Cor 3,16</em>; <em>Ef 3,16–17</em>), a oração no recesso secreto da mente (<em>Mt 6,6.9</em>), o valor do sim de Cristo (<em>2 Cor 1,19</em>), o relato histórico dos três jovens na fornalha (<em>Dan 3,94</em>), a anterioridade da fé em relação ao entendimento (<em>Is 7,9</em> na LXX) e a exclusividade do magistério celeste de Cristo (<em>Mt 23,8–10</em>).
+        </li>
+      </ol>
+
+      <h3 class="md-h3" id="conceitos"><span class="hash">###</span>2.4. Conceitos centrais</h3>
+
+      <div class="concept-grid">
+        <div class="concept-item">
+          <div class="concept-title">Sinal e Significável</div>
+          <span class="concept-latin">Signum et Significabile</span>
+          <p>
+            O sinal é toda realidade sensível (acústica ou visual, como palavras faladas, letras escritas, gestos, acenos ou insígnias militares) que remete a outra coisa além de si mesma. Não há sinal que nada signifique. Já os <code>significabilia</code> são as próprias realidades (visíveis ou inteligíveis, como um rio, uma pedra, a cidade de Roma ou a virtude) que podem ser designadas por sinais sem serem, elas próprias, sinais.
+          </p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-title">Palavra e Nome</div>
+          <span class="concept-latin">Verbum et Nomen</span>
+          <p>
+            A palavra é definida como emissão vocal articulada dotada de significado, comportando uma percussão acústica no ouvido (<code>verbum</code>, de *verberare*). O nome vincula-se ao ato cognitivo de conhecer e reter na memória (<code>nomen</code>, de *nosco*). No plano metalinguístico amplo, toda palavra funciona como nome na medida em que designa algo e pode figurar como sujeito nominativo de um enunciado.
+          </p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-title">Reflexividade e Reciprocidade</div>
+          <span class="concept-latin">Signa se significantia et mutua</span>
+          <p>
+            Signos reflexivos incluem a si mesmos em sua extensão semântica (como *sinal*, *palavra*, *nome*, *vocábulo*), diferindo de termos irreflexivos como *animal* (a palavra trissílaba não é animal) ou *conjunção* (que é um nome, mas denota partículas). Signos recíprocos denominam-se mutuamente com valores desiguais (*sinal* denota mais que *palavra*), com valores iguais e razões diversas (*palavra* e *nome*) ou com equivalência semântica total (*nomen* e o grego *ὄνομα*).
+          </p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-title">Memória e Imagens-Documento</div>
+          <span class="concept-latin">Memoria et Documenta Rerum</span>
+          <p>
+            A memória é o receptáculo ao qual as palavras aderem e onde ficam gravadas as imagens deixadas pelas coisas sensíveis percebidas no passado. Quando falamos de eventos corpóreos ausentes, consultamos essas imagens como documentos privados internos, de modo que quem ouve apenas crê no nosso relato, sem contemplar a realidade mesma.
+          </p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-title">Crer vs. Compreender e Saber</div>
+          <span class="concept-latin">Credere vs. Intellegere et Scire</span>
+          <p>
+            Crer (<code>credere</code>) é assentir a uma proposição apoiada em testemunho ou autoridade fidedigna acerca de fatos não presentes aos sentidos nem demonstrados pela razão (como as narrativas históricas). Compreender (<code>intellegere</code>) e saber (<code>scire</code>) em sentido próprio exigem apreensão direta: seja pelos sentidos do corpo (no âmbito sensível presente), seja pelo firme raciocínio na luz da verdade interior.
+          </p>
+        </div>
+
+        <div class="concept-item">
+          <div class="concept-title">Admoestação vs. Mestre Interior</div>
+          <span class="concept-latin">Admonitio Exterior vs. Magister Interior</span>
+          <p>
+            As palavras humanas soam de fora e atuam exclusivamente como admoestação (<code>admonitio</code>), incitando a alma a procurar as realidades. Quem verdadeiramente ensina no momento da cognição é o Mestre interior que reside no homem racional — Cristo, Sabedoria e Luz incorruptível de Deus.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="md-h3" id="metodologia"><span class="hash">###</span>2.5. Metodologia</h3>
+
+      <p>
+        A investigação adota o método do <strong>diálogo filosófico-pedagógico</strong> (maiêutico e dialético) estruturado em duas etapas separadas por um interlúdio metateórico:
+      </p>
+
+      <div class="md-block">
+        <span class="md-block-label">ARQUITETURA METODOLÓGICA DO TRATADO</span>
+        <div class="logic-line">
+          <span class="logic-tag">[Fase 1]</span> <strong>Capítulos I a X (1ª metade, pp. 1–42):</strong> Investigação dialética com perguntas curtas e resolução de contraexemplos e sofismas. Exercício de agudeza mental (<code>exercitatio mentis</code>) preparatório para a contemplação das verdades superiores.
+        </div>
+        <div class="logic-sep"></div>
+        <div class="logic-line">
+          <span class="logic-tag">[Fase 2]</span> <strong>Capítulos X (2ª metade) a XIV (pp. 42–54):</strong> Reviravolta dialética (inversão da tese dos sinais com o contraexemplo do passarinheiro) seguida de discurso contínuo (<code>oratio continua</code>) de Agostinho, antecipando e dissolvendo sistematicamente todas as objeções de Adeodato.
+        </div>
+      </div>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- SEÇÃO 3: ANÁLISE DETALHADA POR BLOCOS TEMÁTICOS -->
+    <section id="pragmatica">
+      <h2 class="md-h2">3. Síntese Analítica do Percurso Argumentativo</h2>
+
+      <h3 class="md-h3"><span class="hash">###</span>3.1. A pragmática da locução e o fechamento do universo dos signos (caps. i–iii)</h3>
+
+      <p>
+        O tratado parte da premissa de que falamos para <strong>ensinar</strong> ou <strong>recordar</strong>. Mesmo ao interrogar, ensinamos ao interlocutor o que desejamos saber. Adeodato propõe dois casos-limite:
+      </p>
+
+      <ul class="md-list">
+        <li>
+          <strong>O cantar solitário por deleite:</strong> Agostinho separa o falar do cantar; a modulação musical do som (acessível a flautas, cítaras e aves) é uma qualidade adicionável que causa prazer estético, mas não se confunde com a enunciação significativa da palavra.
+        </li>
+        <li>
+          <strong>A oração religiosa a Deus:</strong> Na prece não pretendemos ensinar nem lembrar a Deus, que sonda o recesso íntimo da alma racional (o homem interior, templo divino segundo <em>1 Cor 3,16</em> e <em>Ef 3,16-17</em>). A oração vocal justifica-se apenas na liturgia para admoestar a congregação humana e elevá-la em consentimento a Deus.
+        </li>
+      </ul>
+
+      <p>
+        Ao examinar o verso de Virgílio (<em>Eneida</em> II, 659: <em>"Si nihil ex tanta superis placet urbe relinqui"</em>), Agostinho revela o fechamento semiótico da linguagem verbal:
+      </p>
+
+      <ul class="md-list">
+        <li>A partícula condicional <em>"si"</em> expressa dúvida, disposição que reside no espírito;</li>
+        <li>O termo <em>"nihil"</em> (nada) não denota uma coisa inexistente (pois o que não existe não é coisa), mas o estado da alma quando não encontra o que procurava;</li>
+        <li>A preposição <em>"ex"</em> é explicada por Adeodato pelo sinônimo <em>"de"</em> e pela paráfrase da separação de uma origem. Agostinho censura o expediente: substituir uma palavra conhecidíssima por outra é explicar palavras com palavras e sinais com sinais, sem exibir a própria coisa significada.</li>
+      </ul>
+
+      <p>
+        A ostensão física tampouco escapa da semiótica: apontar o dedo para a parede ou para a cor não é a própria coisa, mas um sinal gestual que convida o olho a olhar. E demonstrar uma ação executando-a após a pergunta (como caminhar) é vulnerável à ambiguidade: acelerar o passo leva a confundir <em>caminhar</em> com <em>apressar-se</em>, e andar a partir do repouso pode sugerir que o verbo significa apenas percorrer aquele trecho determinado.
+      </p>
+
+      <h3 class="md-h3" id="semiotica"><span class="hash">###</span>3.2. Taxonomia dos signos, metalinguagem e resolução de sofismas (caps. iv–viii)</h3>
+
+      <p>
+        Agostinho estabelece uma divisão tripartida da comunicação: (1) mostrar sinais com sinais; (2) mostrar ações sem sinais executando-as após a pergunta; e (3) mostrar não-sinais por meio de sinais. No exame do primeiro membro, constrói uma sofisticada semiótica:
+      </p>
+
+      <ul class="md-list">
+        <li><strong>Sinais de sinais:</strong> As palavras faladas são signos audíveis; as letras escritas são signos visíveis de sons audíveis (sinais de sinais).</li>
+        <li><strong>Significáveis (<code>significabilia</code>):</strong> Coisas que são significadas por sinais sem serem sinais (como pedra, rio, Roma, Rômulo ou a virtude).</li>
+        <li><strong>Toda palavra é nome:</strong> Demonstrado por quatro vias:
+          <ul class="md-sublist">
+            <li>(a) Substituição de qualquer termo por pronomes (como <em>"tudo isso"</em> / <em>haec omnia</em>);</li>
+            <li>(b) O uso de formas verbais como substantivos em textos sagrados (como o *sim/est* de Cristo em <em>2 Cor 1,19</em>);</li>
+            <li>(c) A equivalência interlinguística ao indagar como latinos e gregos nomeiam cada classe de palavras (conjunções, preposições, advérbios);</li>
+            <li>(d) A sintaxe da proposição lógica, na qual partículas mencionadas funcionam como sujeito nominativo perante o verbo predicado: <em>"Se agrada" (*placet si*)</em> e <em>"Porque desagrada" (*displicet quia*)</em>.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>
+        No Capítulo VIII, Agostinho justifica o longo percurso sobre signos reflexivos como um prelúdio para exercitar e fortalecer a agudeza da mente (<code>exercitatio mentis</code>). Resolve os sofismas dialéticos clássicos:
+      </p>
+
+      <div class="md-block">
+        <span class="md-block-label">DISSOLUÇÃO DE PARALOGISMOS METALINGUÍSTICOS</span>
+        <div class="logic-line">
+          <span class="logic-tag">[Sofisma 1]</span> "De nossa boca sai o que dizemos; disseste 'leão'; logo vomitaste um animal feroz."
+        </div>
+        <div class="logic-line">
+          <span class="logic-tag">[Refutação]</span> Da boca saem apenas os sinais sonoros articulados, e não a realidade substantiva significada.
+        </div>
+        <div class="logic-sep"></div>
+        <div class="logic-line">
+          <span class="logic-tag">[Sofisma 2]</span> "Homem é uma palavra de duas sílabas; tu não és duas sílabas; logo não és homem."
+        </div>
+        <div class="logic-line">
+          <span class="logic-tag">[Refutação]</span> A mente transita naturalmente do sinal para a coisa significada. A pergunta sobre o que é homem enquanto sinal responde-se com "nome/substantivo"; a pergunta sobre a coisa significada responde-se com "animal racional mortal".
+        </div>
+      </div>
+
+      <h3 class="md-h3" id="axiologia"><span class="hash">###</span>3.3. Axiologia dos signos e do conhecimento (cap. ix)</h3>
+
+      <p>
+        Agostinho formula a regra teleológica fundamental: <strong>tudo o que existe em função de outra coisa é de valor menor do que aquilo em vista do qual foi instituído</strong>. Adeodato pondera que certos nomes (como <em>lamaçal/coenum</em> ou <em>vício/vitium</em>) soam mais nobres e belos como sons acústicos do que a imundície física ou moral que denotam.
+      </p>
+
+      <p>
+        Agostinho desdobra a análise em quatro termos hierarquizados: (1) o nome; (2) a coisa; (3) o conhecimento do nome; e (4) o conhecimento da coisa. Mesmo diante de realidades torpes, o <strong>conhecimento da coisa</strong> (ciência moral dos vícios ou compreensão física da matéria) é sumamente valioso e superior aos signos, pois os signos foram instituídos para servir ao conhecimento, e não o conhecimento para servir aos signos (assim como se deve comer para viver e falar para ensinar, e não viver para comer ou ensinar para falar).
+      </p>
+
+      <h3 class="md-h3" id="paradoxo"><span class="hash">###</span>3.4. A reviravolta dialética e o paradoxo da aprendizagem (caps. x–xi)</h3>
+
+      <p>
+        No Capítulo X, a investigação sofre sua grande virada:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>O contraexemplo do passarinheiro:</strong> Um observador ignorante da arte da caça de pássaros depara com um caçador munido de varas e visgo. Ao ver o caçador armar seus apetrechos e capturar uma ave diante de si, o espectador inteligente apreende a arte da caça pela observação direta da ação, sem palavras ou signos. Do mesmo modo, Deus e a natureza expõem continuamente o sol, a lua e os seres vivos aos olhos humanos.
+        </li>
+        <li>
+          <strong>A tese definitiva — Nada se aprende pelos sinais:</strong> Agostinho inverte o senso comum. Diante de um sinal dado, se o ouvinte desconhece o que ele significa, o sinal nada pode ensinar-lhe; se já conhece a coisa, nada aprende pelo sinal, mas apenas recorda o que já sabia.
+        </li>
+        <li>
+          <strong>O enigma bíblico de *sarabara* (Dan 3,94):</strong> Ao ler o termo bíblico para certas coberturas de cabeça dos três jovens hebreus, a palavra não mostra a coisa. Se alguém a explica dizendo ser uma cobertura de cabeça, já conhecíamos previamente o que é cabeça e cobertura pela visão direta; continuamos sem saber o que é uma <em>sarabara</em> até vermos uma com nossos próprios olhos.
+        </li>
+        <li>
+          <strong>A aquisição da palavra *caput*:</strong> Quando ouvimos pela primeira vez as sílabas <em>ca-put</em> na infância, elas eram mero ruído. Só aprendemos que eram um sinal quando descobrimos o objeto de que eram sinal, objeto este que conhecemos pela visão direta. Logo, <strong>é o conhecimento prévio da coisa que ensina o sinal</strong>, e não o sinal que ensina a coisa.
+        </li>
+      </ol>
+
+      <h3 class="md-h3" id="epistemologia"><span class="hash">###</span>3.5. Categorias epistêmicas, iluminação interior e opacidade verbal (caps. xi–xiv)</h3>
+
+      <p>
+        Nos capítulos finais, Agostinho constrói a síntese entre epistemologia da primeira pessoa e iluminação divina:
+      </p>
+
+      <ul class="md-list">
+        <li>
+          <strong>Crença histórica vs. Ciência (Cap. XI):</strong> Ao lermos sobre a vitória dos três jovens na fornalha do rei Nabucodonosor, compreendemos o significado geral dos nomes comuns empregados (fogo, rei, jovens), mas os personagens históricos nos são desconhecidos: nós <strong>cremos</strong> (<code>credere</code>) no relato testemunhal dos autores sagrados, sem possuir <strong>conhecimento</strong> (<code>scire</code>) direto dos eventos. A fé em autoridades dignas de crédito é utilíssima e prepara a mente para a compreensão (<em>"Se não credes, não entendereis"</em>, <em>Is 7,9</em>).
+        </li>
+        <li>
+          <strong>A bipartição do real — Sensíveis e Inteligíveis (Cap. XII):</strong> As coisas sensíveis presentes são percebidas pelos órgãos do corpo sob a luz exterior; as ausentes são recordadas pelas imagens-documento gravadas na memória. Já as coisas inteligíveis são contempladas diretamente pelo intelecto na <strong>luz interior da verdade</strong>. Mesmo no método maiêutico, quando alguém responde a perguntas graduais e conclui aceitando uma verdade, as palavras do interlocutor apenas direcionaram seu olhar interior para as partes que já podia intuir por si mesmo.
+        </li>
+        <li>
+          <strong>A opacidade da fala humana (Cap. XIII):</strong> As palavras não revelam com certeza nem sequer a mente de quem fala, pois: (a) falantes podem recitar argumentos verdadeiros sobre a imortalidade da alma sem compreendê-los (como epicuristas); (b) mentirosos dissimulam o pensamento; (c) pessoas sinceras recitam de memória pensando em outra coisa ou sofrem lapsos de língua; (d) disputas de vocabulário geram mal-entendidos sobre palavras como <em>virtude/valor</em>; e (e) erros acústicos causam debates sobre termos mal ouvidos.
+        </li>
+        <li>
+          <strong>O magistério de Cristo e a ilusão pedagógica (Cap. XIV):</strong> Os alunos não vão à escola para aprender as opiniões subjetivas do mestre, mas as verdades objetivas das disciplinas. Quando julgam interiormente que o professor falou a verdade, aprenderam por si mesmos sob a luz do Mestre interior. Como o tempo entre a audição exterior e a intuição interior é quase instantâneo, os homens atribuem falsamente ao mestre terreno o ensino da verdade.
+        </li>
+      </ul>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- SEÇÃO 4: MATRIZ DE ARGUMENTOS PRINCIPAIS -->
+    <section id="matriz">
+      <h2 class="md-h2">4. Matriz de Argumentos Principais e Evidências Textuais</h2>
+
+      <div class="table-wrap">
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th>Eixo Demonstrativo</th>
+              <th>Tese Sustentada</th>
+              <th>Fundamento e Exemplo Estrutural no Diálogo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Clausura Semiótica</strong></td>
+              <td>Palavras não exibem a realidade extralinguística; remetem apenas a outros signos.</td>
+              <td>Análise de *si*, *nihil* e *ex* no verso de Virgílio (Cap. II) e demonstração de que a sinonímia, a paráfrase e o gesto ostensivo permanecem no interior da rede de signos (Caps. II–III).</td>
+            </tr>
+            <tr>
+              <td><strong>2. Coextensividade Palavra-Nome</strong></td>
+              <td>Toda palavra, quando mencionada como objeto de discurso, funciona sintática e semanticamente como nome.</td>
+              <td>Distinção entre o impacto acústico (*verbum*) e a função cognitiva (*nomen*), confirmada pelo uso de pronomes, tradução grega e sujeito nominativo de conectivos mencionados: *placet si / displicet quia* (Caps. IV–VI).</td>
+            </tr>
+            <tr>
+              <td><strong>3. Regra de Transição Referencial</strong></td>
+              <td>A mente passa naturalmente do signo para a coisa significada; sofismas nascem da confusão entre uso e menção.</td>
+              <td>Resolução dos paralogismos sobre a composição silábica de *homem*, o *leão* pronunciado pela boca e a predicação gramatical versus ontológica (Cap. VIII).</td>
+            </tr>
+            <tr>
+              <td><strong>4. Subordinação Teleológica</strong></td>
+              <td>O conhecimento da coisa é axiologicamente superior ao signo e ao conhecimento do signo.</td>
+              <td>Aplicação da regra meios-fins aos quatro termos nos casos de objetos física ou moralmente repulsivos como *lamaçal* e *vício* em Pérsio (Cap. IX).</td>
+            </tr>
+            <tr>
+              <td><strong>5. Paradoxo da Aprendizagem</strong></td>
+              <td>Nenhum sinal ensina pela primeira vez a coisa de que é sinal; o conhecimento prévio da coisa confere sentido ao signo.</td>
+              <td>Se o referente é ignorado (*sarabara* em *Dan 3*), a palavra é ruído; se já é conhecido (*caput* na infância), o signo apenas recorda o que já foi apreendido pela percepção direta (Caps. X–XI).</td>
+            </tr>
+            <tr>
+              <td><strong>6. Epistemologia de Primeira Pessoa</strong></td>
+              <td>O conhecimento exige apreensão direta: sentidos (sensível presente), memória (sensível passado) ou razão iluminada (inteligível).</td>
+              <td>Contraste entre a crença histórica baseada em testemunho (os três jovens) e a intuição intelectual direta na luz interior da Verdade, inclusive no diálogo socrático parte por parte (Caps. XI–XII).</td>
+            </tr>
+            <tr>
+              <td><strong>7. Papel Admoestatório da Linguagem</strong></td>
+              <td>As palavras externas atuam exclusivamente como aviso (*admonitio*); Cristo ensina no homem interior.</td>
+              <td>Casos da opacidade do locutor, da ilusão temporal que confunde o professor terreno com a causa da compreensão e cumprimento do preceito de *Mt 23,8-10* (Caps. XIII–XIV).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- SEÇÃO 5: APRECIAÇÃO CRÍTICA ANALÍTICA -->
+    <section id="apreciacao">
+      <h2 class="md-h2">5. Apreciação Crítica e Relevância Filosófica</h2>
+
+      <p>
+        A leitura atenta do <em>De Magistro</em> desfaz preconceitos arraigados na história da filosofia da linguagem e na epistemologia contemporânea:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>Pioneirismo na Distinção entre Uso e Menção:</strong> Muito antes do advento da lógica matemática e dos recursos tipográficos modernos, Agostinho formulou uma das mais refinadas análises da Antiguidade sobre reflexividade semiótica. Ao examinar locuções em que conjunções e preposições figuram como sujeitos nominativos de juízos de valor (<em>"Se agrada"</em>), Agostinho recusou a alternativa grosseira entre o mero ruído sonoro e o uso referencial comum, postulando a palavra tomada com sua significação (<code>dictio</code>) como entidade nomeável.
+        </li>
+        <li>
+          <strong>Crítica Antecipada ao Ostensivismo Ingênuo:</strong> Longe de patrocinar uma teoria primitiva que confia na exibição gestual de objetos para ancorar a linguagem, o <em>De Magistro</em> demonstra a insuficiência congênita da ostensão física. Apontar o dedo é produzir mais um sinal visual; e encenar uma ação corpórea (como caminhar) permanece subdeterminado e dependente do discernimento prévio do observador para abstrair a essência do ato sem confundi-lo com a velocidade ou a extensão caminhada.
+        </li>
+        <li>
+          <strong>A Concepção de Conhecimento como Intelecção Intransferível:</strong> A conclusão de que nenhum mestre humano transfere conhecimento a outrem não é um ceticismo sobre a vida cotidiana, mas uma defesa radical da dignidade da inteligência racional. Crenças verdadeiras e dados empíricos podem ser comunicados por testemunho testemunhal; contudo, a <strong>compreensão genuína</strong> das razões necessárias e universais é um ato de primeira pessoa, intransferível e pessoal, realizado pelo homem quando sua mente se volta para a Luz interior que a todos ilumina.
+        </li>
+      </ol>
+    </section>
+
+    <!-- RODAPÉ MD MINIMALISTA -->
+    <footer class="md-footer">
+      <div>DE_MAGISTRO.md · RESUMO ANALÍTICO INTEGRAL</div>
+      <div>SANTO AGOSTINHO DE HIPONA (389 D.C.) · COLEÇÃO OS PENSADORES</div>
+      <div><a href="#top">voltar ao topo ↑</a></div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Barra de progresso ultra-sutil
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>

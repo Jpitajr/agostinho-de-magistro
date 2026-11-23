@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BURNYEAT.md — Wittgenstein and Augustine De Magistro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #141413;
+      --bg-subtle: #1a1918;
+      --bg-code: #1d1c1a;
+      --border: #2a2926;
+      --border-soft: #22211f;
+
+      --text-title: #e6e2da;
+      --text-body: #c7c4bc;
+      --text-strong: #ece8e0;
+      --text-muted: #8e8b84;
+      --text-dim: #66635d;
+
+      --accent: #e0522b;
+      --accent-soft: rgba(224, 82, 43, 0.12);
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-body);
+      min-height: 100vh;
+      padding: 4.5rem 3cm 7rem;
+      position: relative;
+    }
+
+    /* Ultra-subtle top reading progress filament */
+    .progress-filament {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: var(--accent);
+      z-index: 100;
+      transition: width 0.08s linear;
+    }
+
+    /* Container adaptativo com margem de 3cm de cada lado */
+    .sheet {
+      width: calc(100% - 6cm);
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* Em telas ultrawide ou monitores grandes (34" / > 1440px) */
+    @media (min-width: 1024px) {
+      .sheet {
+        width: calc(100% - 6cm);
+        max-width: 1140px;
+      }
+      .md-toc-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      .two-col-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      .sheet {
+        width: calc(100% - 6cm);
+        max-width: 1180px;
+      }
+      .md-toc-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 3rem 1.25rem 5rem;
+      }
+      .sheet {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+
+    /* Top Kicker / Monospace Metadata Line */
+    .meta-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* Giant Markdown File Title */
+    h1.doc-title {
+      font-family: var(--font-sans);
+      font-size: clamp(2.85rem, 5.5vw, 5.2rem);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+      color: var(--text-title);
+      margin-bottom: 2.35rem;
+    }
+
+    h1.doc-title .ext {
+      font-weight: 700;
+      color: var(--text-title);
+    }
+
+    /* Raw Markdown Blockquotes (> ...) in Monospace */
+    .md-lead-quotes {
+      margin-bottom: 3.5rem;
+    }
+
+    .md-quote {
+      font-family: var(--font-mono);
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 1.35rem;
+    }
+
+    .md-quote:last-child {
+      margin-bottom: 0;
+    }
+
+    .md-quote .q-mark {
+      color: var(--text-dim);
+      user-select: none;
+    }
+
+    /* Minimal Monospace Index / Jump Bar */
+    .md-toc {
+      margin: 2.75rem 0 3.75rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .md-toc-title {
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.65rem;
+      font-size: 0.72rem;
+    }
+
+    .md-toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 0.35rem 1.5rem;
+    }
+
+    .md-toc a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      display: inline-block;
+      padding: 0.1rem 0;
+    }
+
+    .md-toc a:hover {
+      color: var(--accent);
+    }
+
+    .md-toc a .toc-hash {
+      color: var(--accent);
+      opacity: 0.85;
+    }
+
+    /* Section Headings with literal ## in Terracotta Orange */
+    h2.md-h2 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.28;
+      color: var(--accent);
+      margin-top: 4rem;
+      margin-bottom: 1.45rem;
+    }
+
+    /* Subsection Headings with literal ### */
+    h3.md-h3 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.15rem, 1.4vw, 1.4rem);
+      font-weight: 700;
+      letter-spacing: -0.018em;
+      line-height: 1.35;
+      color: var(--text-title);
+      margin-top: 2.65rem;
+      margin-bottom: 1.05rem;
+    }
+
+    h3.md-h3 .hash {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 500;
+      margin-right: 0.35rem;
+    }
+
+    h4.md-h4 {
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Body Copy - Texto Justificado com controle editorial */
+    p {
+      margin-bottom: 1.35rem;
+      color: var(--text-body);
+      font-weight: 400;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .md-quote {
+      font-family: var(--font-mono);
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 1.35rem;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    strong {
+      color: var(--text-strong);
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+      color: #dad6ce;
+    }
+
+    /* Inline code / Latin technical markers */
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.86em;
+      background-color: var(--bg-code);
+      color: #dedad0;
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      border: 1px solid var(--border-soft);
+    }
+
+    /* Raw Markdown Lists */
+    ul.md-list,
+    ol.md-list {
+      list-style: none;
+      margin: 1.1rem 0 1.65rem;
+    }
+
+    ul.md-list > li,
+    ol.md-list > li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 0.95rem;
+      color: var(--text-body);
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    ul.md-list > li::before {
+      content: "*";
+      position: absolute;
+      left: 0.25rem;
+      top: 0.05rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    ol.md-list {
+      counter-reset: md-counter;
+    }
+
+    ol.md-list > li {
+      counter-increment: md-counter;
+      padding-left: 2.1rem;
+    }
+
+    ol.md-list > li::before {
+      content: counter(md-counter) ".";
+      position: absolute;
+      left: 0;
+      top: 0.02rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Nested lists inside li */
+    .md-sublist {
+      list-style: none;
+      margin-top: 0.65rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .md-sublist > li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.96rem;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .md-sublist > li::before {
+      content: "-";
+      position: absolute;
+      left: 0.15rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    /* Monospace Callout / Logic Blocks */
+    .md-block {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.35rem 1.5rem;
+      margin: 1.65rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    .md-block-label {
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .logic-line {
+      margin-bottom: 0.55rem;
+      padding-left: 2.2rem;
+      position: relative;
+    }
+
+    .logic-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .logic-tag {
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .logic-sep {
+      border-top: 1px dashed var(--border);
+      margin: 0.75rem 0;
+    }
+
+    /* Section Divider (literal markdown ---) */
+    .md-hr {
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      letter-spacing: 0.25em;
+      font-size: 0.85rem;
+      margin: 3.5rem 0;
+      user-select: none;
+    }
+
+    /* Definition Cards in pure .md style */
+    #conceitos {
+      display: block;
+    }
+
+    @media (min-width: 1024px) {
+      .concept-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 2.5rem;
+      }
+      .concept-grid .concept-item {
+        margin-bottom: 0;
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    .concept-item {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .concept-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .concept-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--text-strong);
+      font-size: 1.03rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .concept-latin {
+      font-family: var(--font-mono);
+      font-size: 0.83rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+
+    /* Evidence Matrix / Markdown Table */
+    .table-wrap {
+      margin: 1.75rem 0 2.5rem;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: var(--bg-subtle);
+    }
+
+    table.md-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    table.md-table th {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background-color: var(--bg-code);
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    table.md-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+      color: var(--text-body);
+    }
+
+    table.md-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer.md-footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    footer.md-footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer.md-footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      html {
+        font-size: 16px;
+      }
+      body {
+        padding: 3rem 1.25rem 5rem;
+      }
+      .md-block {
+        padding: 1.1rem 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-filament" id="progressBar"></div>
+
+  <main class="sheet" id="top">
+
+    <div class="meta-kicker">
+      M. F. BURNYEAT · PROC. ARIST. SOC. 61 (1987) · LEXINGTON BOOKS (2018)
+    </div>
+
+    <h1 class="doc-title">BURNYEAT<span class="ext">.md</span></h1>
+
+    <div class="md-lead-quotes">
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> resumo acadêmico e análise estrutural completa de <em>"Wittgenstein and Augustine De Magistro"</em> (pp. 1–20; 34 notas explicativas e bibliográficas).
+      </p>
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> nem uma imagem pré-filosófica ingênua (<em>Urbild</em>). nem uma hipótese empírica inatista. nem uma memória autobiográfica da infância.
+      </p>
+      <p class="md-quote">
+        <span class="q-mark">&gt;</span> o ponto exato onde oito séculos de epistemologia platônica e semântica estoica convergem com a abertura das <em>Investigações Filosóficas</em> (<em>PI</em> § 1): ninguém pode compreender em meu lugar.
+      </p>
+    </div>
+
+    <!-- Audio Player Minimalista Integrado -->
+    <div class="audio-widget-box" style="background-color: var(--bg-subtle); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.4rem; margin-bottom: 2.5rem; font-family: var(--font-mono);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+        <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);">// áudio original da aula vinculada</span>
+        <span style="font-size: 0.75rem; color: var(--text-dim);">Medieval 04-11.m4a (01h 17min 37s)</span>
+      </div>
+      <audio controls preload="metadata" style="width: 100%; height: 38px; outline: none; border-radius: 3px; filter: invert(0.88) hue-rotate(180deg);">
+        <source src="Medieval 04-11.m4a" type="audio/mp4">
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
+      <div style="margin-top: 0.65rem; font-size: 0.78rem; color: var(--text-muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+        <span>Santo Agostinho: <em>De Magistro</em>, Teoria dos Signos &amp; Mestre Interior</span>
+        <a href="Transcricao_Medieval_04-11.md" style="color: var(--accent); text-decoration: none;">[abrir transcrição completa .md ↗]</a>
+      </div>
+    </div>
+
+    <nav class="md-toc" aria-label="Sumário do documento">
+      <div class="md-toc-title">// índice estrutural do arquivo</div>
+      <div class="md-toc-grid">
+        <a href="#identificacao"><span class="toc-hash">##</span> 01. identificação bibliográfica</a>
+        <a href="#problema"><span class="toc-hash">##</span> 02. problema de pesquisa</a>
+        <a href="#objetivos"><span class="toc-hash">##</span> 03. objetivos (geral e específicos)</a>
+        <a href="#referencial"><span class="toc-hash">##</span> 04. referencial teórico e filológico</a>
+        <a href="#conceitos"><span class="toc-hash">##</span> 05. conceitos centrais</a>
+        <a href="#metodologia"><span class="toc-hash">##</span> 06. metodologia</a>
+        <a href="#parte-1"><span class="toc-hash">##</span> 07. parte I: confissões I, viii, 13</a>
+        <a href="#parte-2"><span class="toc-hash">##</span> 08. parte II: o diálogo de magistro</a>
+        <a href="#parte-3"><span class="toc-hash">##</span> 09. parte III: retorno a wittgenstein</a>
+        <a href="#matriz"><span class="toc-hash">##</span> 10. matriz de evidências textuais</a>
+        <a href="#conclusoes"><span class="toc-hash">##</span> 11. conclusões do estudo</a>
+        <a href="Transcricao_Medieval_04-11.md"><span class="toc-hash">##</span> 12. transcrição da aula (04/11) ↗</a>
+      </div>
+    </nav>
+
+    <!-- 1. IDENTIFICAÇÃO BIBLIOGRÁFICA -->
+    <section id="identificacao">
+      <h2 class="md-h2">## o que é este arquivo (identificação bibliográfica)</h2>
+
+      <p>
+        Um fichamento exegético integral, em texto limpo, da conferência inaugural em que Myles Fredric Burnyeat reconstrói a relação histórica, filológica e epistemológica entre a passagem das <em>Confissões</em> (I, viii, 13) citada por Ludwig Wittgenstein na abertura das <em>Investigações Filosóficas</em> (<em>PI</em> § 1) e a tese radical do diálogo <em>De Magistro</em>: a de que nenhum ser humano jamais ensina ou pode ensinar conhecimento (<em>scientia</em>) a outro.
+      </p>
+
+      <ul class="md-list">
+        <li>
+          <strong>Autor do Capítulo:</strong> Myles Fredric Burnyeat (M. F. Burnyeat), Professor Emérito de Filosofia Antiga da Universidade de Cambridge.
+        </li>
+        <li>
+          <strong>Título do Capítulo:</strong> Capítulo 1 — <em>Wittgenstein and Augustine De Magistro</em> (pp. 1–20 da edição impressa correspondente; arquivo <code>chapter1.xhtml</code> do EPUB, acompanhado de 34 notas explicativas e bibliográficas).
+        </li>
+        <li>
+          <strong>Publicação Original do Ensaio:</strong> Conferência inaugural originalmente publicada em <em>Proceedings of the Aristotelian Society</em>, Supplementary Volumes, vol. 61 (1987), pp. 1–24, reimpressa como capítulo de abertura da coletânea de 2018.
+        </li>
+        <li>
+          <strong>Obra Coletiva (Arquivo EPUB):</strong> <em>Augustine and Wittgenstein</em>, editado por John Doody, Alexander R. Eodice e Kim Paffenroth (Lanham, MD: Lexington Books / Rowman &amp; Littlefield, 2018; Série <em>Augustine in Conversation: Tradition and Innovation</em>; ISBN <code>978-1-4985-8527-9</code> [eletrônico] / <code>978-1-4985-8526-2</code> [impresso]).
+        </li>
+        <li>
+          <strong>Contextualização no Volume Coletivo:</strong> Conforme exposto na Introdução dos editores (Alexander R. Eodice e Kim Paffenroth, pp. vii–xii), o volume examina as conexões filosóficas e metodológicas entre Agostinho e Ludwig Wittgenstein (linguagem, ostensão, limites do sentido, ética, ritual, milagres, origens religiosas, memória, tempo, liberdade e vontade), cabendo ao estudo clássico de Burnyeat abrir a obra com a investigação histórica e epistemológica sobre a relação entre a passagem das <em>Confissões</em> (I, viii, 13) citada na abertura das <em>Investigações Filosóficas</em> (<em>PI</em> § 1) e a tese central do <em>De Magistro</em>.
+        </li>
+      </ul>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 2. PROBLEMA DE PESQUISA -->
+    <section id="problema">
+      <h2 class="md-h2">## problema de pesquisa</h2>
+
+      <p>
+        O estudo de Burnyeat parte de uma lacuna crítica na recepção contemporânea de Wittgenstein e de Agostinho: leitores e comentadores das <em>Investigações Filosóficas</em> (<em>PI</em> § 1) concentram-se quase exclusivamente no trecho das <em>Confissões</em> (I, viii, 13) recortado por Wittgenstein — no qual o aprendizado infantil da linguagem é associado à observação de adultos que nomeiam objetos e movem o corpo em direção a eles —, ignorando as frases imediatamente anteriores omitidas por Wittgenstein, nas quais Agostinho afirma categoricamente que seus mais velhos <strong>não lhe ensinaram a falar</strong>, mas que ele aprendeu por si mesmo com a mente que Deus lhe concedeu.
+      </p>
+
+      <p>
+        O problema de pesquisa consiste em responder a três questões interligadas:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          Qual é o fundamento filosófico e teológico da afirmação de Agostinho, em <em>Confissões</em> I, viii, 13 (e I, xiv, 23), de que não foi ensinado a falar por seus preceptores humanos, e como essa passagem se articula com a tese geral defendida no diálogo <em>De Magistro</em> segundo a qual nenhum ser humano jamais ensina ou pode ensinar coisa alguma a outro?
+        </li>
+        <li>
+          Ao contrário da leitura difundida por comentadores wittgensteinianos (que veem em Agostinho uma imagem pré-filosófica e ingênua da linguagem como simples lista de nomes aprendidos por ostensão) ou por psicólogos cognitivos (que o leem como uma hipótese empírica inatista), qual é a verdadeira natureza da semântica e da epistemologia desenvolvidas por Agostinho no <em>De Magistro</em>?
+        </li>
+        <li>
+          Em que medida as razões históricas e epistemológicas de Agostinho para negar que a linguagem (ou qualquer conhecimento) possa ser ensinada de fora para dentro convergem com as próprias razões de Wittgenstein para rejeitar o modelo transmissivo e ostensivo do ensino da linguagem, e qual é o significado filosófico do recorte textual operado por Wittgenstein ao omitir a referência a Deus e à mente platônica na abertura das <em>Investigações Filosóficas</em>?
+        </li>
+      </ol>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 3. OBJETIVOS -->
+    <section id="objetivos">
+      <h2 class="md-h2">## objetivos da investigação</h2>
+
+      <div class="md-block">
+        <span class="md-block-label">// objetivo geral</span>
+        Reconstruir historicamente e analisar filosoficamente a tese geral do <em>De Magistro</em> — de que nenhum ser humano pode ensinar conhecimento (<code>scientia</code>) a outrem — como o resultado amadurecido de cerca de oito séculos de tradição platônica (combinada a elementos da semântica estoica), demonstrando que o relato de <em>Confissões</em> I, viii, 13 não é uma teoria semântica primitiva nem uma memória autobiográfica empírica, mas a aplicação direta de uma epistemologia da compreensão (<code>intellegere</code>) de primeira pessoa que apresenta profundas afinidades estruturais com a filosofia da compreensão de Wittgenstein.
+      </div>
+
+      <h3 class="md-h3"><span class="hash">###</span>objetivos específicos</h3>
+
+      <ol class="md-list">
+        <li>
+          <strong>Crítica Filológica e Estatuto Epistêmico das <em>Confissões</em>:</strong> Analisar filológica e teologicamente o contexto integral de <em>Confissões</em> I, viii, 13 (incluindo a história editorial do texto latino utilizado por Wittgenstein), diferenciando memória autobiográfica (<code>memini</code>), crença em testemunhos (<code>credidi</code>), conjectura empírica (<code>conieci</code>) e reconhecimento teológico retroativo (<code>post adverti</code>).
+        </li>
+        <li>
+          <strong>Identidade entre <em>Scire</em> e <em>Intellegere</em>:</strong> Elucidar o conceito agostiniano de conhecimento (<code>scientia / scire</code>) a partir das <em>Retractationes</em> (I, vii; I, xiv, 3) e do <em>De Utilitate Credendi</em> (xi, 25), demonstrando que o uso próprio (<code>proprie</code>) de <em>saber</em> equivale a <em>compreender</em> (<code>intellegere</code>), em contraste com a crença justificada por testemunho ou percepção sensível.
+        </li>
+        <li>
+          <strong>Reabilitação da Semântica Agostiniana de Matriz Estoica:</strong> Desmontar a leitura segundo a qual o <em>De Magistro</em> sustentaria uma semântica ingênua, evidenciando a sofisticação da teoria semântica de matriz estoica empregada nos Capítulos I–X (a tese de que todas as palavras são nomes, a distinção entre <code>dictio</code> e <code>verbum</code> à luz do <em>De Dialectica</em>, a distinção entre referência e modo de significação, e a crítica agostiniana à ambiguidade da ostensão).
+        </li>
+        <li>
+          <strong>Resolução Dialética via <em>Telling</em> vs. <em>Showing</em>:</strong> Reconstruir a estrutura dialética das reviravoltas argumentativas do <em>De Magistro</em> mediante a distinção analítica entre <em>ensinar dizendo/informando</em> (<em>teaching by telling</em>) e <em>ensinar mostrando</em> (<em>teaching by showing</em>), resolvendo a aparente contradição entre o contraexemplo do passarinheiro (x, 32) e a conclusão final de que nenhum homem ensina outro (xiv, 46).
+        </li>
+        <li>
+          <strong>Categorias Epistêmicas e Iluminação Sinóptica:</strong> Examinar o argumento semântico-epistemológico dos Capítulos X–XII (o paradoxo de Mênon aplicado ao vocábulo raro <code>sarabara</code> e à palavra comum <code>caput</code>, e a distinção entre crença histórica e conhecimento na narrativa de <em>Daniel 3</em>) à luz da teoria das categorias epistêmicas, comparando Agostinho ao <em>Mênon</em> e ao <em>Teeteto</em> de Platão e aos <em>Segundos Analíticos</em> de Aristóteles quanto à relação entre visão sinóptica, conexões explicativas e iluminação interior.
+        </li>
+        <li>
+          <strong>O Sentido da Elipse de Wittgenstein em <em>PI</em> § 1:</strong> Reavaliar a relação de Wittgenstein com Agostinho, mostrando por que a omissão de Deus e da mente platônica em <em>PI</em> § 1 representa a apropriação wittgensteiniana do problema agostiniano da compreensão para enfrentá-lo em bases estritamente naturalistas e humanas.
+        </li>
+      </ol>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 4. REFERENCIAL TEÓRICO -->
+    <section id="referencial">
+      <h2 class="md-h2">## referencial teórico</h2>
+
+      <p>
+        O artigo mobiliza quatro eixos teóricos principais que articulam filologia patrística, filosofia antiga, estudos wittgensteinianos e filosofia analítica da linguagem:
+      </p>
+
+      <h3 class="md-h3"><span class="hash">###</span>1. corpus agostiniano e filologia patrística</h3>
+      <ul class="md-list">
+        <li>
+          <strong>Obras de Agostinho analisadas:</strong> <em>De Magistro</em> (texto latino editado por K. D. Daur no <em>Corpus Christianorum</em> [1970] e tradução inglesa de J. H. S. Burleigh [1953] com correções do próprio Burnyeat), <em>Confissões</em> (Livros I, VII, VIII, IX e X), <em>Retractationes</em> (I, vii; I, xiv, 3), <em>De Utilitate Credendi</em> (xi, 25), <em>De Dialectica</em> (caps. 5, 8 e 9), <em>Contra Academicos</em>, <em>Soliloquia</em> (I, iii, 8), <em>De Diversis Quaestionibus 83</em> (q. 48), <em>De Trinitate</em> (XII, xv, 24; XV, xii, 21) e <em>Epistula</em> CXX (ii, 9).
+        </li>
+        <li>
+          <strong>Crítica textual das <em>Confissões</em> (Nota 4):</strong> Comparação entre a edição Maurista do século XVII (<em>Patrologia Latina</em> 32, seguida por Pusey em 1838 e Gibb &amp; Montgomery em 1908, que inseria uma vírgula e a variante fraca <code>praesonabam</code>, obscurecendo a frase em que Agostinho afirma ter ensinado a si mesmo) e as edições críticas modernas de Knoll (Teubner, 1898 — exemplar que Wittgenstein possuía e lia, além da tradução alemã de O. F. Lachmann de 1888), Skutella (Teubner, 1934, que lê <code>pensabam memoria</code>) e Labriolle/Solignac (<em>Bibliothèque Augustinienne</em>, que lê <code>prensabam memoria</code>).
+        </li>
+        <li>
+          <strong>Historiografia agostiniana e patrística:</strong> R. A. Markus (sobre razão, iluminação e conhecimento), Pierre Courcelle (sobre o alcance das leituras gregas e neoplatônicas de Agostinho e seu acesso indireto ao <em>Mênon</em> via Cícero, <em>Tusculanae Disputationes</em> I, 57–58), Gerhart B. Ladner (o tema medieval do <em>homo viator</em>), Étienne Gilson (criticado na Nota 20 por imprecisões na leitura do <em>De Magistro</em>) e G. N. Knauer (estudo filológico sobre o termo <code>sarabara</code> em <em>Glotta</em>, 1954).
+        </li>
+      </ul>
+
+      <h3 class="md-h3"><span class="hash">###</span>2. filosofia antiga (platão, aristóteles, estoicismo e ceticismo pirrônico)</h3>
+      <ul class="md-list">
+        <li>
+          <strong>Platão:</strong> <em>Mênon</em> (o paradoxo da investigação e a diferença epistêmica entre quem conhece o caminho para Larissa por tê-lo percorrido e quem possui apenas opinião verdadeira) e <em>Teeteto</em> (a diferença entre a testemunha ocular de um crime e os jurados persuadidos no tribunal).
+        </li>
+        <li>
+          <strong>Aristóteles:</strong> <em>Segundos Analíticos</em> (a concepção de conhecimento científico / <em>episteme</em> como compreensão baseada na apreensão das conexões explicativas e na visão sinóptica de um domínio).
+        </li>
+        <li>
+          <strong>Semântica e Lógica Estoica vs. Tradição Peripatética:</strong> A disputa antiga entre os estoicos (que sustentavam que toda palavra significa algo, que os conectivos são definidos pelas condições de verdade das proposições inteiras [Diógenes Laércio VII, 71–74] e a tese de Crisipo de que toda palavra é ambígua por poder ser usada de modo autônimo [Aulo Gélio XI, 12; Cícero, <em>De Inventione</em> II, 117; Quintiliano VII, ix, 1]) e os peripatéticos (que restringiam a significação própria aos nomes e verbos, tratando as demais partículas como meramente co-significativas; polêmica documentada em Plutarco, <em>Questões Platônicas</em> X, 1011c, e estudada por C. Atherton).
+        </li>
+        <li>
+          <strong>Sexto Empírico:</strong> <em>Hipotiposes Pirrônicas</em> (III, 267–269), contrastado na Nota 19 com o argumento mais sutil de Agostinho sobre a impossibilidade do ensino verbal.
+        </li>
+      </ul>
+
+      <h3 class="md-h3"><span class="hash">###</span>3. obras de ludwig wittgenstein e literatura secundária</h3>
+      <ul class="md-list">
+        <li>
+          <strong>Textos de Wittgenstein:</strong> <em>Investigações Filosóficas</em> (<em>PI</em> §§ 1, 13, 24, 32, 234–235), <em>The Blue and Brown Books</em> (<em>BB</em>, p. 77), a revisão de 1936 <em>Eine Philosophische Betrachtung</em> (<em>Schriften</em>, vol. 5, p. 117) e <em>Remarks on Frazer's Golden Bough</em> (p. 61).
+        </li>
+        <li>
+          <strong>Comentadores e críticos discutidos:</strong> G. P. Baker &amp; P. M. S. Hacker (<em>An Analytical Commentary on Wittgenstein's Philosophical Investigations</em>, 1983), Garth Hallett (<em>A Companion to Wittgenstein's "Philosophical Investigations"</em>, 1977), Norman Kretzmann (verbete <em>Semantics, History of</em> na <em>Encyclopedia of Philosophy</em>, 1967, além de comentário crítico debatido em Cornell), Robert L. Arrington (criticado na Nota 33 por apresentar uma versão ficcional da teoria da ostensão de Agostinho), Herbert Spiegelberg (1979) e Jerry A. Fodor (<em>The Language of Thought</em>, 1976, p. 64).
+        </li>
+      </ul>
+
+      <h3 class="md-h3"><span class="hash">###</span>4. filosofia analítica da linguagem e epistemologia moderna/contemporânea</h3>
+      <ul class="md-list">
+        <li>
+          <strong>Pragmática, Semântica e Epistemologia:</strong> H. P. Grice (<em>Meaning</em>, 1957 — teoria das intenções comunicativas reflexivas aplicada ao exemplo do passarinheiro); N. E. Christensen (<em>Philosophical Review</em>, 1967 — teoria da <em>suppositio semantica</em> sobre uso e menção); Jonathan Barnes (<em>Socrates and the Jury</em>, 1980 — conceito de categorias epistêmicas); Alexander Nehamas (<em>Oxford Studies in Ancient Philosophy</em>, 1985); e John Locke (<em>An Essay concerning Human Understanding</em>, I, iii, 24 — convergência entre testemunho ocular, aprendizado de primeira mão e compreensão conectiva na crítica ao inatismo).
+        </li>
+      </ul>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 5. CONCEITOS CENTRAIS -->
+    <section id="conceitos">
+      <h2 class="md-h2">## conceitos centrais</h2>
+
+      <div class="concept-grid">
+      <div class="concept-item">
+        <div class="concept-title">1. Autodidatismo sob Capacitação Divina</div>
+        <span class="concept-latin">non a docentibus sed a loquentibus · Confissões I, viii, 13 &amp; I, xiv, 23</span>
+        <p>
+          Tese agostiniana segundo a qual a criança não aprende as primeiras palavras por instrução metódica de professores (<code>non a docentibus</code>), mas observando falantes (<code>a loquentibus</code>) e ensinando a si mesma graças à mente (<code>mens / memoria</code>) concedida por Deus.
+        </p>
+      </div>
+
+      <div class="concept-item">
+        <div class="concept-title">2. Reconhecimento Teológico Retroativo</div>
+        <span class="concept-latin">post adverti / animadverti postmodum vs. memini, credidi, conieci</span>
+        <p>
+          Distinção epistêmica estabelecida por Burnyeat no Livro I das <em>Confissões</em>: diferentemente da memória direta (<code>memini</code>), da crença no relato dos pais (<code>credidi</code>) e da conjectura indutiva a partir da observação de outros bebês (<code>conieci</code>), a expressão <code>post adverti</code> designa uma compreensão filosófico-teológica alcançada na maturidade sobre a presença e a ação de Deus no processo pelo qual a mente infantil aprendeu por si mesma.
+        </p>
+      </div>
+
+      <div class="concept-item">
+        <div class="concept-title">3. Uso Próprio vs. Uso Catacréstico de Saber e Identidade entre Scire e Intellegere</div>
+        <span class="concept-latin">proprie · scire = intellegere · Retractationes I, xiv, 3 &amp; De Utilitate Credendi xi, 25</span>
+        <p>
+          Agostinho não postula dois significados distintos para o verbo <em>saber</em>, mas distingue seu <strong>sentido próprio e estrito</strong> (aquilo que apreendemos pelo firme raciocínio da mente, onde <code>scire</code> equivale estritamente a <code>intellegere</code>, compreender) de seu <strong>uso comum ou catacréstico</strong> (no qual aplicamos frouxamente a palavra <em>saber</em> ao que percebemos pelos sentidos corpóreos ou ao que cremos com base em testemunhos fidedignos).
+        </p>
+      </div>
+
+      <div class="concept-item">
+        <div class="concept-title">4. Palavra como Som vs. Palavra com Significado</div>
+        <span class="concept-latin">verbum vs. dictio · De Dialectica cap. 5 · suppositio semantica</span>
+        <p>
+          Recorrendo ao capítulo 5 do <em>De Dialectica</em>, Burnyeat explica como Agostinho supera a dicotomia moderna rígida entre uso e menção: quando conjunções como <em>se</em> e <em>porque</em> funcionam como nomes nas frases <em>se agrada</em> (<code>placet si</code>) e <em>porque desagrada</em> (<code>displicet quia</code>), elas não estão sendo simplesmente usadas como conectivos, nem mencionadas apenas como ruído acústico (<code>verbum</code>), mas nomeiam seu próprio significado ou a palavra tomada conjuntamente com seu significado (<code>dictio</code>).
+        </p>
+      </div>
+
+      <div class="concept-item">
+        <div class="concept-title">5. Ensinar Dizendo vs. Ensinar Mostrando</div>
+        <span class="concept-latin">teaching by telling vs. teaching by showing</span>
+        <p>
+          Chave hermenêutica proposta por Burnyeat para explicar a inversão dialética do <em>De Magistro</em>:
+        </p>
+        <ul class="md-sublist">
+          <li>
+            Na primeira parte do diálogo (i, 1 – x, 31), o ensino é gradualmente assimilado ao <em>dizer/transmitir informação</em> (<code>telling</code>), o que torna trivialmente verdadeira a conclusão de que todo ensino ocorre por palavras ou sinais.
+          </li>
+          <li>
+            Na segunda parte (x, 32 – xiv, 46), o ensino é restringido ao <em>mostrar diretamente a coisa mesma</em> (<code>showing</code>), o que torna verdadeira a tese de que nenhum ensino se efetua por palavras ou sinais.
+          </li>
+        </ul>
+      </div>
+
+      <div class="concept-item">
+        <div class="concept-title">6. Intenção Comunicativa Griceana vs. Ocasião de Aprendizagem</div>
+        <span class="concept-latin">De Magistro x, 32 · o caçador de pássaros (auceps)</span>
+        <p>
+          Ao analisar o exemplo do caçador de pássaros (x, 32), Burnyeat observa que o caçador exibe sua habilidade para satisfazer a curiosidade do espectador, mas não possui uma intenção comunicativa reflexiva (no sentido de Grice) de transmitir uma mensagem simbólica; ele apenas realiza a ação na presença do observador, fornecendo uma <strong>ocasião</strong> para que o espectador inteligente aprenda por si mesmo — exatamente como Deus e a natureza expõem o sol, a lua e os astros aos olhos de quem os contempla.
+        </p>
+      </div>
+
+      <div class="concept-item">
+        <div class="concept-title">7. Categorias Epistêmicas e Aprendizado de Primeira Mão</div>
+        <span class="concept-latin">first-hand learning · De Magistro xii, 39–40 · Jonathan Barnes (1980)</span>
+        <p>
+          Conceito adaptado de Jonathan Barnes segundo o qual todas as verdades cognoscíveis dividem-se em duas classes que exigem apreensão direta pelo sujeito: (1) verdades sensíveis (que exigem percepção sensorial própria) e (2) verdades inteligíveis (que exigem percepção intelectual própria). Sem percepção direta em uma dessas duas modalidades, o sujeito pode ter crença plenamente justificada (<code>credere</code>), mas jamais conhecimento (<code>scire</code>).
+        </p>
+      </div>
+
+      <div class="concept-item">
+        <div class="concept-title">8. Apreensão Sinóptica e Conectividade vs. Iluminação Interior</div>
+        <span class="concept-latin">synoptic grasp &amp; connectedness · De Magistro x, 31; xii, 40; xiv, 46</span>
+        <p>
+          Enquanto a crença ou a informação transmitida pode ser fragmentária e isolada (saber proposições avulsas), a compreensão (<code>understanding / intellegere</code>) exige ver por si mesmo como os múltiplos elementos de um campo complexo se articulam em um todo coerente. A doutrina da iluminação interior de Agostinho não é a visão mística de objetos abstratos isolados, mas a apreensão sinóptica das conexões racionais na luz da Verdade total (identificada com Deus/Cristo).
+        </p>
+      </div>
+      </div>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 6. METODOLOGIA -->
+    <section id="metodologia">
+      <h2 class="md-h2">## metodologia</h2>
+
+      <p>
+        Burnyeat combina três abordagens metodológicas complementares ao longo do estudo:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>Exegese Filológica e Histórico-Genética:</strong> Examina o texto latino das <em>Confissões</em>, do <em>De Magistro</em>, das <em>Retractationes</em>, do <em>De Utilitate Credendi</em> e do <em>De Dialectica</em>, cruzando variantes manuscritas e edições críticas com o contexto das escolas helenísticas (estoicismo, peripatetismo, platonismo médio e neoplatonismo).
+        </li>
+        <li>
+          <strong>Análise Conceitual e Reconstrução Formal:</strong> Reconstrói formalmente as inferências do <em>De Magistro</em> (como a passagem das premissas <code>(a)</code>, <code>(b)</code> e <code>(c)</code> para <code>(d)</code> e <code>(e)</code> no Capítulo X) e aplica ferramentas da filosofia analítica contemporânea (a distinção uso/menção, a pragmática das intenções de Grice e a epistemologia do testemunho vs. compreensão) para testar a validade e o propósito dialético dos argumentos agostinianos.
+        </li>
+        <li>
+          <strong>Leitura Comparativa Cruzada (Agostinho–Platão–Wittgenstein):</strong> Utiliza a epistemologia platônica (<em>Mênon</em> e <em>Teeteto</em>) para iluminar o <em>De Magistro</em> e, inversamente, utiliza o <em>De Magistro</em> para reinterpretar tanto o relato de aquisição da linguagem nas <em>Confissões</em> quanto a abertura e a discussão sobre seguir regras nas <em>Investigações Filosóficas</em> de Wittgenstein.
+        </li>
+      </ol>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 7. PARTE I -->
+    <section id="parte-1">
+      <h2 class="md-h2">## parte I — excerto e elucidação de confissões I, viii, 13 (pp. 1–3; notas 1–5)</h2>
+
+      <p>
+        Burnyeat inicia confrontando duas recepções antagônicas da abertura das <em>Investigações Filosóficas</em>:
+      </p>
+
+      <ul class="md-list">
+        <li>
+          De um lado, críticos de Wittgenstein oriundos da psicologia cognitiva moderna (como Jerry Fodor em <em>The Language of Thought</em>, 1976, Nota 2) sustentam que Agostinho estava inteiramente correto ao descrever a criança que aprende a falar como um estrangeiro que chega a um país desconhecido já dispondo de uma linguagem interna do pensamento (<em>PI</em> § 32).
+        </li>
+        <li>
+          De outro lado, expositores ortodoxos de Wittgenstein (como Baker e Hacker em seu comentário analítico de 1983, Nota 3) tratam <em>Confissões</em> I, viii, 13 como uma imagem primitiva e pré-filosófica (<code>Urbild</code>), anterior a qualquer argumentação racional, da qual brotariam os erros da filosofia da linguagem que as <em>Investigações</em> buscam dissolver.
+        </li>
+      </ul>
+
+      <p>
+        Contra ambas as leituras, Burnyeat traduz o parágrafo integral de <em>Confissões</em> I, viii, 13 — repondo as frases iniciais omitidas por Wittgenstein — e demonstra três pontos fundamentais:
+      </p>
+
+      <h3 class="md-h3"><span class="hash">###</span>1. o recorte textual e a variante filológica (nota 4)</h3>
+      <p>
+        Antes do trecho citado em <em>PI</em> § 1 (<code>cum ipsi appellabant rem aliquam...</code>), Agostinho declara que já não era um bebê sem fala (<code>infans</code>), mas um menino falante, e que mais tarde compreendeu (<code>post adverti</code>) de que fonte aprendera a falar: seus mais velhos <strong>não</strong> o haviam ensinado apresentando-lhe palavras em uma ordem definida de instrução (como fariam depois com o alfabeto), mas ele próprio ensinara a si mesmo (<code>ego ipse mente... [me docebam]</code>) com a mente que Deus lhe dera.
+      </p>
+      <p>
+        Na Nota 4, Burnyeat documenta detalhadamente que a edição de Knoll (Teubner, 1898), possuída e lida por Wittgenstein (bem como a edição de Skutella de 1934 e a tradução alemã de Lachmann de 1888), encerra o período antes de <code>pensabam memoria</code>, exigindo suprir <code>me docebam</code> (<em>"eu ensinava a mim mesmo"</em>), ao passo que a antiga edição Maurista e a tradução inglesa de Pusey (usada por Baker e Hacker) inseriam uma vírgula e o verbo <code>praesonabam</code>, obscurecendo a tese do autodidatismo.
+      </p>
+
+      <h3 class="md-h3"><span class="hash">###</span>2. estatuto epistêmico de post adverti (pp. 2–3)</h3>
+      <p>
+        A lembrança efetiva de Agostinho (<code>memini</code>) refere-se apenas ao período em que já era um menino capaz de falar, e não ao processo anterior pelo qual adquiriu a fala. Para a primeira infância, ele declara repetidamente não ter memória, apoiando-se no testemunho dos pais (<code>credidi</code>) e em conjecturas baseadas na observação adulta de outras crianças (<code>conieci</code>, I, vii, 12).
+      </p>
+      <p>
+        Porém, o relato da aquisição da linguagem não é introduzido como memória, testemunho ou conjectura psicológica, mas pela fórmula <code>post adverti</code> (<em>"compreendi/percebi mais tarde"</em>), cujo único paralelo na narrativa precedente é <code>animadverti postmodum</code> em I, vi, 7 (quando o autor reconhece retrospectivamente que não eram a mãe nem as amas que enchiam seus próprios seios de leite, mas Deus que o alimentava por meio delas). Trata-se, portanto, de uma <strong>reflexão teológica e filosófica altamente consciente</strong> sobre a responsabilidade divina pela capacidade da mente de ensinar a si mesma.
+      </p>
+
+      <h3 class="md-h3"><span class="hash">###</span>3. a conexão explícita com o de magistro (p. 3; notas 5–6)</h3>
+      <p>
+        Em <em>Confissões</em> I, xiv, 23, Agostinho precisa que aprendeu as primeiras palavras não de professores que o ensinassem, mas de falantes (<code>non a docentibus sed a loquentibus</code>). Como as <em>Confissões</em> não apresentam a demonstração argumentativa dessa tese, Burnyeat mostra (contra Hallett, Baker &amp; Hacker e Kretzmann, Nota 5, que supunham erroneamente que o <em>De Magistro</em> fosse uma crítica à visão de <em>Confissões</em> I, viii, 13) que a justificação teórica dessa passagem encontra-se precisamente no diálogo anterior <em>De Magistro</em> (389/390 d.C.), resumido pelo próprio Agostinho em <em>Retractationes</em> I, vii (Nota 6) como a obra em que se descobre que não há mestre que ensine conhecimento (<code>scientia</code>) ao homem senão Deus, conforme o Evangelho (<em>Mt 23,10</em>).
+      </p>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 8. PARTE II -->
+    <section id="parte-2">
+      <h2 class="md-h2">## parte II — análise filosófica e dialética do diálogo de magistro (pp. 3–15; notas 7–31)</h2>
+
+      <h3 class="md-h3"><span class="hash">###</span>A. o paradoxo autorreferencial e o conceito agostiniano de conhecimento (scientia = intellegere) (pp. 3–5; notas 7–9)</h3>
+
+      <p>
+        À primeira vista, a tese de que nenhum homem pode ensinar outro parece autorrefutante: se fosse verdadeira, Agostinho não poderia tê-la aprendido do Evangelho de Mateus nem ensiná-la a seu filho Adeodato (cujas intervenções no diálogo, segundo <em>Confissões</em> IX, vi, 14, refletiam ideias genuínas do jovem aos dezesseis anos, Nota 7). Contudo, no desfecho do diálogo (xiv, 46), Adeodato declara que aprendeu essa verdade não das palavras do pai, mas por si mesmo, sob a admoestação daquelas palavras. O próprio curso do diálogo foi concebido para exemplificar sua mensagem central.
+      </p>
+
+      <p>
+        Para compreender por que a tese não nega a comunicação comum, Burnyeat analisa <em>Retractationes</em> I, xiv, 3, onde Agostinho comenta sua máxima anterior do <em>De Utilitate Credendi</em> (xi, 25): <em>"O que sabemos, portanto, devemos à razão; o que cremos, à autoridade"</em>.
+      </p>
+
+      <ul class="md-list">
+        <li>
+          Em linguagem estrita e própria (<code>proprie</code>), só dizemos saber (<code>scire</code>) o que apreendemos pelo firme raciocínio da mente; contudo, no uso cotidiano (e até nas Escrituras), aplicamos sem perigo o verbo <em>saber</em> tanto ao que percebemos pelos sentidos do corpo quanto ao que cremos pela autoridade de testemunhas dignas de fé.
+        </li>
+        <li>
+          Burnyeat demonstra que não se trata de dois sentidos lexicais do verbo <em>saber</em>, mas do <strong>sentido próprio</strong> versus um <strong>uso catacréstico ou frouxo</strong>. Tanto o conhecimento estrito quanto a crença apoiada em testemunho fidedigno envolvem (em termos modernos) crença verdadeira justificada. O que falta à crença testemunhal não é justificação racional — já que a fé nas Escrituras é para Agostinho perfeitamente justificada —, mas um elemento adicional que só o raciocínio próprio fornece.
+        </li>
+        <li>
+          Ao cotejar a citação das <em>Retractationes</em> com o texto original do <em>De Utilitate Credendi</em> (xi, 25), Burnyeat descobre que Agostinho havia escrito originalmente <em>"O que compreendemos (<code>intellegimus</code>), devemos à razão"</em>, substituindo <code>intellegimus</code> por <code>scimus</code> nas <em>Retractationes</em> sem notar diferença. Logo, para Agostinho, o sentido próprio de <strong>saber (<code>scire</code>) é compreender (<code>intellegere</code>)</strong>. A tese do <em>De Magistro</em> de que nenhum homem ensina conhecimento (<code>scientia</code>) a outro significa, portanto, que <strong>ninguém pode ensinar outrem a compreender algo</strong>: a informação pode ser comunicada, mas o trabalho de compreensão (<em>appreciation / understanding</em>) tem de ser realizado por cada mente por si mesma.
+        </li>
+      </ul>
+
+      <h3 class="md-h3"><span class="hash">###</span>B. a primeira metade do diálogo (i, 1 – x, 31) e a semântica de matriz estoica (pp. 5–9; notas 10–14)</h3>
+
+      <p>
+        O diálogo divide-se em uma longa primeira seção que parece defender que todo ensino ocorre por palavras ou sinais (i, 1 – x, 31), seguida pela refutação de que nenhum ensino ocorre por palavras ou sinais (x, 32–35) e pela explicação de como aprendemos sem eles (xi, 36 – xiv, 46). Citando uma reflexão do próprio Wittgenstein sobre Frazer (<em>"Para convencer alguém da verdade, não basta enunciá-la, mas é preciso encontrar o caminho do erro para a verdade"</em>, Nota 10), Burnyeat mostra que a primeira parte expõe a concepção do senso comum (o ensino como transmissão verbal de informação) que precisa ser trabalhada por dentro antes de ser superada.
+      </p>
+
+      <p>
+        Longe de estar preso a uma imagem infantil da linguagem (<code>Urbild</code>), Agostinho conduz nos Capítulos II a VIII um exercício dialético sofisticado baseado na teoria semântica antiga (especialmente estoica):
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>Por que todas as palavras significam algo e são nomes (pp. 6–8; Notas 11–13):</strong> Enquanto Wittgenstein afirma em <em>PI</em> § 13 que dizer <em>"toda palavra na linguagem significa algo"</em> nada diz a menos que se especifique que distinção está em jogo, no contexto antigo havia uma controvérsia real e precisa entre a tese <strong>estoica</strong> (de que toda palavra é significativa por direito próprio) e a tese <strong>peripatética</strong> (de que apenas nomes e verbos significam por si mesmos, sendo conectivos e preposições meramente co-significativos, Nota 11). Além disso, Agostinho ressalva explicitamente (vi, 17) que não pretende afirmar que uma preposição como <em>"de/ex"</em> seja um substantivo (<code>nomen</code> como uma das oito partes do discurso), mas apenas que toda partícula dá uma contribuição semântica distinta e nomeável ao conteúdo proposicional.
+        </li>
+        <li>
+          <strong>A análise de <em>"se agrada" (placet si)</em> e <em>"porque desagrada" (displicet quia)</em> à luz do <em>De Dialectica</em> (pp. 7–8; Notas 12–13):</strong> No experimento mental do objeto visto ao longe (v, 16), preferimos dizer <em>"Se é um homem, é um animal"</em> a dizer <em>"Porque é um homem, é um animal"</em>. Nas frases resultantes <em>"Se agrada"</em> e <em>"Porque desagrada"</em>, escritas numa época sem aspas tipográficas, Agostinho recusa a alternativa moderna simplista entre puro uso e pura menção acústica: o que agrada ou desagrada não é o mero som vocal (<code>verbum</code>), mas a palavra tomada com seu significado — que Agostinho, no capítulo 5 do <em>De Dialectica</em>, denomina <strong><code>dictio</code></strong> em oposição a <strong><code>verbum</code></strong> (cf. a teoria moderna da <em>suppositio semantica</em> de Christensen, Nota 12). Assim, toda palavra pode ser usada como nome em dois níveis: (1) para nomear seu próprio significado ou a si mesma como <code>dictio</code> (vii, 20); e (2) autonomicamente, para nomear a si mesma como som ou entidade lexical (<code>verbum</code>, viii, 22–24), o que explica a tese estoica de Crisipo de que toda palavra é ambígua (Nota 13).
+        </li>
+        <li>
+          <strong>Distinção entre referência e modo de significação (sentido) e crítica à ostensão (pp. 8–9; Nota 14):</strong> O Agostinho histórico tampouco reduz o significado de uma palavra ao objeto físico que ela substitui: ele distingue claramente o que uma palavra significa do <em>modo</em> pelo qual significa, observando que pares como <em>"colorido"</em> e <em>"visível"</em>, ou <em>"nome"</em> e <em>"palavra"</em>, significam exatamente as mesmas coisas, mas sob aspectos diferentes, possuindo por isso significações distintas (v, 12; vii, 20). Tampouco acredita que a ostensão possa ensinar o significado das palavras: no exemplo de <em>"caminhar"</em> (iii, 6 e x, 29), acelerar o passo enquanto se caminha levará o interrogador a confundir <em>caminhar</em> com <em>apressar-se</em>, e começar a caminhar a partir do repouso poderá levá-lo a pensar que <em>caminhar</em> significa apenas andar aquela distância determinada — uma crítica à subdeterminação da ostensão inteiramente digna de Wittgenstein.
+        </li>
+      </ol>
+
+      <h3 class="md-h3"><span class="hash">###</span>C. a falácia formal da primeira conclusão, o passarinheiro e a virada do dizer para o mostrar (pp. 9–11; notas 15–17)</h3>
+
+      <p>
+        Ao final da primeira parte (x, 31), Adeodato é levado a concluir que nada pode ser ensinado sem sinais. Burnyeat reconstrói o argumento e aponta que a inferência é formalmente inválida, pois das premissas <code>(a)</code> e <code>(b)</code> não se segue validamente <code>(c)</code>. Agostinho, contudo, tem plena consciência dessa invalidade e adverte o filho antes de apresentar o contraexemplo do <strong>caçador de pássaros</strong> (x, 32), que captura uma ave diante de um caminhante curioso quanto à finalidade (<code>quidnam sibi... vellet</code>, expressão que também significa <em>"o que quer dizer"</em>, Nota 15) de seus apetrechos e lhe ensina pela própria ação, sem signo algum. O enigma hermenêutico reside em que esse contraexemplo parece contradizer também a conclusão final do diálogo (proposições <code>(d)</code> e <code>(e)</code>):
+      </p>
+
+      <div class="md-block">
+        <span class="md-block-label">// reconstrução formal das proposições (de magistro x, 31 – xiv, 46)</span>
+        <div class="logic-line"><span class="logic-tag">(a)</span> Algum ensino é efetuado por meio de palavras ou sinais.</div>
+        <div class="logic-line"><span class="logic-tag">(b)</span> Todo ensino acerca de palavras ou sinais é efetuado por meio de palavras ou sinais.</div>
+        <div class="logic-line"><span class="logic-tag">(c)</span> [Conclusão inválida de x, 31] Todo ensino, seja do que for, é efetuado por meio de palavras ou sinais.</div>
+        <div class="logic-sep"></div>
+        <div class="logic-line"><span class="logic-tag">(d)</span> [Reversão em x, 33 ss.] Nenhum ensino é efetuado por meio de palavras ou sinais.</div>
+        <div class="logic-line"><span class="logic-tag">(e)</span> [Conclusão final em xiv, 46] Nenhum homem ensina coisa alguma a outro.</div>
+      </div>
+
+      <p>
+        Burnyeat resolve o enigma distinguindo entre <strong>ensinar dizendo (<code>telling</code>)</strong> e <strong>ensinar mostrando (<code>showing</code>)</strong>:
+      </p>
+
+      <ul class="md-list">
+        <li>
+          Na primeira parte, o ensino foi restringido a <em>dizer/informar</em>; sob essa restrição, <code>(a)</code>, <code>(b)</code> e <code>(c)</code> são inofensivamente verdadeiras.
+        </li>
+        <li>
+          Na segunda parte, o ensino é restringido a <em>mostrar diretamente a realidade</em> (xi, 36); sob essa restrição, <code>(d)</code> torna-se verdadeira.
+        </li>
+        <li>
+          O exemplo do passarinheiro funciona como o pivô dialético que transfere a discussão do <em>dizer</em> para o <em>mostrar</em>. Analisado com rigor (à luz de Grice, Nota 16), o passarinheiro não possui uma intenção comunicativa reflexiva de transmitir uma mensagem ao espectador; ele apenas executa a ação sabendo que o observador poderá extrair dela o conhecimento por si mesmo — exatamente como Deus exibe o sol, a lua e a natureza (x, 32) ou como alguém coloca flores num vaso. Se "ensinar" significa apenas propiciar uma ocasião para que outrem aprenda por si mesmo, o passarinheiro ensina; mas se "ensinar" significa transmitir conhecimento pronto de uma mente para outra (o que o <em>dizer</em> pretendia fazer), nem o passarinheiro nem homem algum ensina (conclusão <code>(e)</code>).
+        </li>
+      </ul>
+
+      <h3 class="md-h3"><span class="hash">###</span>D. o paradoxo semântico de mênon (sarabara e caput), as categorias epistêmicas e a visão sinóptica na iluminação interior (pp. 11–15; notas 18–31)</h3>
+
+      <p>
+        Para provar por que é impossível levar alguém a saber algo dizendo-lho, Agostinho analisa (x, 33) o versículo de <em>Daniel 3,94 [3,27]</em> sobre os três jovens na fornalha: <em>"As suas sarabarae não foram alteradas"</em>.
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>A versão semântica do paradoxo de Mênon (pp. 11–12; Notas 18–21):</strong> Se um sinal me é dado e eu ignoro de que coisa ele é sinal, nada pode me ensinar; se já sei de que coisa é sinal, nada aprendo por meio dele. Burnyeat observa (Nota 19, contra Kretzmann) que esse argumento concerne a <strong>palavras individuais</strong> (o que livra Agostinho do mau argumento cético de Sexto Empírico segundo o qual compreender as palavras de uma frase como <em>"Tatus são mamíferos"</em> impediria aprender algo ao ouvi-la). Mas o ponto vital de Agostinho (ignorado por Gilson, Nota 20) vai além: mesmo que me digam que <code>sarabara</code> significa <em>"certa cobertura para a cabeça"</em> e eu já conheça perfeitamente o significado de <em>"cabeça"</em> e de <em>"cobertura"</em> (por tê-las visto antes), <strong>continuo sem saber o que é uma <code>sarabara</code></strong> até ver uma com meus próprios olhos. Da mesma forma, quando ouvi pela primeira vez na infância as sílabas <code>ca-put</code>, elas eram mero som; só aprendi que a palavra era um sinal ao descobrir a coisa de que era sinal, e a coisa mesma aprendi pela minha própria visão, não por signos. Logo, o sinal é aprendido a partir do conhecimento da coisa, e não a coisa a partir do sinal.
+        </li>
+        <li>
+          <strong>Do vocábulo isolado à narrativa histórica — Crença (<code>credere</code>) vs. Conhecimento (<code>scire</code>) (pp. 12–13; Notas 22–26):</strong> Passando da palavra <code>sarabara</code> à história completa dos três jovens (Ananias, Azarias e Misael) em <em>Daniel 3</em> (xi, 37), Agostinho concede que já conhecia o significado das expressões gerais (<em>"três jovens"</em>, <em>"fornalha"</em>, <em>"fogo"</em>, <em>"rei"</em>, <em>"incólumes ao fogo"</em> — exemplo que mostra que ele não esqueceu que nem todas as palavras são substantivos, Nota 22), mas afirma que os jovens históricos lhe são tão desconhecidos quanto as <code>sarabarae</code>: ele <strong>crê</strong> (<code>credo</code>), mais do que <strong>sabe</strong> (<code>scio</code>), que tudo ocorreu como foi escrito, apoiando-se em <em>Isaías 7,9</em> (<em>"Se não credes, não entendereis/sabereis"</em>).
+        </li>
+        <li>
+          <strong>As categorias epistêmicas e o paralelo com o <em>Mênon</em> e o <em>Teeteto</em> de Platão (pp. 12–14; Notas 23–27):</strong> Aplicando o conceito de categorias epistêmicas de Jonathan Barnes (Nota 23) à divisão de <em>De Magistro</em> xii, 39–40, Burnyeat mostra que Agostinho divide todas as verdades cognoscíveis em: (1) verdades sensíveis/carnais (em que <code>x</code> só sabe que <code>p</code> se percebeu <code>p</code> pelos próprios sentidos corpóreos) e (2) verdades inteligíveis/espirituais (em que <code>x</code> só sabe que <code>p</code> se contemplou <code>p</code> diretamente com a própria mente na luz interior da verdade). Sem percepção direta em uma dessas duas vias, só pode haver crença, o que exclui a possibilidade de conhecimento histórico estrito ou conhecimento transmitido pelo testemunho alheio (consequência aceita por Agostinho em <em>De Div. Qu. 83</em>, q. 48 e <em>Ep.</em> CXX, ii, 9, embora tensionada em contextos anticéticos como <em>De Trin.</em> XV, xii, 21, Notas 9 e 24).
+          <ul class="md-sublist">
+            <li>
+              Burnyeat estabelece aqui uma comparação luminosa com Platão (Nota 25): no <em>Mênon</em>, o conhecimento matemático exige raciocínio próprio e o conhecimento do caminho para Larissa exige ter viajado pessoalmente por ele; no <em>Teeteto</em>, o que ocorreu na cena de um crime só é conhecido pela testemunha ocular, enquanto os jurados possuem apenas opinião verdadeira. Quando Agostinho, mais tarde (<em>Retractationes</em> I, xiv, 3; <em>Solil.</em> I, iii, 8, Nota 26), rebaixa a percepção sensível a conhecimento apenas por cortesia verbal, ele adota o platonismo mais estrito. Mas no <em>De Magistro</em> (assim como Platão no <em>Mênon</em> e no <em>Teeteto</em>, e mais tarde Locke em chave anti-inatista, Nota 27), ele precisa da analogia da testemunha ocular e da percepção sensível para persuadir o leitor da diferença abissal entre a apreensão de primeira mão e a informação de segunda mão.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Visão sinóptica, conectividade e iluminação interior (pp. 14–15; Notas 28–31):</strong> Por que a posição da testemunha ocular serve de modelo para a compreensão racional? Porque, diferentemente de quem recebe uma informação isolada de segunda mão, a testemunha ocular <em>"viu a coisa toda"</em> — ela possui uma <strong>apreensão sinóptica (<code>synoptic grasp</code>)</strong> do contexto no qual o fato particular se insere. Ora, a diferença fundamental entre conhecimento informativo e <strong>compreensão (<code>understanding</code>)</strong> é que o conhecimento comum pode ser fragmentário (alguém pode dizer tristemente que a única coisa que <em>sabe</em> da física moderna é a fórmula <code>E = mc²</code>, mas seria um contrassenso dizer que a única coisa que <em>compreende</em> da física moderna é essa fórmula isolada), enquanto a compreensão envolve essencialmente <strong>ver conexões e relações</strong> entre os elementos de um campo complexo (como indicam as passagens de <em>De Magistro</em> x, 31; xii, 40; xiv, 46).
+          <ul class="md-sublist">
+            <li>
+              Burnyeat nota que a concepção agostiniana de compreensão no <em>De Magistro</em> é ligeiramente mais fraca que a de Platão e Aristóteles (<em>Segundos Analíticos</em>, Nota 28), pois estes exigem a apreensão das <em>conexões explicativas</em> (o porquê causal), ao passo que Agostinho enfatiza a conectividade sinóptica das partes de um todo sem mencionar a explicação formal. Ainda assim, a exigência de ver por si mesmo como as partes de uma demonstração se conectam basta para provar que a compreensão não pode ser transferida por palavras de uma pessoa a outra (Nota 29): um estudante pode saber externamente <em>que</em> determinadas proposições constituem a prova de um teorema, mas <em>compreender</em> como elas se articulam é algo que só ele pode fazer por si mesmo, num momento que ainda hoje chamamos de <strong>iluminação</strong>.
+            </li>
+            <li>
+              Contra críticos como R. A. Markus (Nota 30), que acusam a doutrina da iluminação interior (e as metáforas visuais de Platão) de transferir indevidamente a visão empírica de objetos isolados para o domínio intelectual, Burnyeat demonstra que tanto para Platão quanto para Agostinho a visão intelectual é essencialmente uma <strong>visão sinóptica completa</strong> que abarca todas as compreensões parciais e suas conexões: a Verdade inteira é a própria Luz que confere entendimento, identificada por Agostinho com Deus/Cristo presente à mente. E o fato de Agostinho ter reconstruído a epistemologia platônica por si mesmo a partir de argumentos novos — sem sequer ter lido diretamente o texto grego do <em>Mênon</em>, que conhecia apenas pelo resumo de Cícero nas <em>Tusculanas</em> I, 57–58, além dos livros neoplatônicos de Plotino (Nota 31) — é a maior prova de sua própria tese do aprendizado autônomo.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 9. PARTE III -->
+    <section id="parte-3">
+      <h2 class="md-h2">## parte III — retorno a wittgenstein e às confissões (pp. 15–17; notas 32–34)</h2>
+
+      <p>
+        Na seção conclusiva, Burnyeat reúne os resultados da análise do <em>De Magistro</em> para reinterpretar <em>Confissões</em> I, viii, 13 e sua apropriação por Wittgenstein:
+      </p>
+
+      <ol class="md-list">
+        <li>
+          <strong>Motivação epistemológica (e não semântica primitiva) do relato das <em>Confissões</em>:</strong> Escrevendo as <em>Confissões</em> (397–401 d.C.) poucos anos após a morte precoce de Adeodato (Nota 32), Agostinho jamais poderia ter esquecido o <em>De Magistro</em>. O relato de <em>Confissões</em> I, viii, 13 coincide exatamente com a descrição de como ele aprendeu a palavra <em>"caput"</em> em <em>De Magistro</em> x, 33. Uma vez restituídas as frases iniciais omitidas por Wittgenstein e lido o texto à luz do <em>De Magistro</em>, torna-se evidente que o foco de Agostinho em objetos visíveis que podem ser apontados (<code>ostendere</code>) não decorre de uma teoria semântica ingênua que reduzisse todas as palavras a nomes de objetos, mas de <strong>exigências epistemológicas</strong>: a aquisição da linguagem tem de começar pela interação entre objetos visíveis e adultos visíveis porque essas são as coisas que a criança já pode ver e conhecer por si mesma, cabendo-lhe descobrir por conta própria quais sons emitidos pelos adultos se conectam às coisas que ela já conhece diretamente.
+        </li>
+        <li>
+          <strong>A convergência profunda entre Agostinho e Wittgenstein sobre a autonomia da compreensão:</strong> Agostinho partilha com Wittgenstein a convicção central de que nada do que outras pessoas façam ou digam, e nenhum fato bruto do mundo exterior, pode determinar causalmente ou realizar por mim o meu ato de compreender. Ninguém pode compreender em meu lugar porque internalizar as conexões relevantes exige sempre <strong>ir além do que é apresentado em qualquer ocasião de suposto ensino</strong>. Embora Agostinho não disponha dos argumentos sutis de Wittgenstein sobre a multiplicidade de maneiras pelas quais alguém pode parecer compreender uma regra e depois revelar que não a compreendeu, a investigação wittgensteiniana pode ser lida como uma retomada da concepção antiga da complexidade sinóptica da compreensão.
+        </li>
+        <li>
+          <strong>O sentido filosófico da omissão de Wittgenstein em <em>PI</em> § 1 (<em>PI</em> §§ 234–235 e <em>Confissões</em> X, xl, 65):</strong> Longe de desconhecer o contexto maior (em sua primeira transcrição da passagem na revisão de 1936 do <em>Brown Book</em>, <em>Eine Philosophische Betrachtung</em>, p. 117, ele indicou a elipse com <em>"cum... appellabant, etc."</em>, ao contrário de comentadores como Arrington, Nota 33), Wittgenstein concordava inteiramente com Agostinho em que a descrição empírica citada em <em>PI</em> § 1 é por si só incapaz de explicar como a criança chega a compreender suas primeiras palavras. Para Agostinho, essa lacuna era preenchida pelo auxílio divino na forma da mente (<code>mens / memoria</code>) herdada da tradição platônica. Ao suprimir a referência a Deus e à mente platônica na abertura das <em>Investigações Filosóficas</em>, Wittgenstein <strong>aceitou o problema de Agostinho como seu próprio problema</strong>, declarando porém que ele deveria doravante ser resolvido em termos puramente naturalistas e humanos — como confirma a alusão irônica de <em>PI</em> §§ 234–235 à possibilidade de nos sentirmos guiados pelas regras do cálculo como por um encanto e <em>"darmos graças à Divindade pelo nosso acordo"</em> (em paralelo direto com <em>Confissões</em> X, xl, 65).
+        </li>
+      </ol>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 10. MATRIZ DE EVIDÊNCIAS TEXTUAIS -->
+    <section id="matriz">
+      <h2 class="md-h2">## argumentos principais e matriz de evidências textuais</h2>
+
+      <div class="table-wrap">
+        <table class="md-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">tese / eixo argumentativo</th>
+              <th style="width: 38%;">evidência textual primária</th>
+              <th style="width: 34%;">impacto crítico na literatura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong>1. Caráter teológico-epistemológico (e não empírico ou pré-filosófico) de <em>Confissões</em> I, viii, 13</strong>
+              </td>
+              <td>
+                Contraste entre <code>memini</code>, <code>credidi</code>, <code>conieci</code> e <code>post adverti</code> (<em>Conf.</em> I, vi, 7; I, vii, 12; I, viii, 13; I, xiv, 23: <code>non a docentibus sed a loquentibus</code>) e crítica textual da edição de Knoll (1898) vs. edição Maurista/Pusey (Nota 4).
+              </td>
+              <td>
+                Refuta tanto a leitura cognitivista-inatista (Fodor) quanto o mito do <code>Urbild</code> pré-filosófico (Baker &amp; Hacker, Hallett, Kretzmann).
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>2. Identidade entre <em>saber</em> em sentido próprio (<code>proprie</code>) e <em>compreender</em> (<code>intellegere</code>)</strong>
+              </td>
+              <td>
+                Cotejo entre <em>Retractationes</em> I, xiv, 3 (<code>quod scimus, debemus rationi</code>) e <em>De Utilitate Credendi</em> xi, 25 (<code>quod intellegimus, debemus rationi</code>).
+              </td>
+              <td>
+                Demonstra que a impossibilidade do ensino humano em Agostinho não nega a transmissão de informação justificada, mas a transferência direta da compreensão (<em>understanding</em>).
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>3. Sofisticação estoica da tese agostiniana de que todas as palavras são nomes</strong>
+              </td>
+              <td>
+                <em>De Magistro</em> ii, 3 – viii, 24 (<code>placet si / displicet quia</code>; distinção intensional entre <em>colorido/visível</em> e <em>nome/palavra</em>; ambiguidade ostensiva de <em>caminhar</em>) cruzado com <em>De Dialectica</em> caps. 5, 8 e 9 (<code>dictio</code> vs. <code>verbum</code>) e fontes estoicas (Diógenes Laércio VII, 71–74; Crisipo; Plutarco).
+              </td>
+              <td>
+                Desfaz a caricatura de que Agostinho ignorava palavras não-substantivas, confundia sentido e referência ou adotava um ostensivismo acrítico.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>4. Resolução da antinomia dialética do <em>De Magistro</em> via <em>dizer</em> (<code>telling</code>) vs. <em>mostrar</em> (<code>showing</code>)</strong>
+              </td>
+              <td>
+                Análise formal das proposições <code>(a)–(e)</code> em <em>De Magistro</em> x, 31–33 e xi, 36; aplicação do critério de intenção comunicativa de Grice ao exemplo do passarinheiro (x, 32).
+              </td>
+              <td>
+                Explica por que o exemplo do passarinheiro refuta a exclusividade dos signos sem contradizer a tese final de que nenhum homem transfere ciência a outro.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>5. Categorias epistêmicas, visão sinóptica e iluminação interior como conectividade</strong>
+              </td>
+              <td>
+                <em>De Magistro</em> x, 33 – xii, 40 (<code>sarabara</code>, <code>caput</code>, <em>Daniel 3</em>, <em>Isaías 7,9</em>) comparado a Platão (<em>Mênon</em> e <em>Teeteto</em>), Aristóteles (<em>Segundos Analíticos</em>) e Locke (<em>Essay</em> I, iii, 24).
+              </td>
+              <td>
+                Reinterpreta a iluminação divina não como percepção quase-visual de objetos abstratos isolados (contra Markus), mas como apreensão sinóptica de conexões em primeira pessoa.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>6. O recorte de Wittgenstein em <em>PI</em> § 1 como naturalização do problema agostiniano</strong>
+              </td>
+              <td>
+                Confronto entre o trecho omitido de <em>Conf.</em> I, viii, 13, a transcrição de 1936 em <em>Eine Philosophische Betrachtung</em> (p. 117) e <em>PI</em> §§ 1, 32, 234–235 (cf. <em>Conf.</em> X, xl, 65).
+              </td>
+              <td>
+                Mostra que Wittgenstein e Agostinho compartilham o mesmo problema sobre a insuficiência do ensino externo para determinar a compreensão, divergindo na solução (iluminação platônico-cristã vs. práticas humanas e formas de vida).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="md-hr">---</div>
+
+    <!-- 11. CONCLUSÕES DO ESTUDO -->
+    <section id="conclusoes">
+      <h2 class="md-h2">## conclusões do estudo de burnyeat</h2>
+
+      <ol class="md-list">
+        <li>
+          <strong>Unidade coerente entre o <em>De Magistro</em> e as <em>Confissões</em>:</strong> O célebre relato de aquisição da linguagem em <em>Confissões</em> I, viii, 13 não é uma observação psicológica ingênua nem uma teoria semântica primitiva que o <em>De Magistro</em> tivesse abandonado ou criticado; pelo contrário, é a aplicação direta da epistemologia do <em>De Magistro</em>, segundo a qual o signo só é aprendido a partir do conhecimento prévio da coisa percebida de primeira mão, e nenhuma mente humana é ensinada de fora por professores terrestres.
+        </li>
+        <li>
+          <strong>Conhecimento como compreensão sinóptica intransferível:</strong> Ao identificar o sentido próprio de <em>conhecer</em> (<code>scire</code>) com <em>compreender</em> (<code>intellegere</code>), Agostinho reconstrói com notável originalidade o núcleo da epistemologia platônica: enquanto crenças verdadeiras justificadas (<code>credere</code>) podem ser transmitidas por testemunho verbal, a compreensão das conexões que articulam um domínio do saber exige uma visão sinóptica de primeira pessoa — que Agostinho formula em termos de consulta à Verdade e Luz interior (Cristo).
+        </li>
+        <li>
+          <strong>Uma relação mais nuançada entre Wittgenstein e Agostinho:</strong> A convergência entre os dois filósofos é muito mais profunda do que supõem tanto os detratores quanto os comentadores habituais das <em>Investigações Filosóficas</em>. Ambos reconhecem a ambiguidade intrínseca da ostensão e a impossibilidade de qualquer instrução externa determinar por si só o ato interno de compreender. Ao omitir a frase sobre Deus e o autodidatismo da mente na abertura das <em>Investigações</em>, Wittgenstein isolou deliberadamente a metade empírica do relato agostiniano para mostrar — em acordo com o próprio Agostinho — que ela é insuficiente, assumindo porém o desafio de explicar a compreensão e o seguir regras sem recorrer à mente platônica ou à iluminação divina.
+        </li>
+      </ol>
+    </section>
+
+    <footer class="md-footer">
+      <span>burnyeat-de-magistro.md · síntese acadêmica integral · <a href="Transcricao_Medieval_04-11.md" style="color: var(--accent);">[ver transcrição da aula 04/11]</a></span>
+      <a href="#top">↑ topo do arquivo</a>
+    </footer>
+
+  </main>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      document.getElementById('progressBar').style.width = pct + '%';
+    }, { passive: true });
+  </script>
+</body>
+</html>
