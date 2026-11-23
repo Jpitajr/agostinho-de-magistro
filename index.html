@@ -24,7 +24,6 @@
 
       --accent: #e0522b;
       --accent-soft: rgba(224, 82, 43, 0.12);
-      --accent-blue: #3b82f6;
 
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
@@ -54,7 +53,7 @@
 
     .container {
       width: 100%;
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
     }
 
@@ -132,7 +131,7 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--accent);
-      margin: 2.75rem 0 1.25rem;
+      margin: 3rem 0 1.25rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
     }
@@ -141,7 +140,7 @@
     .cards-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 1.1rem;
     }
 
     @media (min-width: 680px) {
@@ -310,7 +309,7 @@
     <div class="header-kicker">// repositório digital de pesquisa</div>
     <h1 class="project-title">De Magistro <span class="accent">.portal</span></h1>
     <p class="lead-desc">
-      Hub central com acesso duplo: você pode abrir os relatórios formatados em <strong>HTML Editorial</strong> ou acessar diretamente os <strong>arquivos brutos em Markdown (.md)</strong> e PDFs.
+      Hub central com relatórios em <strong>HTML Editorial</strong> (otimizados para leitura em desktop e celular no Brave/Safari) e acesso direto aos <strong>arquivos brutos em Markdown (.md)</strong>.
     </p>
 
     <!-- ÁUDIO EMBEDDED DIRETO NO TOPO -->
@@ -325,27 +324,79 @@
       </audio>
     </div>
 
-    <!-- SEÇÃO 1: FICHAMENTOS & RELATÓRIOS PRINCIPAIS -->
-    <h2 class="section-heading">// 01. fichamentos, análises &amp; transcrição</h2>
+    <!-- ========================================== -->
+    <!-- SEÇÃO 01: FICHAMENTOS & RESUMOS DOS ARTIGOS -->
+    <!-- ========================================== -->
+    <h2 class="section-heading">// 01. fichamentos &amp; resumos analíticos dos artigos (html &amp; md)</h2>
     <div class="cards-grid">
 
+      <!-- Fichamento Burnyeat -->
       <div class="doc-card">
         <div>
           <div class="card-badge">Fichamento Estrutural</div>
           <div class="card-title">Burnyeat: De Magistro &amp; Wittgenstein</div>
-          <div class="card-desc">Análise das 20 páginas de M. F. Burnyeat, semântica estoica, paradoxo de Mênon, passarinheiro e iluminação interior.</div>
+          <div class="card-desc">Fichamento exaustivo do ensaio de M. F. Burnyeat (20 pp.): crítica à semântica estoica, o paradoxo de Mênon, o passarinheiro e a visão sinóptica na iluminação.</div>
         </div>
         <div class="card-actions">
-          <a href="relatorio_burnyeat_de_magistro.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
+          <a href="relatorio_burnyeat_de_magistro.html" class="btn-link btn-primary">Fichamento em HTML <span>→</span></a>
           <a href="Augustine and Wittgenstein ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).md" class="btn-link btn-secondary">Ver .MD</a>
         </div>
       </div>
+
+      <!-- Fichamento Artigo Gisela Lermen -->
+      <div class="doc-card">
+        <div>
+          <div class="card-badge">Fichamento de Artigo</div>
+          <div class="card-title">Fichamento: Filosofia da Linguagem (Gisela Lermen)</div>
+          <div class="card-desc">Resumo e fichamento exaustivo do artigo de Gisela Anna Büttner Lermen (UNICAP / Eugenio Coseriu): metalinguagem, árvore semiótica, 8 paralogismos e 3 intuições.</div>
+        </div>
+        <div class="card-actions">
+          <a href="fichamento_artigo_filosofia_da_linguagem.html" class="btn-link btn-primary">Fichamento em HTML <span>→</span></a>
+          <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.md" class="btn-link btn-secondary">Ver .MD</a>
+          <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.pdf" class="btn-link btn-secondary">PDF</a>
+        </div>
+      </div>
+
+      <!-- Fichamento Artigo Christoph Horn -->
+      <div class="doc-card">
+        <div>
+          <div class="card-badge">Fichamento de Artigo</div>
+          <div class="card-title">Fichamento: Teoria Linguística dos Sinais (Christoph Horn)</div>
+          <div class="card-desc">Resumo e fichamento do artigo de Christoph Horn (Bonn / Veritas): evolução semiótica de Agostinho (De Dialectica a De Trinitate), raízes céticas e linguagem do pensamento.</div>
+        </div>
+        <div class="card-actions">
+          <a href="fichamento_artigo_teoria_linguistica_sinais.html" class="btn-link btn-primary">Fichamento em HTML <span>→</span></a>
+          <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.md" class="btn-link btn-secondary">Ver .MD</a>
+          <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.pdf" class="btn-link btn-secondary">PDF</a>
+        </div>
+      </div>
+
+      <!-- Ponte Conceitual Aula vs Burnyeat -->
+      <div class="doc-card">
+        <div>
+          <div class="card-badge">Estudo Comparativo</div>
+          <div class="card-title">Ponte Conceitual: Aula (04/11) vs. Burnyeat</div>
+          <div class="card-desc">Conexão comparativa completa entre as exposições da aula de Filosofia Medieval e a exegese clássica de Myles Burnyeat.</div>
+        </div>
+        <div class="card-actions">
+          <a href="Exegese_De_Magistro_Ponte_Aula_04-11.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
+          <a href="Exegese_De_Magistro_Ponte_Aula_04-11.md" class="btn-link btn-secondary">Ver .MD</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SEÇÃO 02: AULA, EXEGESE & TRANSCRIÇÃO     -->
+    <!-- ========================================== -->
+    <h2 class="section-heading">// 02. aula gravada, exegese &amp; transcrição cronometrada</h2>
+    <div class="cards-grid">
 
       <div class="doc-card">
         <div>
           <div class="card-badge">Exegese da Aula</div>
           <div class="card-title">Exegese Filosófica da Aula (04/11)</div>
-          <div class="card-desc">Reconstrução da aula gravada: dúplice finalidade da linguagem, credere vs. intelligere e a refutação da ostensão.</div>
+          <div class="card-desc">Reconstrução da aula gravada: dúplice finalidade da linguagem, credere vs. intelligere, os três rapazes na fornalha e a refutação da ostensão.</div>
         </div>
         <div class="card-actions">
           <a href="exegese_agostinho_de_magistro_aula.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
@@ -355,21 +406,9 @@
 
       <div class="doc-card">
         <div>
-          <div class="card-badge">Estudo Comparativo</div>
-          <div class="card-title">Ponte Conceitual: Aula vs. Burnyeat</div>
-          <div class="card-desc">Conexão comparativa completa entre o conteúdo da aula e a leitura analítica de Myles Burnyeat no volume de 2018.</div>
-        </div>
-        <div class="card-actions">
-          <a href="Exegese_De_Magistro_Ponte_Aula_04-11.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
-          <a href="Exegese_De_Magistro_Ponte_Aula_04-11.md" class="btn-link btn-secondary">Ver .MD</a>
-        </div>
-      </div>
-
-      <div class="doc-card">
-        <div>
           <div class="card-badge">Transcrição Integral</div>
           <div class="card-title">Transcrição da Aula (04/11)</div>
-          <div class="card-desc">Texto integral com timestamps da gravação de 01h 17min, quadro temático analítico e glossário latino.</div>
+          <div class="card-desc">Texto integral com timestamps da gravação de 01h 17min, quadro temático analítico e glossário terminológico latino.</div>
         </div>
         <div class="card-actions">
           <a href="Transcricao_Medieval_04-11.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
@@ -379,15 +418,17 @@
 
     </div>
 
-    <!-- SEÇÃO 2: ARTIGOS & TEXTOS DE BASE -->
-    <h2 class="section-heading">// 02. artigos acadêmicos &amp; obras primárias</h2>
+    <!-- ========================================== -->
+    <!-- SEÇÃO 03: TEXTOS PRIMÁRIOS & ARTIGOS BASE -->
+    <!-- ========================================== -->
+    <h2 class="section-heading">// 03. textos primários &amp; artigos de base na íntegra</h2>
     <div class="cards-grid">
 
       <div class="doc-card">
         <div>
           <div class="card-badge">Texto Clássico</div>
-          <div class="card-title">Agostinho: De Magistro</div>
-          <div class="card-desc">Diálogo integral entre Agostinho e Adeodato sobre a impossibilidade do magistério exterior humano.</div>
+          <div class="card-title">Agostinho: De Magistro (Texto Base)</div>
+          <div class="card-desc">Diálogo integral entre Agostinho e Adeodato sobre a natureza dos sinais e a impossibilidade do ensino puramente exterior.</div>
         </div>
         <div class="card-actions">
           <a href="Agostinho - De Magistro.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
@@ -399,8 +440,8 @@
       <div class="doc-card">
         <div>
           <div class="card-badge">Coletânea Internacional</div>
-          <div class="card-title">Augustine and Wittgenstein</div>
-          <div class="card-desc">Capítulo de abertura de Myles Burnyeat no volume coletivo editado por Doody, Eodice e Paffenroth (2018).</div>
+          <div class="card-title">Augustine and Wittgenstein (2018)</div>
+          <div class="card-desc">Volume coletivo editado por John Doody, Alexander R. Eodice e Kim Paffenroth (Lexington Books, 2018).</div>
         </div>
         <div class="card-actions">
           <a href="Augustine and Wittgenstein ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
@@ -408,39 +449,23 @@
         </div>
       </div>
 
-      <div class="doc-card">
-        <div>
-          <div class="card-badge">Artigo Científico</div>
-          <div class="card-title">De Magistro sob a Filosofia da Linguagem</div>
-          <div class="card-desc">Estudo crítico sobre teoria dos signos, convenção semântica e interlocução na ótica contemporânea.</div>
-        </div>
-        <div class="card-actions">
-          <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
-          <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.md" class="btn-link btn-secondary">Ver .MD</a>
-          <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.pdf" class="btn-link btn-secondary">PDF</a>
-        </div>
-      </div>
-
-      <div class="doc-card">
-        <div>
-          <div class="card-badge">Artigo Científico</div>
-          <div class="card-title">Agostinho &amp; Teoria Linguística dos Sinais</div>
-          <div class="card-desc">Investigação monográfica sobre as raízes estoicas e a formulação agostiniana dos signos no De Dialectica e De Magistro.</div>
-        </div>
-        <div class="card-actions">
-          <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
-          <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.md" class="btn-link btn-secondary">Ver .MD</a>
-          <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.pdf" class="btn-link btn-secondary">PDF</a>
-        </div>
-      </div>
-
     </div>
 
-    <!-- SEÇÃO 3: LISTA DIRETA DE TODOS OS .MD -->
-    <h2 class="section-heading">// 03. índice direto de arquivos markdown (.md)</h2>
+    <!-- ========================================== -->
+    <!-- SEÇÃO 04: ÍNDICE DIRETO DOS ARQUIVOS .MD   -->
+    <!-- ========================================== -->
+    <h2 class="section-heading">// 04. índice direto de arquivos markdown (.md)</h2>
     <div class="md-source-list">
       <div class="md-source-item">
-        <a href="Augustine and Wittgenstein ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).md">📄 Fichamento Burnyeat: Augustine and Wittgenstein (De Magistro).md</a>
+        <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.md">📄 Resumo &amp; Fichamento: Filosofia da Linguagem (Gisela Lermen).md</a>
+        <span class="md-tag">61 KB</span>
+      </div>
+      <div class="md-source-item">
+        <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.md">📄 Resumo &amp; Fichamento: Teoria Linguística dos Sinais (Christoph Horn).md</a>
+        <span class="md-tag">59 KB</span>
+      </div>
+      <div class="md-source-item">
+        <a href="Augustine and Wittgenstein ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).md">📄 Fichamento: Augustine and Wittgenstein (M. F. Burnyeat).md</a>
         <span class="md-tag">45 KB</span>
       </div>
       <div class="md-source-item">
@@ -454,14 +479,6 @@
       <div class="md-source-item">
         <a href="Agostinho - De Magistro.md">📄 Agostinho - De Magistro (Texto Base).md</a>
         <span class="md-tag">27 KB</span>
-      </div>
-      <div class="md-source-item">
-        <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.md">📄 Artigo: Análise sob o aspecto da Filosofia da Linguagem.md</a>
-        <span class="md-tag">61 KB</span>
-      </div>
-      <div class="md-source-item">
-        <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.md">📄 Artigo: Teoria Linguística dos Sinais.md</a>
-        <span class="md-tag">59 KB</span>
       </div>
     </div>
 
