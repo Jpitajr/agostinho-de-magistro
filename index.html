@@ -86,44 +86,6 @@
       line-height: 1.65;
     }
 
-    /* Audio Widget Header */
-    .audio-player-box {
-      background-color: var(--bg-subtle);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.25rem 1.4rem;
-      margin-bottom: 3rem;
-      font-family: var(--font-mono);
-    }
-
-    .audio-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .audio-tag {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-    }
-
-    .audio-meta {
-      font-size: 0.72rem;
-      color: var(--text-dim);
-    }
-
-    audio {
-      width: 100%;
-      height: 40px;
-      outline: none;
-      filter: invert(0.88) hue-rotate(180deg);
-    }
-
     /* Section Headers */
     h2.section-heading {
       font-family: var(--font-mono);
@@ -195,14 +157,14 @@
     /* Action Buttons (HTML vs MD) */
     .card-actions {
       display: flex;
-      gap: 0.6rem;
+      gap: 0.55rem;
       flex-wrap: wrap;
     }
 
     .btn-link {
       font-family: var(--font-mono);
       font-size: 0.78rem;
-      padding: 0.45rem 0.85rem;
+      padding: 0.45rem 0.8rem;
       border-radius: 4px;
       text-decoration: none;
       display: inline-flex;
@@ -309,25 +271,13 @@
     <div class="header-kicker">// repositório digital de pesquisa</div>
     <h1 class="project-title">De Magistro <span class="accent">.portal</span></h1>
     <p class="lead-desc">
-      Hub central com relatórios em <strong>HTML Editorial</strong> (otimizados para leitura em desktop e celular no Brave/Safari) e acesso direto aos <strong>arquivos brutos em Markdown (.md)</strong>.
+      Hub de pesquisa com relatórios em <strong>HTML Editorial</strong> (otimizados para desktop e celular no Brave/Safari) e acesso direto aos <strong>arquivos brutos em Markdown (.md)</strong> e PDFs.
     </p>
 
-    <!-- ÁUDIO EMBEDDED DIRETO NO TOPO -->
-    <div class="audio-player-box">
-      <div class="audio-header">
-        <span class="audio-tag">// aula vinculada · áudio completo</span>
-        <span class="audio-meta">Medieval 04-11.m4a (01h 17min)</span>
-      </div>
-      <audio controls preload="metadata">
-        <source src="Medieval 04-11.m4a" type="audio/mp4">
-        Seu navegador não suporta áudio nativo.
-      </audio>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- SEÇÃO 01: FICHAMENTOS & RESUMOS DOS ARTIGOS -->
-    <!-- ========================================== -->
-    <h2 class="section-heading">// 01. fichamentos &amp; resumos analíticos dos artigos (html &amp; md)</h2>
+    <!-- ============================================================== -->
+    <!-- SEÇÃO 01: FICHAMENTOS, RESUMOS ANALÍTICOS & EXEGESES          -->
+    <!-- ============================================================== -->
+    <h2 class="section-heading">// 01. fichamentos, resumos dos artigos &amp; exegeses (html &amp; md)</h2>
     <div class="cards-grid">
 
       <!-- Fichamento Burnyeat -->
@@ -371,12 +321,25 @@
         </div>
       </div>
 
+      <!-- Exegese Filosófica da Aula -->
+      <div class="doc-card">
+        <div>
+          <div class="card-badge">Exegese Filosófica</div>
+          <div class="card-title">Exegese da Aula (04/11): Signos e Iluminação</div>
+          <div class="card-desc">Reconstrução conceitual densa da aula gravada: a dúplice finalidade da linguagem, credere vs. intelligere, o caso dos jovens na fornalha e a refutação da ostensão.</div>
+        </div>
+        <div class="card-actions">
+          <a href="exegese_agostinho_de_magistro_aula.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
+          <a href="Exegese_De_Magistro_Ponte_Aula_04-11.md" class="btn-link btn-secondary">Ver .MD</a>
+        </div>
+      </div>
+
       <!-- Ponte Conceitual Aula vs Burnyeat -->
       <div class="doc-card">
         <div>
           <div class="card-badge">Estudo Comparativo</div>
           <div class="card-title">Ponte Conceitual: Aula (04/11) vs. Burnyeat</div>
-          <div class="card-desc">Conexão comparativa completa entre as exposições da aula de Filosofia Medieval e a exegese clássica de Myles Burnyeat.</div>
+          <div class="card-desc">Conexão comparativa completa entre as exposições da aula de Filosofia Medieval e a exegese clássica de Myles Burnyeat no volume de 2018.</div>
         </div>
         <div class="card-actions">
           <a href="Exegese_De_Magistro_Ponte_Aula_04-11.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
@@ -386,44 +349,13 @@
 
     </div>
 
-    <!-- ========================================== -->
-    <!-- SEÇÃO 02: AULA, EXEGESE & TRANSCRIÇÃO     -->
-    <!-- ========================================== -->
-    <h2 class="section-heading">// 02. aula gravada, exegese &amp; transcrição cronometrada</h2>
+    <!-- ============================================================== -->
+    <!-- SEÇÃO 02: TEXTOS PRIMÁRIOS & ARTIGOS DE BASE NA ÍNTEGRA        -->
+    <!-- ============================================================== -->
+    <h2 class="section-heading">// 02. textos primários &amp; artigos de base na íntegra</h2>
     <div class="cards-grid">
 
-      <div class="doc-card">
-        <div>
-          <div class="card-badge">Exegese da Aula</div>
-          <div class="card-title">Exegese Filosófica da Aula (04/11)</div>
-          <div class="card-desc">Reconstrução da aula gravada: dúplice finalidade da linguagem, credere vs. intelligere, os três rapazes na fornalha e a refutação da ostensão.</div>
-        </div>
-        <div class="card-actions">
-          <a href="exegese_agostinho_de_magistro_aula.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
-          <a href="Exegese_De_Magistro_Ponte_Aula_04-11.md" class="btn-link btn-secondary">Ver .MD</a>
-        </div>
-      </div>
-
-      <div class="doc-card">
-        <div>
-          <div class="card-badge">Transcrição Integral</div>
-          <div class="card-title">Transcrição da Aula (04/11)</div>
-          <div class="card-desc">Texto integral com timestamps da gravação de 01h 17min, quadro temático analítico e glossário terminológico latino.</div>
-        </div>
-        <div class="card-actions">
-          <a href="Transcricao_Medieval_04-11.html" class="btn-link btn-primary">Abrir HTML <span>→</span></a>
-          <a href="Transcricao_Medieval_04-11.md" class="btn-link btn-secondary">Ver .MD</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ========================================== -->
-    <!-- SEÇÃO 03: TEXTOS PRIMÁRIOS & ARTIGOS BASE -->
-    <!-- ========================================== -->
-    <h2 class="section-heading">// 03. textos primários &amp; artigos de base na íntegra</h2>
-    <div class="cards-grid">
-
+      <!-- Texto Clássico: Agostinho - De Magistro -->
       <div class="doc-card">
         <div>
           <div class="card-badge">Texto Clássico</div>
@@ -437,6 +369,7 @@
         </div>
       </div>
 
+      <!-- Coletânea Internacional: Augustine and Wittgenstein -->
       <div class="doc-card">
         <div>
           <div class="card-badge">Coletânea Internacional</div>
@@ -449,12 +382,38 @@
         </div>
       </div>
 
+      <!-- Artigo Base 1: Gisela Lermen -->
+      <div class="doc-card">
+        <div>
+          <div class="card-badge">Artigo Base Integral</div>
+          <div class="card-title">Artigo: De Magistro sob a Filosofia da Linguagem</div>
+          <div class="card-desc">Texto completo do artigo de Gisela Anna Büttner Lermen publicado em formato web HTML e com acesso ao PDF original digitalizado.</div>
+        </div>
+        <div class="card-actions">
+          <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.html" class="btn-link btn-primary">Abrir Artigo HTML <span>→</span></a>
+          <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.pdf" class="btn-link btn-secondary">PDF Original</a>
+        </div>
+      </div>
+
+      <!-- Artigo Base 2: Christoph Horn -->
+      <div class="doc-card">
+        <div>
+          <div class="card-badge">Artigo Base Integral</div>
+          <div class="card-title">Artigo: Teoria Linguística dos Sinais</div>
+          <div class="card-desc">Texto completo do artigo do Prof. Christoph Horn publicado na revista Veritas (2006) em formato web HTML e PDF original.</div>
+        </div>
+        <div class="card-actions">
+          <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.html" class="btn-link btn-primary">Abrir Artigo HTML <span>→</span></a>
+          <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.pdf" class="btn-link btn-secondary">PDF Original</a>
+        </div>
+      </div>
+
     </div>
 
-    <!-- ========================================== -->
-    <!-- SEÇÃO 04: ÍNDICE DIRETO DOS ARQUIVOS .MD   -->
-    <!-- ========================================== -->
-    <h2 class="section-heading">// 04. índice direto de arquivos markdown (.md)</h2>
+    <!-- ============================================================== -->
+    <!-- SEÇÃO 03: ÍNDICE DIRETO DOS ARQUIVOS MARKDOWN (.MD) & TRANSCRIÇÃO -->
+    <!-- ============================================================== -->
+    <h2 class="section-heading">// 03. arquivos markdown (.md) &amp; transcrição da aula</h2>
     <div class="md-source-list">
       <div class="md-source-item">
         <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.md">📄 Resumo &amp; Fichamento: Filosofia da Linguagem (Gisela Lermen).md</a>
