@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Agostinho: De Magistro — Índice Geral do Projeto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #141413;
+      --bg-subtle: #1a1918;
+      --bg-card: #1f1e1c;
+      --border: #2a2926;
+      --border-hover: #44423d;
+      
+      --text-title: #e6e2da;
+      --text-body: #c7c4bc;
+      --text-muted: #8e8b84;
+      --text-dim: #66635d;
+
+      --accent: #e0522b;
+      --accent-soft: rgba(224, 82, 43, 0.12);
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background-color: var(--bg);
+      min-height: 100vh;
+      padding: 3.5rem 1.5rem 6rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .header-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1.project-title {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      margin-bottom: 1rem;
+    }
+
+    h1.project-title span.accent {
+      color: var(--accent);
+    }
+
+    p.lead-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    /* Audio Widget Header */
+    .audio-player-box {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 3rem;
+      font-family: var(--font-mono);
+    }
+
+    .audio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .audio-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .audio-meta {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    audio {
+      width: 100%;
+      height: 40px;
+      outline: none;
+      filter: invert(0.88) hue-rotate(180deg);
+    }
+
+    /* Section Headers */
+    h2.section-heading {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin: 2.75rem 0 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Card Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 680px) {
+      .cards-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .doc-card {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.35rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.18s ease;
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .doc-card:hover,
+    .doc-card:active {
+      background-color: var(--bg-card);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-title);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+    }
+
+    .card-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .card-arrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Footer */
+    footer.index-footer {
+      margin-top: 4.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    footer.index-footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer.index-footer a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+
+    <div class="header-kicker">// repositório digital de pesquisa</div>
+    <h1 class="project-title">De Magistro <span class="accent">.portal</span></h1>
+    <p class="lead-desc">
+      Hub central de relatórios executivos, exegeses filológicas, transcrições de aula e artigos acadêmicos sobre a semiótica e epistemologia de Santo Agostinho e Ludwig Wittgenstein.
+    </p>
+
+    <!-- ÁUDIO EMBEDDED DIRETO NO TOPO -->
+    <div class="audio-player-box">
+      <div class="audio-header">
+        <span class="audio-tag">// aula vinculada · áudio completo</span>
+        <span class="audio-meta">Medieval 04-11.m4a (01h 17min)</span>
+      </div>
+      <audio controls preload="metadata">
+        <source src="Medieval 04-11.m4a" type="audio/mp4">
+        Seu navegador não suporta áudio nativo.
+      </audio>
+    </div>
+
+    <!-- SEÇÃO 1: RELATÓRIOS PRINCIPAIS -->
+    <h2 class="section-heading">// 01. relatórios executivos &amp; fichamentos</h2>
+    <div class="cards-grid">
+
+      <a href="relatorio_burnyeat_de_magistro.html" class="doc-card">
+        <div>
+          <div class="card-badge">Fichamento Estrutural</div>
+          <div class="card-title">Burnyeat: De Magistro &amp; Wittgenstein</div>
+          <div class="card-desc">Análise exegética do estudo de M. F. Burnyeat, crítica à semântica estoica, o paradoxo de Mênon, passarinheiro e iluminação interior.</div>
+        </div>
+        <div class="card-arrow">abrir relatório HTML <span>→</span></div>
+      </a>
+
+      <a href="exegese_agostinho_de_magistro_aula.html" class="doc-card">
+        <div>
+          <div class="card-badge">Exegese da Aula</div>
+          <div class="card-title">Exegese Filosófica da Aula (04/11)</div>
+          <div class="card-desc">Reconstrução conceitual densa da aula gravada: dúplice finalidade da linguagem, credere vs. intelligere e a refutação da ostensão.</div>
+        </div>
+        <div class="card-arrow">abrir relatório HTML <span>→</span></div>
+      </a>
+
+      <a href="Exegese_De_Magistro_Ponte_Aula_04-11.html" class="doc-card">
+        <div>
+          <div class="card-badge">Estudo Comparativo</div>
+          <div class="card-title">Ponte Conceitual: Aula vs. Burnyeat</div>
+          <div class="card-desc">Conexão comparativa completa entre o conteúdo da aula e a leitura analítica de Myles Burnyeat no volume de 2018.</div>
+        </div>
+        <div class="card-arrow">abrir relatório HTML <span>→</span></div>
+      </a>
+
+      <a href="Transcricao_Medieval_04-11.html" class="doc-card">
+        <div>
+          <div class="card-badge">Transcrição Integral</div>
+          <div class="card-title">Transcrição da Aula (04/11)</div>
+          <div class="card-desc">Texto integral e cronometrado [00:00:00 a 01:17:37] com quadro temático analítico e glossário terminológico latino.</div>
+        </div>
+        <div class="card-arrow">abrir relatório HTML <span>→</span></div>
+      </a>
+
+    </div>
+
+    <!-- SEÇÃO 2: TEXTOS PRIMÁRIOS & ARTIGOS -->
+    <h2 class="section-heading">// 02. artigos acadêmicos &amp; textos de base</h2>
+    <div class="cards-grid">
+
+      <a href="Agostinho - De Magistro.html" class="doc-card">
+        <div>
+          <div class="card-badge">Texto Clássico</div>
+          <div class="card-title">Agostinho: De Magistro (Texto Base)</div>
+          <div class="card-desc">Tradução e notas do diálogo entre Agostinho e Adeodato sobre a natureza e os limites dos sinais na instrução humana.</div>
+        </div>
+        <div class="card-arrow">abrir texto <span>→</span></div>
+      </a>
+
+      <a href="Augustine and Wittgenstein ( etc.) (z-library.sk, 1lib.sk, z-lib.sk).html" class="doc-card">
+        <div>
+          <div class="card-badge">Coletânea Internacional</div>
+          <div class="card-title">Augustine and Wittgenstein</div>
+          <div class="card-desc">Capítulo de abertura de Myles Burnyeat no volume coletivo editado por Doody, Eodice e Paffenroth (Lexington Books, 2018).</div>
+        </div>
+        <div class="card-arrow">abrir texto <span>→</span></div>
+      </a>
+
+      <a href="[ARTIGO] Agostinho_De Magistro_Uma análise sob o aspecto da Filosofia da Linguagem.html" class="doc-card">
+        <div>
+          <div class="card-badge">Artigo Científico</div>
+          <div class="card-title">De Magistro sob a Filosofia da Linguagem</div>
+          <div class="card-desc">Estudo crítico sobre teoria dos signos, convenção semântica e interlocução sob as lentes da filosofia contemporânea da linguagem.</div>
+        </div>
+        <div class="card-arrow">abrir artigo <span>→</span></div>
+      </a>
+
+      <a href="[ARTIGO] Agostinho_Teoria Linguística dos Sinais.html" class="doc-card">
+        <div>
+          <div class="card-badge">Artigo Científico</div>
+          <div class="card-title">Agostinho &amp; Teoria Linguística dos Sinais</div>
+          <div class="card-desc">Investigação monográfica sobre as raízes estoicas e a formulação agostiniana dos signos no De Dialectica e De Magistro.</div>
+        </div>
+        <div class="card-arrow">abrir artigo <span>→</span></div>
+      </a>
+
+    </div>
+
+    <footer class="index-footer">
+      <span>Projeto Agostinho — De Magistro · Otimizado para Brave iOS / Mobile &amp; Desktop</span>
+      <a href="https://github.com/Jpitajr/agostinho-de-magistro">Repositório GitHub ↗</a>
+    </footer>
+
+  </main>
+
+</body>
+</html>
