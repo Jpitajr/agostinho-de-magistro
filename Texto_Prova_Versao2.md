@@ -17,3 +17,59 @@ Com isso, Burnyeat volta às Investigações. O trecho citado no §1 diz o mesmo
 Mas onde Agostinho põe Deus, Wittgenstein põe a prática. Cortar a mente dada por Deus da citação é recusar a solução agostiniana: não há uma visão da coisa anterior ao signo, e sim o treino, o uso e a forma de vida que compartilhamos com os outros.
 
 No fim, a diferença está no critério de compreender. Para Agostinho, compreender é ver por dentro, na luz da verdade; para Wittgenstein, é saber fazer, dominar uma técnica que se mostra publicamente no uso.
+
+---
+
+```text
+==================================================================
+     MNEMÔNICO DO TEXTO 2 — 3 ATOS × 3 CENAS (= 9 PARÁGRAFOS)
+     Frase-chave:  CORTE · RAZÃO · SIGNO
+                   PÁSSARO · CHAPÉU · LUZ
+                   CONVERGE · DIVERGE · CRITÉRIO
+==================================================================
+
+ATO I — O PROBLEMA (Agostinho visto por Burnyeat)
+
+ 1. CORTE ....... "O excerto..."
+    tesoura corta a página das Confissões → Burnyeat recola com o
+    De Magistro → ensinar? → converge (ensino exterior) × diverge (solução)
+
+ 2. RAZÃO ....... "Precisamos primeiro..."
+    balança: RAZÃO (sei) × AUTORIDADE (creio) → ambas justificadas →
+    o que separa = visão sinóptica → palavras não passam compreensão
+
+ 3. SIGNO ....... "Em o De Magistro..."
+    estoicos: toda palavra é nome ("se" ≠ substantivo, sentido na frase)
+    → DUAS PERGUNTAS: (1) aprender ATRAVÉS do signo? palavra/testemunho
+    ou ostensão → não causa conhecimento (outra ordem: razão)
+    → ambulare (andar × apressar) → limite não pejorativo: admonitio
+
+ATO II — A SOLUÇÃO DE AGOSTINHO
+
+ 4. PÁSSARO ..... "Se as palavras não ensinam, como aprendemos?"
+    passarinheiro caça em silêncio → telling → showing →
+    não transmite nada: só ocasião
+
+ 5. CHAPÉU ...... "Resta a segunda pergunta..."
+    (2) apreender O PRÓPRIO signo? → sarabara: chapéu na cabeça (caput)
+    → caput era só som → signo a partir da coisa → Daniel = só crença
+
+ 6. LUZ ......... "Restam duas vias..."
+    sentidos (sensível) × mente (inteligível: justiça, matemática)
+    → luz interior = Mestre Interior (Cristo) → consulto a luz e vejo
+    por mim → só Deus é mestre
+
+ATO III — WITTGENSTEIN
+
+ 7. CONVERGE .... "Com isso, Burnyeat volta..."
+    §1 = caput → não é ingenuidade, é tese sobre conhecimento →
+    §28 (ostensão ambígua) + §185 (regra) → "Ninguém compreende por mim."
+
+ 8. DIVERGE ..... "Mas onde Agostinho põe Deus, Wittgenstein põe a prática."
+    corte da mente dada por Deus = recusa da solução → sem coisa antes do
+    signo → treino, uso, forma de vida
+
+ 9. CRITÉRIO .... "No fim..."
+    VER por dentro (luz) × SABER FAZER em público (técnica)
+==================================================================
+```
