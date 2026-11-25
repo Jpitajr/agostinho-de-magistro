@@ -8,7 +8,7 @@ Em o De magistro, agostinho promove uma explicação dos signos e palavras, de b
 
 Daí a virada do dizer (telling) para o mostrar (showing): o passarinheiro mostra, sem dizer nada, para que servem seus instrumentos. Mas mesmo o mostrar é só ocasião para que o espectador aprenda por si, não causa. Primeiro conheço a coisa, depois o signo: se me dizem que as sarabarae são coberturas de cabeça, só entendo porque já conhecia cabeça (caput) e cobertura, e as conheci vendo, não ouvindo. Sem a coisa, resta a crença, como na história dos três jovens na fornalha, em Daniel.
 
-Para as coisas inteligíveis, como a justiça e as verdades matemáticas, quem ensina é o Mestre Interior, Cristo, a luz da verdade. Quando concordo com alguém, não aprendi pelas suas palavras, mas porque vi por mim mesmo, nessa luz. Daí a conclusão do De Magistro: nenhum homem ensina outro, só Deus ensina.
+Os sentidos nos apresentam as coisas sensíveis, mas tudo o que compreendemos, sejam elas, sejam as inteligíveis, como a justiça e as verdades matemáticas, compreendemos consultando a verdade que preside a mente: o Mestre Interior, Cristo. Quando concordo com alguém, não aprendi pelas suas palavras, mas porque vi por mim mesmo, nessa luz. Daí a conclusão do De Magistro: nenhum homem ensina outro, só Deus ensina.
 
 Voltando a Wittgenstein, Burnyeat mostra que a passagem das Confissões repete o caput do De Magistro: a criança começa pelo que pode ver porque precisa descobrir por si que certos sons se ligam a coisas que já conhece. A preocupação é epistemológica, não uma teoria primitiva do significado. Os dois convergem: a ostensão é ambígua (o ambulare e o §28), e nada do que os outros dizem ou fazem garante que eu compreenda, pois compreender é ir além do ensino (§185). Divergem na solução: ao suprimir a mente dada por Deus, Wittgenstein retira o que, para Agostinho, resolve o problema, e põe no lugar o treino, a concordância nos juízos e a forma de vida.
 
@@ -35,8 +35,9 @@ Assim, o que os separa não é o diagnóstico sobre os limites do ensino, mas o 
  4. PÁSSARO-CHAPÉU ... "Daí a virada..."
     telling → showing → só ocasião → sarabarae/caput → Daniel = crença
 
- 5. LUZ .............. "Para as coisas inteligíveis..."
-    Mestre Interior → vi por mim → só Deus ensina
+ 5. LUZ .............. "Os sentidos nos apresentam..."
+    sentidos apresentam → TODA compreensão (sensível + inteligível)
+    → Mestre Interior → vi por mim → só Deus ensina
 
  6. CONVERGE-DIVERGE . "Voltando a Wittgenstein..."
     caput = Confissões → §28 + §185 → corte de Deus → treino, forma de vida
