@@ -17,3 +17,58 @@ Voltando a Wittgenstein, Burnyeat mostra que a passagem das Confissões repete o
 A divergência está na solução. Ao suprimir a mente dada por Deus, Wittgenstein retira justamente aquilo que, para Agostinho, resolve o problema. Wittgenstein não aceita que a coisa venha antes do signo; o que sustenta a compreensão é o treino, a concordância nos juízos e a forma de vida compartilhada.
 
 Assim, o que separa os dois não é o diagnóstico sobre os limites do ensino, mas o que significa compreender: para Agostinho, uma visão interior, de primeira pessoa, sob a luz divina; para Wittgenstein, o domínio público de uma técnica, dentro de uma prática humana.
+
+---
+
+```text
+==================================================================
+     MNEMÔNICO DO TEXTO 1 — 3 ATOS × 3 CENAS (= 9 PARÁGRAFOS)
+     Frase-chave:  CORTE · RAZÃO · SIGNO
+                   PÁSSARO · CHAPÉU · LUZ
+                   CONVERGE · DIVERGE · CRITÉRIO
+==================================================================
+
+ATO I — O PROBLEMA (Agostinho visto por Burnyeat)
+
+ 1. CORTE ....... "O excerto..."
+    trecho suprimido das Confissões + De Magistro → ensinar? →
+    converge (ensino exterior) × diverge (conclusão)
+
+ 2. RAZÃO ....... "Precisamos primeiro..."
+    RAZÃO (sei) × AUTORIDADE (creio) → ambas justificadas →
+    o que separa = complexidade sinóptica → palavras não passam compreensão
+
+ 3. SIGNO ....... "Em o De Magistro..."
+    estoicos: toda palavra é nome ("se" ≠ substantivo, sentido na frase)
+    → ostensão/testemunho não causam conhecimento (outra ordem)
+    → ambulare (andar × apressar) → limite não pejorativo: admonitio
+
+ATO II — A SOLUÇÃO DE AGOSTINHO
+
+ 4. PÁSSARO ..... "É aqui que o diálogo vira."
+    passarinheiro mostra sem dizer → telling → showing →
+    só ocasião: linguagem é ocasião, não causa
+
+ 5. CHAPÉU ...... "Por isso, para Agostinho, primeiro conheço a coisa..."
+    sarabarae: cobertura de cabeça (caput) → conheci vendo, não ouvindo
+    → signo a partir da coisa → Daniel = creio, não conheço
+
+ 6. LUZ ......... "O conhecimento tem então duas fontes..."
+    sentidos (sensível) × mente (inteligível: justiça, matemática)
+    → Mestre Interior (Cristo), luz da verdade → vi por mim mesmo
+    → nenhum homem ensina outro: só Deus ensina
+
+ATO III — WITTGENSTEIN
+
+ 7. CONVERGE .... "Voltando a Wittgenstein..."
+    Confissões repete o caput → epistemologia, não teoria primitiva
+    do significado → ambulare ↔ §28 + ir além do ensino ↔ §185
+
+ 8. DIVERGE ..... "A divergência está na solução."
+    suprimir a mente dada por Deus = retirar a solução → sem coisa antes
+    do signo → treino, concordância nos juízos, forma de vida
+
+ 9. CRITÉRIO .... "Assim, o que separa os dois..."
+    visão interior de 1ª pessoa (luz divina) × domínio público de uma técnica
+==================================================================
+```
