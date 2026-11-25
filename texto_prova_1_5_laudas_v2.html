@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>PROVA_V2.md — De Magistro, Burnyeat &amp; Wittgenstein</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #141413;
+      --bg-subtle: #1a1918;
+      --bg-card: #1f1e1c;
+      --bg-code: #1d1c1a;
+      --border: #2a2926;
+      --border-soft: #22211f;
+      --border-hover: #44423d;
+
+      --text-title: #e6e2da;
+      --text-body: #c7c4bc;
+      --text-strong: #ece8e0;
+      --text-muted: #8e8b84;
+      --text-dim: #66635d;
+
+      --accent: #e0522b;
+      --accent-soft: rgba(224, 82, 43, 0.12);
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-body);
+      min-height: 100vh;
+      padding: 4.5rem 3cm 7rem;
+      position: relative;
+    }
+
+    .progress-filament {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: var(--accent);
+      z-index: 100;
+      transition: width 0.08s linear;
+    }
+
+    .sheet {
+      width: calc(100% - 6cm);
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    @media (min-width: 1600px) {
+      .sheet {
+        width: calc(100% - 6cm);
+        max-width: 1180px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 3rem 1.25rem 5rem;
+      }
+      .sheet {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .meta-kicker {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    h1.doc-title {
+      font-size: clamp(2.1rem, 4.8vw, 3.3rem);
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+      margin-bottom: 1.25rem;
+    }
+
+    h1.doc-title span.ext {
+      color: var(--accent);
+    }
+
+    .lead-quote {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-left: 2px solid var(--accent);
+      padding: 0.35rem 0 0.35rem 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .lead-quote::before {
+      content: "> ";
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .md-toc {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.15rem 1.35rem;
+      margin-bottom: 2.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+    }
+
+    .md-toc-title {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .md-toc-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem 1.5rem;
+      list-style: none;
+    }
+
+    @media (min-width: 680px) {
+      .md-toc-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .md-toc-grid a {
+      color: var(--text-title);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .md-toc-grid a:hover {
+      color: var(--accent);
+    }
+
+    .md-toc-grid .num {
+      color: var(--accent);
+      margin-right: 0.35rem;
+    }
+
+    h2.md-h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-title);
+      letter-spacing: -0.025em;
+      margin: 2.75rem 0 1.25rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2.md-h2::before {
+      content: "## ";
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      color: var(--text-body);
+    }
+
+    .essay-box {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .essay-box {
+        padding: 1.25rem 1.15rem;
+      }
+    }
+
+    .essay-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .para-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-right: 0.5rem;
+      user-select: none;
+    }
+
+    .md-divider {
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin: 2.5rem 0;
+      letter-spacing: 0.2em;
+    }
+
+    pre.ascii-block {
+      background-color: var(--bg-code);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.35rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      line-height: 1.62;
+      color: var(--text-title);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: pre;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      pre.ascii-block {
+        font-size: 0.76rem;
+        padding: 1rem;
+      }
+    }
+
+    .source-bar {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+
+    .source-bar a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: var(--bg-subtle);
+      transition: all 0.15s ease;
+    }
+
+    .source-bar a:hover {
+      color: var(--text-title);
+      border-color: var(--border-hover);
+      background-color: var(--bg-card);
+    }
+
+    footer.doc-footer {
+      margin-top: 3.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-filament" id="progressFilament"></div>
+
+  <main class="sheet">
+
+    <div class="portal-nav-bar" style="margin-bottom: 2rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.85rem;">
+      <a href="index.html" style="color: #e0522b; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Voltar para o Portal Home
+      </a>
+    </div>
+
+    <div class="meta-kicker">// prova manuscrita · 1,5 lauda (~390 palavras) · versão v2 + mapa anexo</div>
+    <h1 class="doc-title">Texto da Prova <span class="ext">.md</span></h1>
+    <div class="lead-quote">
+      Agostinho (De Magistro) e Wittgenstein (Investigações Filosóficas) à luz de M. F. Burnyeat (1987) — texto enxuto na sua voz, linhas de memória e mapa ultra-enxuto em anexo.
+    </div>
+
+    <nav class="md-toc" aria-label="Sumário">
+      <div class="md-toc-title">// navegação rápida</div>
+      <ul class="md-toc-grid">
+        <li><a href="#texto"><span class="num">01.</span> Texto da Prova (V2)</a></li>
+        <li><a href="#linhas"><span class="num">02.</span> Linhas de Memória</a></li>
+        <li><a href="#mapa"><span class="num">03.</span> Mapa Ultra-Enxuto (Anexo)</a></li>
+      </ul>
+    </nav>
+
+    <h2 class="md-h2" id="texto">Texto da Prova — 1,5 Lauda (Versão V2)</h2>
+
+    <article class="essay-box">
+      <p><span class="para-tag">[01]</span>O excerto de Agostinho nas Investigações Filosóficas nos possibilita, segundo M. F. Burnyeat (1987), a compreensão das relações entre os dois autores sobre a capacidade de um ser humano ensinar a outro. Longe de uma pré-filosofia ou de uma ingenuidade, o texto suprimido das Confissões, à luz do De Magistro, é a chave da convergência na impossibilidade do ensino exterior e da divergência na sua solução metafísica.</p>
+
+      <p><span class="para-tag">[02]</span>Precisamos primeiro dar conta do que Agostinho entende como crer e entender. Quando ele diz "O que sei, devo à razão. O que creio, à Autoridade", está distinguindo epistemologicamente o conhecer e a crença, ambas justificadas, uma pelo testemunho e pelos sentidos, a outra pela razão. O que separa a sua justificação, para Burnyeat, é a complexidade sinóptica: entender é fazer conexões profundas, que o simples testemunho não consegue. As palavras me passam informação, mas as conexões só eu faço.</p>
+
+      <p><span class="para-tag">[03]</span>No De Magistro, Agostinho deriva, de base estoica, que todas as palavras são nomes, logo significam: se servem para ensinar, precisam significar algo, mesmo uma conjunção, que significa dentro das possibilidades da frase. Não são simples etiquetas de coisas. Estes signos, no entanto, como são apreendidos? Ora, nem a ostensão nem o testemunho causam conhecimento, que é de outra ordem. Mostrar é ambíguo: quem me vê andar (ambulare) mais rápido pode entender que andar é apressar-se. A linguagem não é desprezada, mas limitada: apenas nos incita a procurar a coisa (admonitio).</p>
+
+      <p><span class="para-tag">[04]</span>Agostinho vira então do dizer para o mostrar, com o passarinheiro, mas mesmo o mostrar é ocasião, não causa: quem aprende, aprende por si. A visão direta da coisa, material ou imaterial, é anterior à sua significação. Só entendo sarabarae como cobertura de cabeça porque já conhecia cabeça (caput); sem a coisa, o signo é só som, e o que resta é crença.</p>
+
+      <p><span class="para-tag">[05]</span>E mesmo a compreensão das coisas materiais é de competência divina: tudo o que entendemos, entendemos consultando a verdade interior, o Mestre Interior, Cristo. Ninguém ensina outro, só Deus ensina.</p>
+
+      <p><span class="para-tag">[06]</span>Burnyeat demonstra historicamente que as Confissões repetem o caput: a intenção é epistemológica, não uma teoria ingênua do significado. Wittgenstein converge no problema, a ostensão é ambígua (§28) e compreender vai além do ensino (§185), mas, ao suprimir a mente dada por Deus, diverge na solução: troca a luz interior pelo treino e pela forma de vida. O diagnóstico é o mesmo; muda o que é compreender: visão interior, para Agostinho; domínio público de uma técnica, para Wittgenstein.</p>
+    </article>
+
+    <div class="md-divider">---</div>
+
+    <h2 class="md-h2" id="linhas">Linhas de Memória — 6 Parágrafos</h2>
+
+    <pre class="ascii-block">==================================================================
+        LINHAS DE MEMÓRIA — 6 PARÁGRAFOS
+==================================================================
+
+1. Excerto • autores • ensinar a outro • longe de pré-filosofia •
+   converge-div (metafísica)
+
+2. dar conta • 'oq sei' • crer × entender • just • sinóptica •
+   conexões profundas → só eu faço
+
+3. No De Ma • deriva • estoica • Todas P • ensinar • conjunção •
+   não etiqueta • apreendidos? • outra ordem • ambulare • admonitio
+
+4. vira p/ mostrar • passarinheiro • ocasião • visão direta antes
+   do signo • caput • só som → crença
+
+5. mesmo o material • verdade interior • Mestre Interior • só Deus
+
+6. historicamente • caput • §28 • §185 • corte de Deus → treino/forma
+   de vida • visão interior × técnica pública
+==================================================================</pre>
+
+    <div class="md-divider">---</div>
+
+    <h2 class="md-h2" id="mapa">Anexo — Mapa Ultra-Enxuto da Prova (5 Blocos × 3 Ganchos)</h2>
+
+    <pre class="ascii-block">==================================================================
+        MAPA ULTRA-ENXUTO DA PROVA (5 BLOCOS × 3 GANCHOS)
+==================================================================
+
+1. INTRO — O Corte e a Tese
+   • PI §1 cita Confissões cortando o começo (não foi ensinado; aprendeu
+     por si com a mente dada por Deus).
+   • Burnyeat: à luz do De Magistro, não é semântica ingênua, é tese
+     epistemológica (ninguém ensina compreensão).
+   • Tese: mesmo PROBLEMA (ensino externo não basta) × SOLUÇÕES OPOSTAS
+     no metafísico (Deus/Iluminação vs. prática humana).
+
+2. D1 — Crer × Compreender
+   • Post adverti ("percebi depois"): relato maduro, provado no De Magistro.
+   • Crer (credere) × Saber de verdade (scire = intellegere): ambos podem
+     ser justificados, mas só compreender vê conexões num todo (E = mc²).
+   • Logo: palavras passam informação/crença, mas ninguém transfere
+     compreensão.
+
+3. D2A — Parte Negativa/Crítica (Semântica &amp; Limite da Linguagem)
+   • Contra PI §1: semântica sofisticada (estoica: toda palavra significa;
+     verbum [som] × dictio [palavra+sentido]; significado ≠ objeto).
+   • Crítica à ostensão (ambulare): agir/apontar é ambíguo (andar × apressar).
+   • Limite (prof., não pejorativo): a linguagem NÃO causa conhecimento;
+     só incita a procurar a coisa (admonitio).
+
+4. D2B — Parte Positiva/Construtiva (Epistemologia &amp; Mestre Interior)
+   • Virada (telling → showing): passarinheiro = "ocasionalismo da linguagem"
+     (mera ocasião/veículo, não causa; autonomia do sujeito).
+   • Anterioridade epistêmica (sarabarae [cobertura de cabeça] / caput):
+     primeiro conheço a coisa, depois o signo (relatos como Daniel = só crença).
+   • Mestre Interior / Iluminação: sensíveis (sentidos) × inteligíveis
+     a priori (justiça, matemática) → luz como condição de possibilidade →
+     "inatismo mitigado" (só Deus/Cristo, causa superior, ilumina a mente).
+
+5. D3 + CONCLUSÃO — Retorno a Wittgenstein (Convergência × Metafísica)
+   • Convergência no problema: ostensão ambígua (ambulare ↔ PI §28) +
+     nada externo determina a compreensão (ir além do ensino ↔ PI §185).
+   • Divergência metafísica: omitir Deus em PI §1 = naturalizar o problema
+     (Burnyeat). Wittgenstein recusa a anterioridade epistêmica / isomorfismo
+     (prof.): troca Deus/Iluminação por treino, prática pública e forma de vida.
+   • Fecho: mesmo diagnóstico sobre os limites do ensino; soluções opostas
+     (visão interior transcendente × prática pública humana).</pre>
+
+    <div class="source-bar">
+      <a href="Texto_Prova_1,5_Laudas_V2.md">Ver Texto V2 (.md)</a>
+      <a href="Mapa_Ultra_Enxuto_Prova.md">Ver Mapa Ultra-Enxuto (.md)</a>
+      <a href="index.html">Voltar ao Portal</a>
+    </div>
+
+    <footer class="doc-footer">
+      <span>Agostinho — De Magistro · Prova V2 (1,5 Lauda) + Mapa Anexo</span>
+      <span>Padrão HUMAN.md</span>
+    </footer>
+
+  </main>
+
+  <div id="home-floating-btn" style="position: fixed; bottom: 24px; right: 24px; z-index: 99999;">
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; background-color: #e0522b; color: #ffffff; padding: 10px 18px; border-radius: 999px; text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s ease;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('progressFilament').style.width = (isFinite(pct) ? pct : 0) + '%';
+    });
+  </script>
+
+</body>
+</html>
