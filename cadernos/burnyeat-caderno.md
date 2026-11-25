@@ -6,7 +6,7 @@
 - **Idioma original de referência:** Inglês (com termos-chave em latim e alemão).
 - **Modo de operação:** B. Recorte no chat (original em inglês).
 - **Tipo de investigação:** E. Misto / guiado pelo texto (exegético-estrutural, filológico-etimológico, lógico-argumentativo e histórico-problemático).
-- **Postura didática ativa:** 1. Socrática *(padrão)*.
+- **Postura didática ativa:** 5. Didático com andaimes + 2. Orientador rigoroso *(ajuste solicitado: guia explícito pelos pontos nevrálgicos voltado à produção da prova)*.
 - **Rigor vigente:** Firme proporcional *(padrão — fluido em `[ENTORNO]`, cirúrgico em `[NÚCLEO]`)*.
 - **Progresso:** Bloco 0 de 7
 
