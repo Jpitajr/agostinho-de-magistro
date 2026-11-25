@@ -43,20 +43,3 @@
    • Fecho: mesmo diagnóstico sobre os limites do ensino; soluções opostas
      (visão interior transcendente × prática pública humana).
 ```
-
-```text
-==================================================================
-        MNEMÔNICO — "COM CALMA, SEM MEDO, WITTGENSTEIN!"
-==================================================================
-
-C  — CORTE ........... tesoura corta "Deus" da página das Confissões
-C  — CRER × COMPR. ... camiseta com E = mc² (sabe a fórmula, não entende)
-S  — SIGNO ........... etiqueta no "se" (estoica) → anda apressado
-                       (ambulare) → dedo apontando "procura!" (admonitio)
-M  — MESTRE INTERIOR . passarinheiro em silêncio → chapéu na cabeça
-                       (sarabara/caput) → fornalha de Daniel (só crença)
-                       → lâmpada acesa dentro da cabeça (Iluminação)
-W  — WITTGENSTEIN .... apaga a lâmpada e põe a criança pra treinar
-                       com os outros (§28, §185, forma de vida)
-                       → fecho: VER por dentro × SABER FAZER em público
-```
