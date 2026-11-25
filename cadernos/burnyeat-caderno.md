@@ -27,16 +27,17 @@
 
 ### Bloco 1 — Abertura e plano do capítulo (`ll. 11–14`) *(Normal)*
 - **Pontos iniciais do leitor:** Crítica de Wittgenstein em *PI* §32 (como se a criança já tivesse uma linguagem antes da linguagem); tese central do *De Magistro* de que nenhum homem pode ensinar outro homem; vínculo entre a passagem omitida imediatamente antes de *PI* §1 e o *De Magistro*.
-- **Fricções dialéticas levantadas:** Evitar o anacronismo de dizer que Agostinho "pensou em termos wittgensteinianos" sem qualificar (Burnyeat fala em *"some [...] strikingly similar [...] historical reasons"* e *"the Platonist writer he admired and opposed"*); não perder o ataque direto ao rótulo *Urbild* (*"800 years of Platonist philosophizing"*).
+- **Fricções dialéticas levantadas:** Evitar o anacronismo de dizer que Agostinho "pensou em termos wittgensteinianos" sem qualificar (Burnyeat fala em *"some [...] strikingly similar [...] historical reasons"* e *"the Platonist writer he admired and opposed"*); destacar explicitamente a tradição platônica (*"800 years of Platonist philosophizing"*) contra o rótulo *Urbild*.
+- **Síntese consolidada pelo leitor:** "A omissão e a caricatura é de que Agostinho tinha uma pré-filosofia. Não um sistema filosófico e semântico e teológico." *(Nota de precisão do orientador: lembrar de incluir a raiz platônica — "800 years of Platonist philosophizing" — ao redigir a prova.)*
 - **Passagens-âncora:** `ll. 11–13` (*PI* §1, *PI* §32, *Urbild* vs. *precipitate of 800 years of Platonist philosophizing*).
-- **Questões em aberto para verificar adiante:** Afinar na introdução da prova a recusa do rótulo *Urbild* e verificar no Bloco 7 a hipótese do leitor sobre a omissão proposital (teológico → naturalista).
+- **Questões em aberto para verificar adiante:** Verificar no Bloco 7 a hipótese do leitor sobre a omissão proposital (teológico → naturalista).
 
 ---
 
 ## Léxico Conceitual, Filológico e Etimológico
 | Termo (tradução) | Original | Raiz / Etimologia / Campo semântico | Deslocamento operado no texto | Localização |
 | :--- | :--- | :--- | :--- | :--- |
-| imagem originária / proto-imagem | *Urbild* (al.) | *Ur-* (originário) + *Bild* (imagem, quadro) | Rótulo de expositores de Wittgenstein que Burnyeat contrapõe à tradição platônica *(a consolidar)* | l. 13 |
+| imagem originária / proto-imagem | *Urbild* (al.) | *Ur-* (originário) + *Bild* (imagem, quadro) | Rótulo de expositores de Wittgenstein que reduz *Conf.* I viii 13 a uma visão pré-filosófica; Burnyeat o desmonta mostrando um sistema filosófico (platônico) e teológico por trás | l. 13 |
 | dar-se conta depois | *post adverti* / *animadverti postmodum* (lat.) | *ad-vertere* (voltar a atenção para) / *animus + advertere* + *post(modum)* | *(a trabalhar na leitura)* | ll. 16–20 |
 | saber / entender / crer | *scire* / *intellegere* / *credere* (lat.) | *scire* (saber), *inter-legere* (discernir/ler por dentro), *credere* (dar crédito); *proprie* (em sentido estrito) | *(a trabalhar na leitura)* | ll. 26–31 |
 | ensinar / lembrar / mostrar | *docere* / *commemorare* / *ostendere* (lat.) | *docere* (ensinar), *commemorare* (trazer à memória), *ob-tendere* (estender diante de, exibir) | *(a trabalhar na leitura)* | ll. 33–62, 80 |
